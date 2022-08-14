@@ -10,13 +10,8 @@ interface Props {
 
 export default function IconTextFab({ icon, label, to }: Props) {
   const navigate = useNavigate();
-  function goTo() {
-    if (to) {
-      navigate(to);
-    }
-  }
   return (
-    <Box onClick={goTo}>
+    <Box onClick={to ? navigate(to) : null}>
       <Fab color="primary">{icon}</Fab>
       <Box mt={1}>
         <Text variant="subtitle2" color="textSecondary" align="center">
