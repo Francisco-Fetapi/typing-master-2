@@ -1,3 +1,10 @@
+import { Box } from "@mui/material";
+import Timer from "../components/Timer";
+
 export default function Championship() {
-  return <div>Championship</div>;
+  return (
+    <Box>
+      <Timer totalSeconds={27000} />
+    </Box>
+  );
 }
