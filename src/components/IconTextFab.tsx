@@ -10,8 +10,9 @@ interface Props {
 
 export default function IconTextFab({ icon, label, to }: Props) {
   const navigate = useNavigate();
+  const navigateTo = to ? () => navigate(to) : () => null;
   return (
-    <Box onClick={to ? navigate(to) : null}>
+    <Box onClick={navigateTo} style={{ userSelect: "none" }}>
       <Fab color="primary">{icon}</Fab>
       <Box mt={1}>
         <Text variant="subtitle2" color="textSecondary" align="center">
