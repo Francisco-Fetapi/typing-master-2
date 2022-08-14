@@ -1,10 +1,9 @@
-import Header from "./components/Header";
 import * as S from "./styles/General";
 import { SnackbarProvider } from "notistack";
-import Footer from "./components/Footer";
 import Layout from "./core/mui";
 import store from "./store/App.store";
 import { Provider } from "react-redux";
+import Routes from "./routes";
 
 function App() {
   return (
@@ -12,8 +11,7 @@ function App() {
       <Layout>
         <S.AppContainer>
           <SnackbarProvider maxSnack={3}>
-            <Header />
-            <Footer />
+            <Routes />
           </SnackbarProvider>
         </S.AppContainer>
       </Layout>
