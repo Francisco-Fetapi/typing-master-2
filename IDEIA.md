@@ -4,6 +4,8 @@ Anotações escritas na fase de desenvolvimento para melhor esclarecer até onde
 
 ## Iniciar (score,level)
 
+`Contra relogio`
+
 - Frase por nivel
 - Frases mais complicadas por nivel
 - Ranking X (should have backend)
@@ -13,7 +15,5 @@ Anotações escritas na fase de desenvolvimento para melhor esclarecer até onde
 
 - Digitar a propria frase
 - Gerar aleatoriamente
-- Contra-relogio (_x1.5 pts_)
-  - Gerado aleatoriamente
 
 _mostrar status no final_
