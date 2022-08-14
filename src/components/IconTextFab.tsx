@@ -4,6 +4,7 @@ import { Text } from "../styles/General";
 interface Props {
   icon: React.ReactElement;
   label: string;
+  to?: "/" | "/championship" | "/training";
 }
 
 export default function IconTextFab({ icon, label }: Props) {

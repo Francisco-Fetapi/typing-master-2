@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Championship from "./pages/Championship";
 import Home from "./pages/Home";
-import Trainning from "./pages/Trainning";
+import Training from "./pages/Training";
 
 export default function routes() {
   return (
@@ -9,7 +9,7 @@ export default function routes() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/championship" element={<Championship />} />
-        <Route path="/trainning" element={<Trainning />} />
+        <Route path="/training" element={<Training />} />
       </Routes>
     </BrowserRouter>
   );

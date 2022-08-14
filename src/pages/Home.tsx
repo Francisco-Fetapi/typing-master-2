@@ -16,6 +16,7 @@ export default function Home() {
         <Stack
           direction="row"
           alignItems="center"
+          justifyContent="center"
           spacing={2}
           divider={
             <Divider orientation="vertical" flexItem style={{ height: 50 }} />
