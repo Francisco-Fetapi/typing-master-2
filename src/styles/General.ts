@@ -1,4 +1,4 @@
-import { Typography, Paper } from "@mui/material";
+import { Typography, Paper, Box } from "@mui/material";
 import styled from "styled-components";
 
 export const AppContainer = styled.div`
@@ -7,6 +7,38 @@ export const AppContainer = styled.div`
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
+  width: 100vw;
 `;
+export const InputTextContainer = styled(Paper)`
+  height: 50px;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  font-size: 30px;
+
+  &::after {
+    /* content: "|"; */
+    content: "";
+    display: block;
+    background: #cacaca;
+    height: 100%;
+    width: 2px;
+    animation: fadeInOut 0.92s forwards linear infinite alternate;
+  }
+  @keyframes fadeInOut {
+    to {
+      opacity: 0;
+    }
+  }
+` as typeof Paper;
+
+export const BoxColumnCenter = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+` as typeof Box;
 
 export const Text = styled(Typography)`` as typeof Typography;
