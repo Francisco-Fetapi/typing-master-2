@@ -1,6 +1,7 @@
 import { Box, Fab, Stack, Divider } from "@mui/material";
 import { Text } from "../styles/General";
 import { MdModelTraining, MdPlayArrow } from "react-icons/md";
+import IconTextFab from "../components/IconTextFab";
 
 export default function Home() {
   return (
@@ -14,15 +15,17 @@ export default function Home() {
       <Box mt={4}>
         <Stack
           direction="row"
+          alignItems="center"
           spacing={2}
-          divider={<Divider orientation="vertical" flexItem />}
+          divider={
+            <Divider orientation="vertical" flexItem style={{ height: 50 }} />
+          }
         >
-          <Fab color="primary">
-            <MdPlayArrow fontSize={24} />
-          </Fab>
-          <Fab color="primary">
-            <MdModelTraining fontSize={24} />
-          </Fab>
+          <IconTextFab label="Iniciar" icon={<MdPlayArrow fontSize={24} />} />
+          <IconTextFab
+            label="Treinar"
+            icon={<MdModelTraining fontSize={24} />}
+          />
         </Stack>
       </Box>
     </Box>
