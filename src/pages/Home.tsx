@@ -22,10 +22,15 @@ export default function Home() {
             <Divider orientation="vertical" flexItem style={{ height: 50 }} />
           }
         >
-          <IconTextFab label="Iniciar" icon={<MdPlayArrow fontSize={24} />} />
+          <IconTextFab
+            label="Iniciar"
+            icon={<MdPlayArrow fontSize={24} />}
+            to="/championship"
+          />
           <IconTextFab
             label="Treinar"
             icon={<MdModelTraining fontSize={24} />}
+            to="/training"
           />
         </Stack>
       </Box>
