@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { InputTextContainer } from "../styles/General";
+import { InputTextContainer, Text, BoxColumnCenter } from "../styles/General";
 
 interface Props {
   text: string;
@@ -7,8 +7,15 @@ interface Props {
 
 export default function InputText({ text }: Props) {
   return (
-    <InputTextContainer elevation={3}>
-      <Box mr={0.3}>Ola</Box>
-    </InputTextContainer>
+    <BoxColumnCenter>
+      <InputTextContainer elevation={3}>
+        <Box mr={0.3}>Ola</Box>
+      </InputTextContainer>
+      <Box mt={1.2}>
+        <Text color="textSecondary" variant="subtitle2">
+          {text}
+        </Text>
+      </Box>
+    </BoxColumnCenter>
   );
 }
