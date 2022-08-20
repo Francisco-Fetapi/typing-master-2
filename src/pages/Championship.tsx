@@ -12,7 +12,7 @@ export default function Championship() {
   return (
     <BoxColumnCenter height="100vh" py={5}>
       <BoxColumnCenter mb={2}>
-        <Text color="primary" variant="h6">
+        <Text color="primary" variant="h4">
           Nivel {level}
         </Text>
       </BoxColumnCenter>
