@@ -12,7 +12,6 @@ const notAllowedKeys = [
   "Enter",
 ];
 
-type EventType = (this: GlobalEventHandlers, ev: KeyboardEvent) => any;
 type InputEvent = React.ChangeEventHandler<HTMLInputElement> | undefined;
 
 export default function useInputText() {
