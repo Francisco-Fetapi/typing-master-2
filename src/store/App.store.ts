@@ -7,10 +7,16 @@ const THEME_KEY_IN_LOCALSTORAGE = "darkMode";
 export interface IDarkMode {
   darkMode: boolean;
 }
-export interface App extends IDarkMode {}
+export interface App extends IDarkMode {
+  textToType: string;
+}
 
 const initialState: App = {
   darkMode: useStatePersist<boolean>(THEME_KEY_IN_LOCALSTORAGE).get(),
+  textToType: `Porque ninguém me avisou que o Vite era tão 
+bom?😒 Para quem ainda não foi despertado, se 
+comparado ao create-react-app ele é absurdamente
+mais rápido`,
 };
 
 export const appSlice = createSlice({
@@ -22,6 +28,9 @@ export const appSlice = createSlice({
       const { save } = useStatePersist<boolean>(THEME_KEY_IN_LOCALSTORAGE);
       save(state.darkMode);
     },
+    setTextToType(state, text: PayloadAction<string>) {
+      state.textToType = text.payload;
+    },
   },
 });
 
@@ -31,7 +40,7 @@ const store = configureStore({
   },
 });
 
-export const {} = appSlice.actions;
+export const { setTextToType, toggleTheme } = appSlice.actions;
 export default store;
 
 export type RootState = ReturnType<typeof store.getState>;
