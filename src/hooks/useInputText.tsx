@@ -1,16 +1,4 @@
-import { useEffect, useState } from "react";
-const notAllowedKeys = [
-  "Shift",
-  "Control",
-  "CapsLock",
-  "Backspace",
-  "Escape",
-  "Meta",
-  "Alt",
-  "ContextMenu",
-  "Dead",
-  "Enter",
-];
+import { useState } from "react";
 
 type InputEvent = React.ChangeEventHandler<HTMLInputElement> | undefined;
 
