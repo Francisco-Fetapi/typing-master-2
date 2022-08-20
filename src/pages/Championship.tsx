@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import DisplayProgress from "../components/DisplayProgress";
 import InputText from "../components/InputText";
 import TextToType from "../components/TextToType";
 import Timer from "../components/Timer";
@@ -15,6 +16,9 @@ export default function Championship() {
       </BoxColumnCenter>
       <BoxColumnCenter mt={2} maxWidth={600} px={3}>
         <TextToType />
+      </BoxColumnCenter>
+      <BoxColumnCenter mt={2}>
+        <DisplayProgress />
       </BoxColumnCenter>
     </BoxColumnCenter>
   );
