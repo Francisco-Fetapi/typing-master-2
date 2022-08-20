@@ -17,3 +17,13 @@ Anotações escritas na fase de desenvolvimento para melhor esclarecer até onde
 - Gerar aleatoriamente
 
 _mostrar status no final_
+
+nivel 1 - principiante 1
+nivel 2 - principiante 2
+nivel 3 - principiante 3
+
+nivel 4 - amador 1
+nivel 5 - amador 2
+nivel 6 - amador 3
+
+...

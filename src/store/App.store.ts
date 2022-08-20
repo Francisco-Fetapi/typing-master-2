@@ -10,6 +10,7 @@ export interface IDarkMode {
 export interface App extends IDarkMode {
   textToType: string;
   typedWords: number;
+  currentLevel: number;
 }
 
 const initialState: App = {
@@ -19,6 +20,7 @@ bom?😒 Para quem ainda não foi despertado, se
 comparado ao create-react-app ele é absurdamente
 mais rápido`,
   typedWords: 0,
+  currentLevel: 1,
 };
 
 export const appSlice = createSlice({
@@ -35,6 +37,9 @@ export const appSlice = createSlice({
     },
     increaseTypedWords(state) {
       state.typedWords++;
+    },
+    increaseLevel(state) {
+      state.currentLevel++;
     },
   },
 });
