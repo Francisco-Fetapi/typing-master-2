@@ -11,7 +11,9 @@ export default function useInputText() {
 
   const textDisplay = inputText
     .split("")
-    .map((str) => <span>{str === " " ? <span>&nbsp;</span> : str}</span>);
+    .map((str, key) => (
+      <span key={key}>{str === " " ? <span>&nbsp;</span> : str}</span>
+    ));
 
   return { textDisplay, inputText, type };
 }
