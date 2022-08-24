@@ -17,7 +17,7 @@ export default function Championship() {
           Nivel {level}
         </Text>
       </BoxColumnCenter>
-      <Timer totalTime={0} />
+      <Timer totalTime={20} />
       <BoxColumnCenter mt={2}>
         <InputText text={wordToType} />
       </BoxColumnCenter>

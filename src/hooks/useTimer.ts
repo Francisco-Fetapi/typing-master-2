@@ -13,7 +13,11 @@ export default function useTimer(totalTime: number) {
   };
 
   useEffect(() => {
-    startTimer();
+    if (toDecrease && seconds === 0) {
+      clearInterval(interval);
+    } else {
+      startTimer();
+    }
   }, [seconds]);
 
   const data = {
