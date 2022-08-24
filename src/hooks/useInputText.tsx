@@ -15,8 +15,8 @@ export default function useInputText(wordToType: string) {
 
   const checkWord = () => {
     if (inputText === wordToType) {
-      dispatch(increaseTypedWords);
-      // setInputText("");
+      dispatch(increaseTypedWords());
+      setInputText("");
     }
   };
 

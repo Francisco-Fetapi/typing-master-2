@@ -10,20 +10,11 @@ import { BoxColumnCenter, Text } from "../styles/General";
 export default function Championship() {
   const wordToType = useSelector(selectWordToType);
   const level = useSelector(selectCurrentLevel);
-  const dispatch = useDispatch();
-
-  console.log("Renderizou");
 
   return (
     <BoxColumnCenter height="100vh" py={5}>
       <BoxColumnCenter mb={2}>
-        <Text
-          color="primary"
-          variant="h4"
-          onClick={() => {
-            dispatch(toggleTheme);
-          }}
-        >
+        <Text color="primary" variant="h4">
           Nivel {level}
         </Text>
       </BoxColumnCenter>
