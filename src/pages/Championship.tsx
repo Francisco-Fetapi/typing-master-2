@@ -4,7 +4,6 @@ import InputText from "../components/InputText";
 import TextToType from "../components/TextToType";
 import Timer from "../components/Timer";
 import { selectCurrentLevel, selectWordToType } from "../store/App.selectors";
-import { toggleTheme } from "../store/App.store";
 import { BoxColumnCenter, Text } from "../styles/General";
 
 export default function Championship() {
@@ -18,7 +17,7 @@ export default function Championship() {
           Nivel {level}
         </Text>
       </BoxColumnCenter>
-      <Timer totalSeconds={27000} />
+      <Timer totalTime={0} />
       <BoxColumnCenter mt={2}>
         <InputText text={wordToType} />
       </BoxColumnCenter>

@@ -4,16 +4,17 @@ import useTimer from "../hooks/useTimer";
 import { Text } from "../styles/General";
 
 interface Props {
-  totalSeconds: number;
+  totalTime: number;
 }
 
-export default function Timer({ totalSeconds }: Props) {
-  const { milisseconds, seconds, minutes } = useTimer(totalSeconds);
+export default function Timer({ totalTime }: Props) {
+  const { seconds, minutes } = useTimer(totalTime);
   return (
     <Stack direction="row" gap={1} alignItems="center" style={{ zoom: 1.4 }}>
       <MdTimer fontSize={20} />
       <Text>
-        {minutes}m:{seconds}s:{milisseconds}ms
+        {Math.ceil(minutes).toString().padStart(2, "0")}m:
+        {Math.ceil(seconds).toString().padStart(2, "0")}s
       </Text>
     </Stack>
   );
