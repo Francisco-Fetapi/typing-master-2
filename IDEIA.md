@@ -27,3 +27,12 @@ nivel 5 - amador 2
 nivel 6 - amador 3
 
 ...
+
+Seção de configs
+
+Case sensitive - true or false
+Sinais de pontuação - true or false
+Exibir letras erradas em tempo real - true or false
+Mostrar palavra a ser digitada abaixo do input - true or false
+
+Algumas configs farao o usuario ganhar X vezes mais pontos.

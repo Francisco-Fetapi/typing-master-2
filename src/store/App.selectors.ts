@@ -20,7 +20,8 @@ export const selectTextToTypeArray = (state: RootState) => {
   return state.app.textToType.split(" ");
 };
 export const selectWordToType = (state: RootState) => {
-  const words = transformTextToArray(state.app.textToType);
+  // const words = transformTextToArray(state.app.textToType);
+  const words = selectTextToTypeArray(state);
   console.log(state.app.typedWords);
   return words[state.app.typedWords];
 };

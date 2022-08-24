@@ -16,7 +16,7 @@ export interface App extends IDarkMode {
 const initialState: App = {
   darkMode: useStatePersist<boolean>(THEME_KEY_IN_LOCALSTORAGE).get(),
   textToType: `Porque ninguém me avisou que o Vite era tão bom? Para quem ainda não foi despertado, se comparado ao create-react-app ele é absurdamente mais rápido.`,
-  typedWords: 3,
+  typedWords: 0,
   currentLevel: 1,
 };
 
