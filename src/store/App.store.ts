@@ -16,11 +16,11 @@ export interface App extends IDarkMode {
 const initialState: App = {
   darkMode: useStatePersist<boolean>(THEME_KEY_IN_LOCALSTORAGE).get(),
   textToType: `Porque ninguém me avisou que o Vite era tão bom?😒 Para quem ainda não foi despertado, se comparado ao create-react-app ele é absurdamente mais rápido.`,
-  typedWords: 2,
+  typedWords: 3,
   currentLevel: 1,
 };
 
-export const appSlice = createSlice({
+export const app = createSlice({
   name: "app",
   initialState,
   reducers: {
@@ -28,12 +28,13 @@ export const appSlice = createSlice({
       state.darkMode = !state.darkMode;
       const { save } = useStatePersist<boolean>(THEME_KEY_IN_LOCALSTORAGE);
       save(state.darkMode);
+      console.log("Chegou aqui");
     },
     setTextToType(state, text: PayloadAction<string>) {
       state.textToType = text.payload;
     },
     increaseTypedWords(state) {
-      state.typedWords++;
+      state.typedWords = state.typedWords + 1;
     },
     increaseLevel(state) {
       state.currentLevel++;
@@ -43,12 +44,12 @@ export const appSlice = createSlice({
 
 const store = configureStore({
   reducer: {
-    app: appSlice.reducer,
+    app: app.reducer,
   },
 });
 
-export const { setTextToType, toggleTheme, increaseTypedWords, increaseLevel } =
-  appSlice.actions;
+export const { toggleTheme, increaseTypedWords } = app.actions;
+
 export default store;
 
 export type RootState = ReturnType<typeof store.getState>;

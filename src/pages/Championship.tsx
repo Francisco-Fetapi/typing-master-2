@@ -1,19 +1,29 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import DisplayProgress from "../components/DisplayProgress";
 import InputText from "../components/InputText";
 import TextToType from "../components/TextToType";
 import Timer from "../components/Timer";
 import { selectCurrentLevel, selectWordToType } from "../store/App.selectors";
+import { toggleTheme } from "../store/App.store";
 import { BoxColumnCenter, Text } from "../styles/General";
 
 export default function Championship() {
   const wordToType = useSelector(selectWordToType);
-  console.log(wordToType);
   const level = useSelector(selectCurrentLevel);
+  const dispatch = useDispatch();
+
+  console.log("Renderizou");
+
   return (
     <BoxColumnCenter height="100vh" py={5}>
       <BoxColumnCenter mb={2}>
-        <Text color="primary" variant="h4">
+        <Text
+          color="primary"
+          variant="h4"
+          onClick={() => {
+            dispatch(toggleTheme);
+          }}
+        >
           Nivel {level}
         </Text>
       </BoxColumnCenter>

@@ -16,7 +16,7 @@ export default function useInputText(wordToType: string) {
   const checkWord = () => {
     if (inputText === wordToType) {
       dispatch(increaseTypedWords);
-      setInputText("");
+      // setInputText("");
     }
   };
 
@@ -26,8 +26,6 @@ export default function useInputText(wordToType: string) {
       return false;
     }
   };
-
-  console.log(wordToType);
 
   const type: InputEvent = (e) => {
     const value = e.target.value;
