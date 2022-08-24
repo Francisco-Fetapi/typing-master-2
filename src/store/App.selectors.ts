@@ -17,5 +17,6 @@ export const selectPhraseSize = (state: RootState) => {
 };
 export const selectWordToType = (state: RootState) => {
   const words = transformTextToArray(state.app.textToType);
+  console.log(state.app.typedWords);
   return words[state.app.typedWords];
 };

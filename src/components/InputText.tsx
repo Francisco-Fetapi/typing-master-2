@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
-import { useState } from "react";
+import { useSelector } from "react-redux";
 import useInputText from "../hooks/useInputText";
+import { selectWordToType } from "../store/App.selectors";
 import { InputTextContainer, Text, BoxColumnCenter } from "../styles/General";
 
 interface Props {
@@ -8,12 +9,14 @@ interface Props {
 }
 
 export default function InputText({ text }: Props) {
-  const { textDisplay, inputText, type } = useInputText();
+  const { textDisplay, inputText, type, filterSomeKeys } = useInputText(text);
+
   return (
     <BoxColumnCenter>
       <input
         value={inputText}
         onChange={type}
+        onKeyUp={filterSomeKeys}
         autoFocus
         style={{ opacity: 0, pointerEvents: "none" }}
         onBlurCapture={(e) => e.target.focus()}

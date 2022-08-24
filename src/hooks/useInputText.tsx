@@ -1,12 +1,37 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { increaseTypedWords } from "../store/App.store";
 
 type InputEvent = React.ChangeEventHandler<HTMLInputElement> | undefined;
+type FuncFilterSomeKeys =
+  | React.KeyboardEventHandler<HTMLInputElement>
+  | undefined;
 
-export default function useInputText() {
+const filteredKeys = ["Space", "Enter"];
+
+export default function useInputText(wordToType: string) {
   const [inputText, setInputText] = useState("");
+  const dispatch = useDispatch();
+
+  const checkWord = () => {
+    if (inputText === wordToType) {
+      dispatch(increaseTypedWords);
+      setInputText("");
+    }
+  };
+
+  const filterSomeKeys: FuncFilterSomeKeys = (e) => {
+    if (filteredKeys.includes(e.code)) {
+      checkWord();
+      return false;
+    }
+  };
+
+  console.log(wordToType);
 
   const type: InputEvent = (e) => {
-    setInputText(e.target.value);
+    const value = e.target.value;
+    setInputText(value.trim());
   };
 
   const textDisplay = inputText
@@ -15,5 +40,5 @@ export default function useInputText() {
       <span key={key}>{str === " " ? <span>&nbsp;</span> : str}</span>
     ));
 
-  return { textDisplay, inputText, type };
+  return { textDisplay, filterSomeKeys, inputText, type, filteredKeys };
 }
