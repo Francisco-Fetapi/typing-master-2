@@ -15,6 +15,10 @@ export const selectCurrentLevel = (state: RootState) => state.app.currentLevel;
 export const selectPhraseSize = (state: RootState) => {
   return transformTextToArray(state.app.textToType).length;
 };
+export const selectTextToTypeArray = (state: RootState) => {
+  // return transformTextToArray(state.app.textToType);
+  return state.app.textToType.split(" ");
+};
 export const selectWordToType = (state: RootState) => {
   const words = transformTextToArray(state.app.textToType);
   console.log(state.app.typedWords);

@@ -15,7 +15,7 @@ export interface App extends IDarkMode {
 
 const initialState: App = {
   darkMode: useStatePersist<boolean>(THEME_KEY_IN_LOCALSTORAGE).get(),
-  textToType: `Porque ninguém me avisou que o Vite era tão bom?😒 Para quem ainda não foi despertado, se comparado ao create-react-app ele é absurdamente mais rápido.`,
+  textToType: `Porque ninguém me avisou que o Vite era tão bom? Para quem ainda não foi despertado, se comparado ao create-react-app ele é absurdamente mais rápido.`,
   typedWords: 3,
   currentLevel: 1,
 };
@@ -28,7 +28,6 @@ export const app = createSlice({
       state.darkMode = !state.darkMode;
       const { save } = useStatePersist<boolean>(THEME_KEY_IN_LOCALSTORAGE);
       save(state.darkMode);
-      console.log("Chegou aqui");
     },
     setTextToType(state, text: PayloadAction<string>) {
       state.textToType = text.payload;
