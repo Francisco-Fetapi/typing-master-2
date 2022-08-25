@@ -25,9 +25,7 @@ export default function useTimer() {
   let interval: any;
 
   useEffect(() => {
-    if (seconds !== timeLimit) {
-      resetTimer();
-    }
+    resetTimer();
   }, []);
 
   const handleTimer = () => {

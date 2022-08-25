@@ -1,11 +1,15 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as Backdrop from "../components/GameBackdrop";
-import { resetAllState } from "../store/App.store";
-import useTimer from "./useTimer";
+import { selectTimeLimit } from "../store/App.selectors";
+import { resetAllState, setTimer } from "../store/App.store";
 
 export default function useBackdrop() {
+  const timeLimit = useSelector(selectTimeLimit);
   const dispatch = useDispatch();
-  const { resetTimer } = useTimer();
+
+  function resetTimer() {
+    dispatch(setTimer(timeLimit));
+  }
 
   const gameOverTimeLimit: Backdrop.Props = {
     title: "O Tempo se esgotou.",
