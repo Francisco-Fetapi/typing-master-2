@@ -9,7 +9,8 @@ interface Props {
 }
 
 export default function InputText({ text }: Props) {
-  const { textDisplay, inputText, type, filterSomeKeys } = useInputText(text);
+  const { textDisplay, inputText, error, type, filterSomeKeys } =
+    useInputText(text);
 
   return (
     <BoxColumnCenter>
@@ -21,7 +22,7 @@ export default function InputText({ text }: Props) {
         style={{ opacity: 0, pointerEvents: "none" }}
         onBlurCapture={(e) => e.target.focus()}
       />
-      <InputTextContainer elevation={3}>
+      <InputTextContainer variant="outlined" className={error ? "error" : ""}>
         <Box mr={0.3}>{textDisplay}</Box>
       </InputTextContainer>
       <Box mt={1.2}>

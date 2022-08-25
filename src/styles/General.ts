@@ -18,6 +18,10 @@ export const InputTextContainer = styled(Paper)`
   padding: 8px;
   font-size: 30px;
 
+  &.error {
+    border-color: #f20000;
+  }
+
   &::after {
     /* content: "|"; */
     content: "";

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTypedWords } from "../store/App.selectors";
 import { increaseTypedWords } from "../store/App.store";
@@ -13,6 +13,7 @@ const filteredKeys = ["Space", "Enter"];
 
 export default function useInputText(wordToType: string) {
   const [inputText, setInputText] = useState("");
+  const [error, setError] = useState(false);
   const dispatch = useDispatch();
   const typedWords = useSelector(selectTypedWords);
 
@@ -20,8 +21,16 @@ export default function useInputText(wordToType: string) {
     if (inputText === wordToType) {
       dispatch(increaseTypedWords());
       setInputText("");
+    } else {
+      setError(true);
     }
   };
+
+  useEffect(() => {
+    if (error) {
+      setError(false);
+    }
+  }, [inputText]);
 
   const filterSomeKeys: FuncFilterSomeKeys = (e) => {
     if (filteredKeys.includes(e.code)) {
@@ -46,5 +55,5 @@ export default function useInputText(wordToType: string) {
     </Text>
   ));
 
-  return { textDisplay, filterSomeKeys, inputText, type, filteredKeys };
+  return { textDisplay, error, filterSomeKeys, inputText, type, filteredKeys };
 }
