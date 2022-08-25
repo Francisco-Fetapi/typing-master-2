@@ -1,10 +1,11 @@
 import { Box, Button } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
+import { useNavigate } from "react-router-dom";
 import { BoxColumnCenter, Text } from "../styles/General";
 
 export interface IButton {
   text: string;
-  handleClick?: () => void;
+  handleClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 type IColors =
@@ -48,6 +49,10 @@ export default function GameBackdrop({
 }: Props) {
   const variant = variants[type];
   const buttonColorVariant = buttonColorVariants[type] as IColors;
+  const navigate = useNavigate();
+  function goToHome() {
+    navigate("/", { replace: true });
+  }
   return (
     <div>
       <Backdrop
@@ -75,13 +80,21 @@ export default function GameBackdrop({
 
           <BoxColumnCenter mt={3}>
             {primaryButton && (
-              <Button color={buttonColorVariant} variant="contained">
+              <Button
+                color={buttonColorVariant}
+                variant="contained"
+                onClick={primaryButton.handleClick}
+              >
                 {primaryButton.text}
               </Button>
             )}
             <Box mt={1} />
             {secondaryButton && (
-              <Button color="secondary" variant="contained">
+              <Button
+                // color="default"
+                variant="text"
+                onClick={secondaryButton.handleClick || goToHome}
+              >
                 {secondaryButton.text}
               </Button>
             )}
