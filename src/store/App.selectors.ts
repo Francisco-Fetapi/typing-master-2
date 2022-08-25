@@ -19,3 +19,7 @@ export const selectWordToType = (state: RootState) => {
   console.log(state.app.typedWords);
   return words[state.app.typedWords];
 };
+
+export const selectTimeLimit = (state: RootState) => {
+  return Levels[state.app.currentLevel].timeLimit;
+};

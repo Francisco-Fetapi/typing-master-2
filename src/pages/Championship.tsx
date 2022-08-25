@@ -3,12 +3,19 @@ import DisplayProgress from "../components/DisplayProgress";
 import InputText from "../components/InputText";
 import TextToType from "../components/TextToType";
 import Timer from "../components/Timer";
-import { selectCurrentLevel, selectWordToType } from "../store/App.selectors";
+import {
+  selectCurrentLevel,
+  selectTimeLimit,
+  selectWordToType,
+} from "../store/App.selectors";
 import { BoxColumnCenter, Text } from "../styles/General";
 
 export default function Championship() {
   const wordToType = useSelector(selectWordToType);
   const level = useSelector(selectCurrentLevel);
+  const timeLimit = useSelector(selectTimeLimit);
+
+  console.log(timeLimit);
 
   return (
     <BoxColumnCenter height="100vh" py={5}>
@@ -17,7 +24,7 @@ export default function Championship() {
           Nivel {level + 1}
         </Text>
       </BoxColumnCenter>
-      <Timer totalTime={0} />
+      <Timer totalTime={timeLimit} />
       <BoxColumnCenter mt={2}>
         <InputText text={wordToType} />
       </BoxColumnCenter>
