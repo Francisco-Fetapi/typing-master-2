@@ -55,13 +55,17 @@ export default function useTimer() {
     dispatch(showMessageBackdrop(backdrop.gameOverTimeLimit));
   };
 
+  if (gameFinished) {
+    stopTimer();
+  }
+
   useEffect(() => {
-    if (onTimeOver) {
+    if (onTimeOver && !gameFinished) {
       onTimeLimit();
     } else if (!gameFinished) {
       handleTimer();
     }
-  }, [seconds]);
+  }, [seconds, gameFinished]);
 
   const data = {
     seconds: (seconds || 0) % 60,
