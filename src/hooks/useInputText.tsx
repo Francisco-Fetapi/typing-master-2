@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectTypedWords } from "../store/App.selectors";
-import { increaseTypedWords } from "../store/App.store";
+import { selectPhraseSize, selectTypedWords } from "../store/App.selectors";
+import { increaseTypedWords, showMessageBackdrop } from "../store/App.store";
 import { Text } from "../styles/General";
+import useBackdrop from "./useBackdrop";
 import useTimer from "./useTimer";
 
 type InputEvent = React.ChangeEventHandler<HTMLInputElement> | undefined;
@@ -17,7 +18,9 @@ export default function useInputText(wordToType: string) {
   const [error, setError] = useState(false);
   const dispatch = useDispatch();
   const typedWords = useSelector(selectTypedWords);
+  const phraseSize = useSelector(selectPhraseSize);
   const { onTimeOver } = useTimer();
+  const { gameOverAllWordsTyped } = useBackdrop();
 
   const checkWord = () => {
     if (inputText === wordToType) {
@@ -33,6 +36,12 @@ export default function useInputText(wordToType: string) {
       setError(false);
     }
   }, [inputText]);
+
+  useEffect(() => {
+    if (typedWords === phraseSize) {
+      dispatch(showMessageBackdrop(gameOverAllWordsTyped));
+    }
+  }, [typedWords]);
 
   const filterSomeKeys: FuncFilterSomeKeys = (e) => {
     if (filteredKeys.includes(e.code)) {

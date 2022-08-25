@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { showMessageBackdrop } from "../store/App.store";
 import useBackdrop from "./useBackdrop";
-import { selectTimeLimit } from "../store/App.selectors";
+import {
+  selectPhraseSize,
+  selectTimeLimit,
+  selectTypedWords,
+} from "../store/App.selectors";
 
 export default function useTimer() {
   const timeLimit = useSelector(selectTimeLimit);
@@ -11,10 +15,14 @@ export default function useTimer() {
   const onTimeOver = toDecrease && seconds === 0;
   const backdrop = useBackdrop();
   const dispatch = useDispatch();
+  const typedWords = useSelector(selectTypedWords);
+  const phraseSize = useSelector(selectPhraseSize);
+
+  const gameFinished = typedWords === phraseSize;
 
   let interval: any;
 
-  const startTimer = () => {
+  const handleTimer = () => {
     interval = setTimeout(() => {
       setSeconds(toDecrease ? seconds - 1 : seconds + 1);
     }, 1000);
@@ -22,20 +30,24 @@ export default function useTimer() {
 
   // useEffect(() => {
   //   if (typedWords > 0 && !interval) {
-  //     startTimer();
+  //     handleTimer();
   //   }
   // }, [typedWords]);
 
-  const onTimeLimit = () => {
+  function stopTimer() {
     clearTimeout(interval);
+  }
+
+  const onTimeLimit = () => {
+    stopTimer();
     dispatch(showMessageBackdrop(backdrop.gameOverTimeLimit));
   };
 
   useEffect(() => {
     if (onTimeOver) {
       onTimeLimit();
-    } else {
-      startTimer();
+    } else if (!gameFinished) {
+      handleTimer();
     }
   }, [seconds]);
 
@@ -43,6 +55,7 @@ export default function useTimer() {
     seconds: seconds % 60,
     minutes: Math.floor(seconds / 60),
     onTimeOver,
+    stopTimer,
   };
 
   return data;

@@ -9,6 +9,14 @@ export default function useBackdrop() {
     open: true,
     type: "error",
   };
+  const gameOverAllWordsTyped: Backdrop.Props = {
+    title: "Nivel finalizado.",
+    message: "Parabéns, você terminou este nível com sucesso.",
+    primaryButton: { text: "Próximo nível" },
+    secondaryButton: { text: "Sair" },
+    open: true,
+    type: "success",
+  };
 
-  return { gameOverTimeLimit };
+  return { gameOverTimeLimit, gameOverAllWordsTyped };
 }
