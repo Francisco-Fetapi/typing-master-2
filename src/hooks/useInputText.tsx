@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectTypedWords } from "../store/App.selectors";
 import { increaseTypedWords } from "../store/App.store";
 import { Text } from "../styles/General";
+import useTimer from "./useTimer";
 
 type InputEvent = React.ChangeEventHandler<HTMLInputElement> | undefined;
 type FuncFilterSomeKeys =
@@ -16,6 +17,7 @@ export default function useInputText(wordToType: string) {
   const [error, setError] = useState(false);
   const dispatch = useDispatch();
   const typedWords = useSelector(selectTypedWords);
+  const { onTimeOver } = useTimer();
 
   const checkWord = () => {
     if (inputText === wordToType) {
@@ -41,6 +43,7 @@ export default function useInputText(wordToType: string) {
 
   const type: InputEvent = (e) => {
     const value = e.target.value;
+    if (onTimeOver) return;
     setInputText(value.trim());
   };
 

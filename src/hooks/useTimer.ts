@@ -8,6 +8,7 @@ export default function useTimer() {
   const timeLimit = useSelector(selectTimeLimit);
   const [seconds, setSeconds] = useState(timeLimit);
   const toDecrease = timeLimit !== 0;
+  const onTimeOver = toDecrease && seconds === 0;
   const backdrop = useBackdrop();
   const dispatch = useDispatch();
 
@@ -31,7 +32,7 @@ export default function useTimer() {
   };
 
   useEffect(() => {
-    if (toDecrease && seconds === 0) {
+    if (onTimeOver) {
       onTimeLimit();
     } else {
       startTimer();
@@ -41,6 +42,7 @@ export default function useTimer() {
   const data = {
     seconds: seconds % 60,
     minutes: Math.floor(seconds / 60),
+    onTimeOver,
   };
 
   return data;
