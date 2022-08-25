@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { showMessageBackdrop } from "../store/App.store";
+import { setTimer, showMessageBackdrop } from "../store/App.store";
 import useBackdrop from "./useBackdrop";
 import {
   selectPhraseSize,
   selectTimeLimit,
+  selectTimer,
   selectTypedWords,
 } from "../store/App.selectors";
 
 export default function useTimer() {
   const timeLimit = useSelector(selectTimeLimit);
-  const [seconds, setSeconds] = useState(timeLimit);
+  // const [seconds, setSeconds] = useState(timeLimit);
+  const seconds = useSelector(selectTimer);
   const toDecrease = timeLimit !== 0;
   const onTimeOver = toDecrease && seconds === 0;
   const backdrop = useBackdrop();
@@ -22,9 +24,18 @@ export default function useTimer() {
 
   let interval: any;
 
+  useEffect(() => {
+    if (seconds !== timeLimit) {
+      resetTimer();
+    }
+  }, []);
+
   const handleTimer = () => {
     interval = setTimeout(() => {
-      setSeconds(toDecrease ? seconds - 1 : seconds + 1);
+      if (seconds) {
+        const value = toDecrease ? seconds - 1 : seconds + 1;
+        dispatch(setTimer(value));
+      }
     }, 1000);
   };
 
@@ -38,7 +49,7 @@ export default function useTimer() {
     clearTimeout(interval);
   }
   function resetTimer() {
-    setSeconds(timeLimit);
+    dispatch(setTimer(timeLimit));
   }
 
   const onTimeLimit = () => {
@@ -55,8 +66,8 @@ export default function useTimer() {
   }, [seconds]);
 
   const data = {
-    seconds: seconds % 60,
-    minutes: Math.floor(seconds / 60),
+    seconds: (seconds || 0) % 60,
+    minutes: Math.floor((seconds || 0) / 60),
     onTimeOver,
     stopTimer,
     resetTimer,

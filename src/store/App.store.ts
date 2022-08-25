@@ -12,12 +12,14 @@ export interface App extends IDarkMode {
   typedWords: number;
   currentLevel: number;
   backdrop: Backdrop.Props;
+  timer: number | null;
 }
 
 const initialState: App = {
   darkMode: useStatePersist<boolean>(THEME_KEY_IN_LOCALSTORAGE).get(),
   typedWords: 0,
   currentLevel: 0,
+  timer: null,
   backdrop: {
     title: "",
     message: "",
@@ -50,6 +52,9 @@ export const app = createSlice({
     resetAllState(state) {
       Object.assign(state, initialState);
     },
+    setTimer(state, action: PayloadAction<number>) {
+      state.timer = action.payload;
+    },
   },
 });
 
@@ -65,6 +70,7 @@ export const {
   showMessageBackdrop,
   hideMessageBackdrop,
   resetAllState,
+  setTimer,
 } = app.actions;
 
 export default store;

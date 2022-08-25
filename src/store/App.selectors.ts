@@ -23,3 +23,6 @@ export const selectTimeLimit = (state: RootState) => {
 export const selectBackdropInfo = (state: RootState) => {
   return state.app.backdrop;
 };
+export const selectTimer = (state: RootState) => {
+  return state.app.timer;
+};

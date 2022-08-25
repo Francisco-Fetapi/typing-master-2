@@ -5,14 +5,17 @@ import useTimer from "./useTimer";
 
 export default function useBackdrop() {
   const dispatch = useDispatch();
-  // const { resetTimer } = useTimer();
+  const { resetTimer } = useTimer();
 
   const gameOverTimeLimit: Backdrop.Props = {
     title: "O Tempo se esgotou.",
     message: "Você precisa ser mais rápido para avançar para o próximo nível.",
     primaryButton: {
       text: "Tentar Novamente",
-      // handleClick: () => {},
+      handleClick: () => {
+        dispatch(resetAllState());
+        resetTimer();
+      },
     },
     secondaryButton: { text: "Sair" },
     open: true,
