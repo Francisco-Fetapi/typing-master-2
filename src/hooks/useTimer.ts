@@ -37,6 +37,9 @@ export default function useTimer() {
   function stopTimer() {
     clearTimeout(interval);
   }
+  function resetTimer() {
+    setSeconds(timeLimit);
+  }
 
   const onTimeLimit = () => {
     stopTimer();
@@ -56,6 +59,7 @@ export default function useTimer() {
     minutes: Math.floor(seconds / 60),
     onTimeOver,
     stopTimer,
+    resetTimer,
   };
 
   return data;
