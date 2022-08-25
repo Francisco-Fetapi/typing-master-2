@@ -1,12 +1,5 @@
+import { transformTextToArray } from "../helpers/transformTextToArray";
 import { RootState } from "./App.store";
-
-const delimiters = /[\s\.,?!:;]/gi;
-
-const transformTextToArray = (text: string) => {
-  let textArray = text.split(delimiters);
-  textArray = textArray.filter((word) => word !== "");
-  return textArray;
-};
 
 export const selectTheme = (state: RootState) => state.app.darkMode;
 export const selectTextToType = (state: RootState) => state.app.textToType;

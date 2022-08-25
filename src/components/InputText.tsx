@@ -1,7 +1,5 @@
 import { Box } from "@mui/material";
-import { useSelector } from "react-redux";
 import useInputText from "../hooks/useInputText";
-import { selectTypedWords, selectWordToType } from "../store/App.selectors";
 import { InputTextContainer, Text, BoxColumnCenter } from "../styles/General";
 
 interface Props {
