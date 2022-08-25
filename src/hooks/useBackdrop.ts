@@ -7,6 +7,7 @@ export default function useBackdrop() {
     primaryButton: { text: "Tentar Novamente" },
     secondaryButton: { text: "Sair" },
     open: true,
+    type: "error",
   };
 
   return { gameOverTimeLimit };

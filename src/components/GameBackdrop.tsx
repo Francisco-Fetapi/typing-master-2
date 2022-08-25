@@ -8,21 +8,47 @@ export interface IButton {
   handleClick?: () => void;
 }
 
+type IColors =
+  | "success"
+  | "error"
+  | "inherit"
+  | "primary"
+  | "secondary"
+  | "info"
+  | "warning";
+
+interface IVariants {
+  success: IColors | string;
+  error: IColors | string;
+}
 export interface Props {
   title: string;
   message: string;
   open: boolean;
+  type?: keyof IVariants;
   primaryButton?: IButton;
   secondaryButton?: IButton;
 }
+
+const variants: IVariants = {
+  success: "greenyellow",
+  error: "red",
+};
+const buttonColorVariants: IVariants = {
+  success: "success",
+  error: "error",
+};
 
 export default function GameBackdrop({
   open,
   title,
   message,
+  type = "success",
   primaryButton,
   secondaryButton,
 }: Props) {
+  const variant = variants[type];
+  const buttonColorVariant = buttonColorVariants[type] as IColors;
   return (
     <div>
       <Backdrop
@@ -35,7 +61,7 @@ export default function GameBackdrop({
         <Box>
           <BoxColumnCenter>
             <Text
-              color="primary"
+              color={variant}
               variant="h5"
               sx={{ textTransform: "uppercase", fontWeight: "bold" }}
             >
@@ -50,7 +76,7 @@ export default function GameBackdrop({
 
           <BoxColumnCenter mt={3}>
             {primaryButton && (
-              <Button color="primary" variant="contained">
+              <Button color={buttonColorVariant} variant="contained">
                 {primaryButton.text}
               </Button>
             )}
