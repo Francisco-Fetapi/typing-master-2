@@ -1,16 +1,17 @@
-import { transformTextToArray } from "../helpers/transformTextToArray";
+import { Levels } from "../Levels";
 import { RootState } from "./App.store";
 
 export const selectTheme = (state: RootState) => state.app.darkMode;
-export const selectTextToType = (state: RootState) => state.app.textToType;
+export const selectTextToType = (state: RootState) =>
+  Levels[state.app.currentLevel].phrase;
 export const selectTypedWords = (state: RootState) => state.app.typedWords;
 export const selectCurrentLevel = (state: RootState) => state.app.currentLevel;
 export const selectPhraseSize = (state: RootState) => {
-  return transformTextToArray(state.app.textToType).length;
+  return Levels[state.app.currentLevel].numWords;
 };
 export const selectTextToTypeArray = (state: RootState) => {
   // return transformTextToArray(state.app.textToType);
-  return state.app.textToType.split(" ");
+  return Levels[state.app.currentLevel].arrayText;
 };
 export const selectWordToType = (state: RootState) => {
   // const words = transformTextToArray(state.app.textToType);

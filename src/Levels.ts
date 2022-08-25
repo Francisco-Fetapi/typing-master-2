@@ -1,3 +1,4 @@
+import { timeTransformer } from "./helpers/timeTransformer";
 import { transformTextToArray } from "./helpers/transformTextToArray";
 
 interface ILevelRoles {
@@ -7,28 +8,40 @@ interface ILevelRoles {
 }
 type ILevel = keyof ILevelRoles;
 
-class Level {
+export class Level {
   private _level: ILevel = "Beginner"; //default value
   public numWords: number = 0;
+  public arrayText: string[] = [];
+  public timeLimit: number = 0;
   static roles: ILevelRoles = {
     Beginner: 25,
     Intermediate: 40,
     Advanced: 60,
   };
-  constructor(public timer: number, public phrase: string) {
-    this.numWords = transformTextToArray(this.phrase).length;
-    this.level = this.numWords; //define level by numWords
+  constructor(public phrase: string, timeLimit: string) {
+    this.arrayText = transformTextToArray(this.phrase);
+    this.numWords = this.arrayText.length;
+    this.level = this.defineLevel(); //define level by numWords
+    this.timeLimit = timeTransformer(timeLimit);
   }
-  set level(numWords: number) {
+  defineLevel(): ILevel {
     let role: ILevel;
     for (role in Level.roles) {
       const maxSizeOfWordsOnPhrase = Level.roles[role];
-      if (numWords <= maxSizeOfWordsOnPhrase) {
-        this._level = role;
-        break;
+      if (this.numWords <= maxSizeOfWordsOnPhrase) {
+        return role;
       }
     }
+    return "Beginner"; //otherwise -> default value
+  }
+  set level(level: ILevel) {
+    this._level = level;
+  }
+  get level(): ILevel {
+    return this._level;
   }
 }
 
-export const Levels = [];
+export const Levels: Level[] = [];
+
+Levels.push(new Level("Ola Mundo. Isto eh um teste", "3m:20s"));

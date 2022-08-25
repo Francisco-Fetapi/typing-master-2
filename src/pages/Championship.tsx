@@ -14,7 +14,7 @@ export default function Championship() {
     <BoxColumnCenter height="100vh" py={5}>
       <BoxColumnCenter mb={2}>
         <Text color="primary" variant="h4">
-          Nivel {level}
+          Nivel {level + 1}
         </Text>
       </BoxColumnCenter>
       <Timer totalTime={0} />

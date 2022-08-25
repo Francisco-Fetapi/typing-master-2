@@ -8,16 +8,14 @@ export interface IDarkMode {
   darkMode: boolean;
 }
 export interface App extends IDarkMode {
-  textToType: string;
   typedWords: number;
   currentLevel: number;
 }
 
 const initialState: App = {
   darkMode: useStatePersist<boolean>(THEME_KEY_IN_LOCALSTORAGE).get(),
-  textToType: `Porque ninguém me avisou que o Vite era tão bom? Para quem ainda não foi despertado, se comparado ao create-react-app ele é absurdamente mais rápido.`,
   typedWords: 0,
-  currentLevel: 1,
+  currentLevel: 0,
 };
 
 export const app = createSlice({
@@ -28,9 +26,6 @@ export const app = createSlice({
       state.darkMode = !state.darkMode;
       const { save } = useStatePersist<boolean>(THEME_KEY_IN_LOCALSTORAGE);
       save(state.darkMode);
-    },
-    setTextToType(state, text: PayloadAction<string>) {
-      state.textToType = text.payload;
     },
     increaseTypedWords(state) {
       state.typedWords = state.typedWords + 1;
