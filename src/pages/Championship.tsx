@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import DisplayProgress from "../components/DisplayProgress";
 import GameBackdrop from "../components/GameBackdrop";
 import InputText from "../components/InputText";
@@ -7,7 +7,6 @@ import Timer from "../components/Timer";
 import {
   selectBackdropInfo,
   selectCurrentLevel,
-  selectTimeLimit,
   selectWordToType,
 } from "../store/App.selectors";
 import { BoxColumnCenter, Text } from "../styles/General";
@@ -15,10 +14,7 @@ import { BoxColumnCenter, Text } from "../styles/General";
 export default function Championship() {
   const wordToType = useSelector(selectWordToType);
   const level = useSelector(selectCurrentLevel);
-  const timeLimit = useSelector(selectTimeLimit);
   const backdropInfo = useSelector(selectBackdropInfo);
-
-  console.log(timeLimit);
 
   return (
     <BoxColumnCenter height="100vh" py={5}>
@@ -27,7 +23,7 @@ export default function Championship() {
           Nivel {level + 1}
         </Text>
       </BoxColumnCenter>
-      <Timer totalTime={timeLimit} />
+      <Timer />
       <BoxColumnCenter mt={2}>
         <InputText text={wordToType} />
       </BoxColumnCenter>

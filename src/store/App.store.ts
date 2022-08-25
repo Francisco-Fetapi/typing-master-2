@@ -56,7 +56,12 @@ const store = configureStore({
   },
 });
 
-export const { toggleTheme, increaseTypedWords } = app.actions;
+export const {
+  toggleTheme,
+  increaseTypedWords,
+  showMessageBackdrop,
+  hideMessageBackdrop,
+} = app.actions;
 
 export default store;
 
