@@ -38,3 +38,6 @@ Mostrar palavra a ser digitada abaixo do input - true or false
 Algumas configs farao o usuario ganhar X vezes mais pontos.
 
 Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
+
+Ao digitar uma palavra, so inserir se o tempo ainda estiver contando.
+Depois de terminar o teclado deve ficar preso.

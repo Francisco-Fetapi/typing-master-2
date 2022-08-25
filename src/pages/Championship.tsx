@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import DisplayProgress from "../components/DisplayProgress";
+import GameBackdrop from "../components/GameBackdrop";
 import InputText from "../components/InputText";
 import TextToType from "../components/TextToType";
 import Timer from "../components/Timer";
@@ -35,6 +36,11 @@ export default function Championship() {
       <BoxColumnCenter mt={2}>
         <DisplayProgress />
       </BoxColumnCenter>
+      <GameBackdrop
+        title="O Tempo se esgotou."
+        message="Você precisa ser mais rápido para avançar para o próximo nível."
+        open={true}
+      />
     </BoxColumnCenter>
   );
 }
