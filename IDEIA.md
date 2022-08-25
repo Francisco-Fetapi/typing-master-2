@@ -41,3 +41,9 @@ Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar
 
 Ao digitar uma palavra, so inserir se o tempo ainda estiver contando.
 Depois de terminar o teclado deve ficar preso.
+
+title: "O Tempo se esgotou.",
+message: "Você precisa ser mais rápido para avançar para o próximo nível.",
+open: true,
+primaryButton: { text: "Tentar Novamente" },
+secondaryButton: { text: "Sair" },

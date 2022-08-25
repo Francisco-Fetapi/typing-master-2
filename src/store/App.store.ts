@@ -19,11 +19,9 @@ const initialState: App = {
   typedWords: 0,
   currentLevel: 0,
   backdrop: {
-    title: "O Tempo se esgotou.",
-    message: "Você precisa ser mais rápido para avançar para o próximo nível.",
-    open: true,
-    primaryButton: { text: "Tentar Novamente" },
-    secondaryButton: { text: "Sair" },
+    title: "",
+    message: "",
+    open: false,
   },
 };
 
