@@ -10,7 +10,7 @@ export const selectPhraseSize = (state: RootState) => {
   return Levels[state.app.currentLevel].numWords;
 };
 export const selectTextToTypeArray = (state: RootState) => {
-  return Levels[state.app.currentLevel].arrayText;
+  return Levels[state.app.currentLevel].phrase.split(" ");
 };
 export const selectWordToType = (state: RootState) => {
   const words = selectTextToTypeArray(state);
