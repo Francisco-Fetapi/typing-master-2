@@ -12,7 +12,7 @@ export default function TextToType() {
   return (
     <Box>
       {textToType.map((word, key) => (
-        <Box component="span" pr={0.8}>
+        <Box component="span" pr={0.8} key={key}>
           <Text component="span" color={key < typedWords ? "blue" : "inherit"}>
             {word}
           </Text>
