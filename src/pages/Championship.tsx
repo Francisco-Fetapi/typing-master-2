@@ -5,6 +5,7 @@ import InputText from "../components/InputText";
 import TextToType from "../components/TextToType";
 import Timer from "../components/Timer";
 import {
+  selectBackdropInfo,
   selectCurrentLevel,
   selectTimeLimit,
   selectWordToType,
@@ -15,6 +16,7 @@ export default function Championship() {
   const wordToType = useSelector(selectWordToType);
   const level = useSelector(selectCurrentLevel);
   const timeLimit = useSelector(selectTimeLimit);
+  const backdropInfo = useSelector(selectBackdropInfo);
 
   console.log(timeLimit);
 
@@ -36,13 +38,7 @@ export default function Championship() {
       <BoxColumnCenter mt={2}>
         <DisplayProgress />
       </BoxColumnCenter>
-      <GameBackdrop
-        title="O Tempo se esgotou."
-        message="Você precisa ser mais rápido para avançar para o próximo nível."
-        open={true}
-        primaryButton={{ text: "Tentar Novamente" }}
-        secondaryButton={{ text: "Sair" }}
-      />
+      <GameBackdrop {...backdropInfo} />
     </BoxColumnCenter>
   );
 }

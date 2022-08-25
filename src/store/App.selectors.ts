@@ -20,3 +20,6 @@ export const selectWordToType = (state: RootState) => {
 export const selectTimeLimit = (state: RootState) => {
   return Levels[state.app.currentLevel].timeLimit;
 };
+export const selectBackdropInfo = (state: RootState) => {
+  return state.app.backdrop;
+};

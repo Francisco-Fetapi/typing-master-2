@@ -3,17 +3,17 @@ import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import { BoxColumnCenter, Text } from "../styles/General";
 
-interface IButtonBackdrop {
+export interface IButton {
   text: string;
   handleClick?: () => void;
 }
 
-interface Props {
+export interface Props {
   title: string;
   message: string;
   open: boolean;
-  primaryButton?: IButtonBackdrop;
-  secondaryButton?: IButtonBackdrop;
+  primaryButton?: IButton;
+  secondaryButton?: IButton;
 }
 
 export default function GameBackdrop({
