@@ -47,6 +47,9 @@ export const app = createSlice({
     hideMessageBackdrop(state) {
       state.backdrop.open = false;
     },
+    resetAllState(state) {
+      Object.assign(state, initialState);
+    },
   },
 });
 
@@ -61,6 +64,7 @@ export const {
   increaseTypedWords,
   showMessageBackdrop,
   hideMessageBackdrop,
+  resetAllState,
 } = app.actions;
 
 export default store;

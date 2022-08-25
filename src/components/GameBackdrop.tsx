@@ -1,6 +1,8 @@
 import { Box, Button } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { resetAllState } from "../store/App.store";
 import { BoxColumnCenter, Text } from "../styles/General";
 
 export interface IButton {
@@ -50,7 +52,9 @@ export default function GameBackdrop({
   const variant = variants[type];
   const buttonColorVariant = buttonColorVariants[type] as IColors;
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   function goToHome() {
+    dispatch(resetAllState());
     navigate("/", { replace: true });
   }
   return (
