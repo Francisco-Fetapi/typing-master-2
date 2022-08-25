@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function useGameBackdrop() {
+export default function useBoolean() {
   const [open, setOpen] = useState(false);
 
   return {
