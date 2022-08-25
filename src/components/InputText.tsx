@@ -10,8 +10,7 @@ interface Props {
 
 export default function InputText({ text }: Props) {
   const { textDisplay, inputText, type, filterSomeKeys } = useInputText(text);
-  const test = useSelector(selectTypedWords);
-  console.log(test);
+
   return (
     <BoxColumnCenter>
       <input

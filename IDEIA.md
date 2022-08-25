@@ -36,3 +36,5 @@ Exibir letras erradas em tempo real - true or false
 Mostrar palavra a ser digitada abaixo do input - true or false
 
 Algumas configs farao o usuario ganhar X vezes mais pontos.
+
+Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
