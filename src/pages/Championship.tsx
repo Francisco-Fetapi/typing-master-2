@@ -7,6 +7,7 @@ import Timer from "../components/Timer";
 import {
   selectBackdropInfo,
   selectCurrentLevel,
+  selectLevel,
   selectWordToType,
 } from "../store/App.selectors";
 import { BoxColumnCenter, Text } from "../styles/General";
@@ -14,6 +15,7 @@ import { BoxColumnCenter, Text } from "../styles/General";
 export default function Championship() {
   const wordToType = useSelector(selectWordToType);
   const level = useSelector(selectCurrentLevel);
+  const levelLabel = useSelector(selectLevel);
   const backdropInfo = useSelector(selectBackdropInfo);
 
   return (
@@ -22,6 +24,7 @@ export default function Championship() {
         <Text color="primary" variant="h4">
           Nivel {level + 1}
         </Text>
+        <Text variant="subtitle2">{levelLabel}</Text>
       </BoxColumnCenter>
       <Timer />
       <BoxColumnCenter mt={2}>

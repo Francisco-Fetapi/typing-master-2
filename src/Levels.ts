@@ -1,10 +1,10 @@
 import { timeTransformer } from "./helpers/timeTransformer";
 import { transformTextToArray } from "./helpers/transformTextToArray";
 
-interface ILevelRoles {
-  Beginner: number;
-  Intermediate: number;
-  Advanced: number;
+interface ILevelRoles<T = number> {
+  Beginner: T;
+  Intermediate: T;
+  Advanced: T;
 }
 type ILevel = keyof ILevelRoles;
 
@@ -17,6 +17,11 @@ export class Level {
     Beginner: 25,
     Intermediate: 40,
     Advanced: 60,
+  };
+  static rolesInPortuguese: ILevelRoles<string> = {
+    Beginner: "Iniciante",
+    Intermediate: "Intermediário",
+    Advanced: "Avançado",
   };
   constructor(public phrase: string, timeLimit: string) {
     this.arrayText = transformTextToArray(this.phrase);

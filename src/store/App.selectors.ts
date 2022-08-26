@@ -1,4 +1,4 @@
-import { Levels } from "../Levels";
+import { Level, Levels } from "../Levels";
 import { RootState } from "./App.store";
 
 export const selectTheme = (state: RootState) => state.app.darkMode;
@@ -19,6 +19,10 @@ export const selectWordToType = (state: RootState) => {
 
 export const selectTimeLimit = (state: RootState) => {
   return Levels[state.app.currentLevel].timeLimit;
+};
+export const selectLevel = (state: RootState) => {
+  const level = Levels[state.app.currentLevel].level;
+  return Level.rolesInPortuguese[level];
 };
 export const selectBackdropInfo = (state: RootState) => {
   return state.app.backdrop;
