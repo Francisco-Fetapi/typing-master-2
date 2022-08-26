@@ -1,6 +1,6 @@
-backdrop todos os niveis terminados.
-
 No backdrop PROXIMO NIVEL, quando eh para sair de um nivel para o outro, informar.
+
+backdrop todos os niveis terminados.
 
 # Typing Master
 
@@ -32,13 +32,28 @@ nivel 6 - amador 3
 
 ...
 
-Seção de configs
+## Seção de configs
 
 Case sensitive - true or false
 Sinais de pontuação - true or false
 Exibir letras erradas em tempo real - true or false
 Mostrar palavra a ser digitada abaixo do input - true or false
 
+---
+
 Algumas configs farao o usuario ganhar X vezes mais pontos.
 
 Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
+
+aumentar pontos com base no numero de letras da palavras digitada.
+
+funcao random na classe Level, para embaralhar a frase.
+
+impedir que o usuario cole o texto no inout
+
+_Em Treino_
+tabela de palavras que mais erraste.
+Treinar aquele palavra em especifico num certo timer com base no numero de letras.
+
+BTN -> Treinar todas essas palavras de uma vez
+Treinar frase personalizada
