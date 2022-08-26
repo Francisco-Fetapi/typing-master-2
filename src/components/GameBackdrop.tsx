@@ -3,7 +3,7 @@ import Backdrop from "@mui/material/Backdrop";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { resetAllState } from "../store/App.store";
+import { hideMessageBackdrop, resetAllState } from "../store/App.store";
 import { BoxColumnCenter, Text } from "../styles/General";
 
 export interface IButton {
@@ -60,6 +60,9 @@ export default function GameBackdrop({
     dispatch(resetAllState());
     navigate("/", { replace: true });
   }
+  function close() {
+    dispatch(hideMessageBackdrop());
+  }
 
   useEffect(() => {
     if (open) {
@@ -97,7 +100,7 @@ export default function GameBackdrop({
               <Button
                 color={buttonColorVariant}
                 variant="contained"
-                onClick={primaryButton.handleClick}
+                onClick={primaryButton.handleClick || close}
               >
                 {primaryButton.text}
               </Button>

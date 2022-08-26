@@ -4,6 +4,7 @@ import GameBackdrop from "../components/GameBackdrop";
 import InputText from "../components/InputText";
 import TextToType from "../components/TextToType";
 import Timer from "../components/Timer";
+import useGameLoop from "../hooks/useGameLoop";
 import {
   selectBackdropInfo,
   selectCurrentLevel,
@@ -17,6 +18,7 @@ export default function Championship() {
   const level = useSelector(selectCurrentLevel);
   const levelLabel = useSelector(selectLevel);
   const backdropInfo = useSelector(selectBackdropInfo);
+  useGameLoop();
 
   return (
     <BoxColumnCenter height="100vh" py={5}>
