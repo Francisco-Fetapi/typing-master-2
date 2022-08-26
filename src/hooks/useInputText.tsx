@@ -23,7 +23,7 @@ export default function useInputText(wordToType: string) {
   const { gameOverAllWordsTyped } = useBackdrop();
 
   const checkWord = () => {
-    if (inputText === wordToType) {
+    if (inputText === wordToType && !onTimeOver) {
       dispatch(increaseTypedWords());
       setInputText("");
     } else {

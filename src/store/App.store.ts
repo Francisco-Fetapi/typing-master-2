@@ -4,6 +4,7 @@ import useStatePersist from "../hooks/useStatePersist";
 import * as Backdrop from "../components/GameBackdrop";
 
 const THEME_KEY_IN_LOCALSTORAGE = "darkMode";
+const CURRENT_LEVEL_KEY_IN_LOCALSTORAGE = "currentLevel";
 
 export interface IDarkMode {
   darkMode: boolean;
@@ -18,7 +19,8 @@ export interface App extends IDarkMode {
 const initialState: App = {
   darkMode: useStatePersist<boolean>(THEME_KEY_IN_LOCALSTORAGE).get(),
   typedWords: 0,
-  currentLevel: 0,
+  currentLevel:
+    useStatePersist<number>(CURRENT_LEVEL_KEY_IN_LOCALSTORAGE).get() || 0,
   timer: null,
   backdrop: {
     title: "",
@@ -40,10 +42,15 @@ export const app = createSlice({
       state.typedWords = state.typedWords + 1;
     },
     increaseLevel(state) {
+      const currentLevel = ++state.currentLevel;
       Object.assign(state, {
         ...initialState,
-        currentLevel: ++state.currentLevel,
+        currentLevel,
       });
+      const { save } = useStatePersist<number>(
+        CURRENT_LEVEL_KEY_IN_LOCALSTORAGE
+      );
+      save(currentLevel);
     },
     showMessageBackdrop(state, action: PayloadAction<Backdrop.Props>) {
       state.backdrop.open = true;
@@ -53,7 +60,10 @@ export const app = createSlice({
       state.backdrop.open = false;
     },
     resetAllState(state) {
-      Object.assign(state, initialState);
+      const currentLevel =
+        useStatePersist<number>(CURRENT_LEVEL_KEY_IN_LOCALSTORAGE).get() || 0;
+      // on reset all state current level should be mantained
+      Object.assign(state, { ...initialState, currentLevel });
     },
     setTimer(state, action: PayloadAction<number>) {
       state.timer = action.payload;
