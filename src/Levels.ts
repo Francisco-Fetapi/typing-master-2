@@ -49,7 +49,12 @@ export class Level {
 
 export const Levels: Level[] = [];
 
-Levels.push(new Level("Ola Mundo. Isto eh um teste.", "0m:10s"));
-Levels.push(new Level("Segundo nivel.", "0m:10s"));
-Levels.push(new Level("Terceiro nivel.", "0m:10s"));
-Levels.push(new Level("Quarto nivel.", "0m:10s"));
+Levels.push(new Level("Ola Mundo.", "0m:10s"));
+Levels.push(new Level("Segundo nivel.", "0m:20s"));
+
+Levels.push(
+  new Level(
+    `Para quem ainda não foi despertado, se comparado ao create-react-app ele é absurdamente mais rápido. Honestamente prefiro utilizar o vite a qualquer outra ferramenta.`,
+    "1m:20s"
+  )
+);

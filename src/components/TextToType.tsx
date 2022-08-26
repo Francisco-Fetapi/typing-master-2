@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { useSelector } from "react-redux";
 import {
   selectTextToTypeArray,
@@ -10,14 +10,16 @@ export default function TextToType() {
   const textToType = useSelector(selectTextToTypeArray);
   const typedWords = useSelector(selectTypedWords);
   return (
-    <Box>
+    <Stack direction="row" gap={1} flexWrap="wrap">
       {textToType.map((word, key) => (
-        <Box component="span" pr={0.8} key={key}>
-          <Text component="span" color={key < typedWords ? "blue" : "inherit"}>
-            {word}
-          </Text>
-        </Box>
+        <Text
+          component="span"
+          key={key}
+          color={key < typedWords ? "blue" : "inherit"}
+        >
+          {word}
+        </Text>
       ))}
-    </Box>
+    </Stack>
   );
 }

@@ -2,6 +2,8 @@ No backdrop PROXIMO NIVEL, quando eh para sair de um nivel para o outro, informa
 
 backdrop todos os niveis terminados.
 
+salvar o nivel depois de finalizado e nao ao clicar no btn proximo nivel.
+
 # Typing Master
 
 Anotações escritas na fase de desenvolvimento para melhor esclarecer até onde quero chegar com a aplicação. Já que não entendo nada sobre `engenharia de software`, então é assim que geralmente eu arquiteto meus apps para estudo.
