@@ -1,5 +1,4 @@
 backdrop todos os niveis terminados.
-mostrar nivel da questao (B,I,A)
 
 No backdrop PROXIMO NIVEL, quando eh para sair de um nivel para o outro, informar.
 
