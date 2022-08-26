@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import doNotAnything from "../helpers/doNotAnything";
 import { selectPhraseSize, selectTypedWords } from "../store/App.selectors";
 import { increaseTypedWords, showMessageBackdrop } from "../store/App.store";
 import { Text } from "../styles/General";
@@ -23,7 +24,8 @@ export default function useInputText(wordToType: string) {
   const { gameOverAllWordsTyped } = useBackdrop();
 
   const checkWord = () => {
-    if (inputText === wordToType && !onTimeOver) {
+    if (onTimeOver) return doNotAnything();
+    if (inputText === wordToType) {
       dispatch(increaseTypedWords());
       setInputText("");
     } else {
@@ -55,6 +57,7 @@ export default function useInputText(wordToType: string) {
   };
 
   const type: InputEvent = (e) => {
+    if (onTimeOver) return doNotAnything();
     const value = e.target.value;
     if (onTimeOver) return;
     setInputText(value.trim());
