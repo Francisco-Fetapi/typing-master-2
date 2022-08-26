@@ -4,8 +4,8 @@ import useStatePersist from "../hooks/useStatePersist";
 import * as Backdrop from "../components/GameBackdrop";
 import { Levels } from "../Levels";
 
-const THEME_KEY_IN_LOCALSTORAGE = "darkMode";
-const CURRENT_LEVEL_KEY_IN_LOCALSTORAGE = "currentLevel";
+export const THEME_KEY_IN_LOCALSTORAGE = "darkMode";
+export const CURRENT_LEVEL_KEY_IN_LOCALSTORAGE = "currentLevel";
 
 export interface IDarkMode {
   darkMode: boolean;
@@ -51,10 +51,6 @@ export const app = createSlice({
     },
     increaseLevel(state) {
       const currentLevel = ++state.currentLevel;
-      const { save } = useStatePersist<number>(
-        CURRENT_LEVEL_KEY_IN_LOCALSTORAGE
-      );
-      save(currentLevel);
       Object.assign(state, stateReseted());
     },
     showMessageBackdrop(state, action: PayloadAction<Backdrop.Props>) {

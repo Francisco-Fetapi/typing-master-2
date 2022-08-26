@@ -1,5 +1,6 @@
 import { Box, Button } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { resetAllState } from "../store/App.store";
@@ -30,6 +31,7 @@ export interface Props {
   type?: keyof IVariants;
   primaryButton?: IButton;
   secondaryButton?: IButton;
+  onMount?: () => void;
 }
 
 const variants: IVariants = {
@@ -48,6 +50,7 @@ export default function GameBackdrop({
   type = "success",
   primaryButton,
   secondaryButton,
+  onMount,
 }: Props) {
   const variant = variants[type];
   const buttonColorVariant = buttonColorVariants[type] as IColors;
@@ -57,6 +60,13 @@ export default function GameBackdrop({
     dispatch(resetAllState());
     navigate("/", { replace: true });
   }
+
+  useEffect(() => {
+    if (open) {
+      onMount && onMount();
+    }
+  }, [open]);
+
   return (
     <div>
       <Backdrop

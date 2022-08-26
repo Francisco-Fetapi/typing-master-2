@@ -1,7 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import * as Backdrop from "../components/GameBackdrop";
 import { selectTimeLimit } from "../store/App.selectors";
-import { increaseLevel, resetAllState, setTimer } from "../store/App.store";
+import {
+  CURRENT_LEVEL_KEY_IN_LOCALSTORAGE,
+  increaseLevel,
+  resetAllState,
+  setTimer,
+} from "../store/App.store";
+import useStatePersist from "./useStatePersist";
 
 export default function useBackdrop() {
   const timeLimit = useSelector(selectTimeLimit);
@@ -37,6 +43,13 @@ export default function useBackdrop() {
     secondaryButton: { text: "Sair" },
     open: true,
     type: "success",
+    onMount() {
+      const { save, get } = useStatePersist<number>(
+        CURRENT_LEVEL_KEY_IN_LOCALSTORAGE
+      );
+      const currentLevel = get() + 1;
+      save(currentLevel);
+    },
   };
 
   return { gameOverTimeLimit, gameOverAllWordsTyped };
