@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
 import useStatePersist from "../hooks/useStatePersist";
 import * as Backdrop from "../components/GameBackdrop";
+import { Levels } from "../Levels";
 
 const THEME_KEY_IN_LOCALSTORAGE = "darkMode";
 const CURRENT_LEVEL_KEY_IN_LOCALSTORAGE = "currentLevel";

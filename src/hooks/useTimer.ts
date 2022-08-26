@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setTimer, showMessageBackdrop } from "../store/App.store";
 import useBackdrop from "./useBackdrop";
 import {
+  selectLevel,
   selectPhraseSize,
   selectTimeLimit,
   selectTimer,
@@ -11,6 +12,7 @@ import {
 
 export default function useTimer() {
   const timeLimit = useSelector(selectTimeLimit);
+  const level = useSelector(selectLevel);
   // const [seconds, setSeconds] = useState(timeLimit);
   const seconds = useSelector(selectTimer);
   const toDecrease = timeLimit !== 0;
@@ -22,17 +24,18 @@ export default function useTimer() {
 
   const gameFinished = typedWords === phraseSize;
 
-  let interval: any;
+  let interval = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
     resetTimer();
-  }, []);
+  }, [timeLimit]);
 
   const handleTimer = () => {
-    interval = setTimeout(() => {
+    interval.current = setTimeout(() => {
       if (seconds) {
         const value = toDecrease ? seconds - 1 : seconds + 1;
         dispatch(setTimer(value));
+        console.log(seconds);
       }
     }, 1000);
   };
@@ -44,9 +47,13 @@ export default function useTimer() {
   // }, [typedWords]);
 
   function stopTimer() {
-    clearTimeout(interval);
+    // interval = null;
+    if (interval.current) {
+      clearTimeout(interval.current);
+    }
   }
   function resetTimer() {
+    stopTimer();
     dispatch(setTimer(timeLimit));
   }
 
