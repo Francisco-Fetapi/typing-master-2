@@ -38,6 +38,10 @@ export default function useInputText(wordToType: string) {
   }, [inputText]);
 
   useEffect(() => {
+    setInputText("");
+  }, [onTimeOver]);
+
+  useEffect(() => {
     if (typedWords === phraseSize) {
       dispatch(showMessageBackdrop(gameOverAllWordsTyped));
     }

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import * as Backdrop from "../components/GameBackdrop";
 import { selectTimeLimit } from "../store/App.selectors";
-import { resetAllState, setTimer } from "../store/App.store";
+import { increaseLevel, resetAllState, setTimer } from "../store/App.store";
 
 export default function useBackdrop() {
   const timeLimit = useSelector(selectTimeLimit);
@@ -28,7 +28,13 @@ export default function useBackdrop() {
   const gameOverAllWordsTyped: Backdrop.Props = {
     title: "Nivel finalizado.",
     message: "Parabéns, você terminou este nível com sucesso.",
-    primaryButton: { text: "Próximo nível" },
+    primaryButton: {
+      text: "Próximo nível",
+      handleClick() {
+        dispatch(increaseLevel());
+        resetTimer();
+      },
+    },
     secondaryButton: { text: "Sair" },
     open: true,
     type: "success",

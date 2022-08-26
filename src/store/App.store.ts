@@ -40,7 +40,10 @@ export const app = createSlice({
       state.typedWords = state.typedWords + 1;
     },
     increaseLevel(state) {
-      state.currentLevel++;
+      Object.assign(state, {
+        ...initialState,
+        currentLevel: ++state.currentLevel,
+      });
     },
     showMessageBackdrop(state, action: PayloadAction<Backdrop.Props>) {
       state.backdrop.open = true;
@@ -67,6 +70,7 @@ const store = configureStore({
 export const {
   toggleTheme,
   increaseTypedWords,
+  increaseLevel,
   showMessageBackdrop,
   hideMessageBackdrop,
   resetAllState,
