@@ -32,7 +32,7 @@ export default function useBackdrop() {
       text: "Próximo nível",
       handleClick() {
         dispatch(increaseLevel());
-        resetTimer();
+        // resetTimer();
       },
     },
     secondaryButton: { text: "Sair" },
