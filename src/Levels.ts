@@ -45,3 +45,6 @@ export class Level {
 export const Levels: Level[] = [];
 
 Levels.push(new Level("Ola Mundo. Isto eh um teste.", "0m:10s"));
+Levels.push(new Level("Segundo nivel.", "0m:10s"));
+Levels.push(new Level("Terceiro nivel.", "0m:10s"));
+Levels.push(new Level("Quarto nivel.", "0m:10s"));
