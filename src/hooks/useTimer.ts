@@ -35,7 +35,6 @@ export default function useTimer() {
       if (seconds) {
         const value = toDecrease ? seconds - 1 : seconds + 1;
         dispatch(setTimer(value));
-        console.log(seconds);
       }
     }, 1000);
   };
