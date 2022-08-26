@@ -29,6 +29,13 @@ const initialState: App = {
   },
 };
 
+function stateReseted(): App {
+  const darkMode = useStatePersist<boolean>(THEME_KEY_IN_LOCALSTORAGE).get();
+  const currentLevel =
+    useStatePersist<number>(CURRENT_LEVEL_KEY_IN_LOCALSTORAGE).get() || 0;
+  return { ...initialState, darkMode, currentLevel };
+}
+
 export const app = createSlice({
   name: "app",
   initialState,
@@ -43,14 +50,11 @@ export const app = createSlice({
     },
     increaseLevel(state) {
       const currentLevel = ++state.currentLevel;
-      Object.assign(state, {
-        ...initialState,
-        currentLevel,
-      });
       const { save } = useStatePersist<number>(
         CURRENT_LEVEL_KEY_IN_LOCALSTORAGE
       );
       save(currentLevel);
+      Object.assign(state, stateReseted());
     },
     showMessageBackdrop(state, action: PayloadAction<Backdrop.Props>) {
       state.backdrop.open = true;
@@ -60,10 +64,7 @@ export const app = createSlice({
       state.backdrop.open = false;
     },
     resetAllState(state) {
-      const currentLevel =
-        useStatePersist<number>(CURRENT_LEVEL_KEY_IN_LOCALSTORAGE).get() || 0;
-      // on reset all state current level should be mantained
-      Object.assign(state, { ...initialState, currentLevel });
+      Object.assign(state, stateReseted());
     },
     setTimer(state, action: PayloadAction<number>) {
       state.timer = action.payload;
