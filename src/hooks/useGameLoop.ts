@@ -21,7 +21,7 @@ export default function useGameLoop() {
       dispatch(
         showMessageBackdrop(
           backdrop.newLevelAchieved({
-            title: `Nivel ${currentLevel.level}`,
+            title: `Nivel ${currentLevel.getLevelRoleInPortuguese()}`,
             message: `Daqui para frente os exercicios serão mais dificeis.`,
           })
         )

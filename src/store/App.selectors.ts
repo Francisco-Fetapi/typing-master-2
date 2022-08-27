@@ -30,8 +30,7 @@ export const selectTimerPaused = (state: RootState) => {
   return state.app.timerPaused;
 };
 export const selectLevel = (state: RootState) => {
-  const level = selectLevelInfo(state).level;
-  return Level.rolesInPortuguese[level];
+  return selectLevelInfo(state).getLevelRoleInPortuguese();
 };
 export const selectBackdropInfo = (state: RootState) => {
   return state.app.backdrop;
