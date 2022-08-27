@@ -76,9 +76,10 @@ export default function GameBackdrop({
     window.onkeyup = (e) => {
       if (e.key === "Enter") {
         console.log(e.key);
-        if (primaryButton?.handleClick !== undefined) {
-          console.log("Clicou");
+        if (typeof primaryButton?.handleClick === "function") {
           primaryButton.handleClick();
+        } else {
+          close();
         }
       }
     };
