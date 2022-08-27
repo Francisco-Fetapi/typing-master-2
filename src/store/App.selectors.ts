@@ -26,6 +26,9 @@ export const selectWordToType = (state: RootState) => {
 export const selectTimeLimit = (state: RootState) => {
   return selectLevelInfo(state).timeLimit;
 };
+export const selectTimerPaused = (state: RootState) => {
+  return state.app.timerPaused;
+};
 export const selectLevel = (state: RootState) => {
   const level = selectLevelInfo(state).level;
   return Level.rolesInPortuguese[level];

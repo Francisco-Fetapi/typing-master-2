@@ -50,6 +50,7 @@ export default function useInputText(wordToType: string) {
   }, [typedWords]);
 
   const filterSomeKeys: FuncFilterSomeKeys = (e) => {
+    if (onTimeOver) return doNotAnything();
     if (filteredKeys.includes(e.code)) {
       checkWord();
       return false;
@@ -59,7 +60,6 @@ export default function useInputText(wordToType: string) {
   const type: InputEvent = (e) => {
     if (onTimeOver) return doNotAnything();
     const value = e.target.value;
-    if (onTimeOver) return;
     setInputText(value.trim());
   };
 
