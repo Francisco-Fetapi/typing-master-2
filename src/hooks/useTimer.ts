@@ -34,6 +34,7 @@ export default function useTimer() {
   }, [timeLimit]);
 
   const handleTimer = () => {
+    console.log(timerPaused);
     interval.current = setTimeout(() => {
       if (timerPaused) return doNotAnything();
       if (seconds) {

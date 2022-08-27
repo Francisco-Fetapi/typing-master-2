@@ -3,12 +3,7 @@ import Backdrop from "@mui/material/Backdrop";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {
-  hideMessageBackdrop,
-  pauseTimer,
-  playTimer,
-  resetAllState,
-} from "../store/App.store";
+import { hideMessageBackdrop, resetAllState } from "../store/App.store";
 import { BoxColumnCenter, Text } from "../styles/General";
 
 export interface IButton {
@@ -72,10 +67,6 @@ export default function GameBackdrop({
   useEffect(() => {
     if (open) {
       onMount && onMount();
-      dispatch(pauseTimer());
-    } else {
-      // closed
-      dispatch(playTimer());
     }
   }, [open]);
 
