@@ -2,7 +2,7 @@ No backdrop PROXIMO NIVEL, quando eh para sair de um nivel para o outro, informa
 
 backdrop todos os niveis terminados.
 
-salvar o nivel depois de finalizado e nao ao clicar no btn proximo nivel.
+refatorar (useTimer -> useGameLoop)
 
 # Typing Master
 

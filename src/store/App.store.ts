@@ -15,6 +15,7 @@ export interface App extends IDarkMode {
   currentLevel: number;
   backdrop: Backdrop.Props;
   timer: number | null;
+  timerPaused: boolean;
 }
 
 const initialState: App = {
@@ -23,6 +24,7 @@ const initialState: App = {
   currentLevel:
     useStatePersist<number>(CURRENT_LEVEL_KEY_IN_LOCALSTORAGE).get() || 0,
   timer: null,
+  timerPaused: true,
   backdrop: {
     title: "",
     message: "",
@@ -66,6 +68,12 @@ export const app = createSlice({
     setTimer(state, action: PayloadAction<number>) {
       state.timer = action.payload;
     },
+    playTimer(state) {
+      state.timerPaused = false;
+    },
+    pauseTimer(state) {
+      state.timerPaused = true;
+    },
   },
 });
 
@@ -83,6 +91,8 @@ export const {
   hideMessageBackdrop,
   resetAllState,
   setTimer,
+  playTimer,
+  pauseTimer,
 } = app.actions;
 
 export default store;

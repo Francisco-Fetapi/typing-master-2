@@ -51,6 +51,27 @@ export default function useBackdrop() {
       save(currentLevel);
     },
   };
+  const newLevelAchieved = (props: Partial<Backdrop.Props>): Backdrop.Props =>
+    Object.assign(
+      {
+        title: "",
+        message: "",
+        primaryButton: {
+          text: "Começar agora",
+        },
+        secondaryButton: { text: "Sair" },
+        open: true,
+        type: "success",
+        onMount() {
+          const { save, get } = useStatePersist<number>(
+            CURRENT_LEVEL_KEY_IN_LOCALSTORAGE
+          );
+          const currentLevel = get() + 1;
+          save(currentLevel);
+        },
+      },
+      props
+    );
 
-  return { gameOverTimeLimit, gameOverAllWordsTyped };
+  return { gameOverTimeLimit, gameOverAllWordsTyped, newLevelAchieved };
 }

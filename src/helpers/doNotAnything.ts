@@ -1,3 +1,3 @@
 export default function doNotAnything() {
-  return false;
+  // return false;
 }

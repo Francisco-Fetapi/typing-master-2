@@ -7,14 +7,17 @@ import {
   selectPhraseSize,
   selectTimeLimit,
   selectTimer,
+  selectTimerPaused,
   selectTypedWords,
 } from "../store/App.selectors";
+import doNotAnything from "../helpers/doNotAnything";
 
 export default function useTimer() {
   const timeLimit = useSelector(selectTimeLimit);
   const level = useSelector(selectLevel);
   // const [seconds, setSeconds] = useState(timeLimit);
   const seconds = useSelector(selectTimer);
+  const timerPaused = useSelector(selectTimerPaused);
   const toDecrease = timeLimit !== 0;
   const onTimeOver = toDecrease && seconds === 0;
   const backdrop = useBackdrop();
@@ -31,7 +34,9 @@ export default function useTimer() {
   }, [timeLimit]);
 
   const handleTimer = () => {
+    console.log(timerPaused);
     interval.current = setTimeout(() => {
+      if (timerPaused) return doNotAnything();
       if (seconds) {
         const value = toDecrease ? seconds - 1 : seconds + 1;
         dispatch(setTimer(value));
@@ -66,12 +71,13 @@ export default function useTimer() {
   }
 
   useEffect(() => {
+    console.log("mais 1 segundo.");
     if (onTimeOver && !gameFinished) {
       onTimeLimit();
     } else if (!gameFinished) {
       handleTimer();
     }
-  }, [seconds, gameFinished]);
+  }, [seconds, gameFinished, timerPaused]);
 
   const data = {
     seconds: (seconds || 0) % 60,
