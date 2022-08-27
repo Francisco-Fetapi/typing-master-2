@@ -83,7 +83,7 @@ export default function GameBackdrop({
         }
       }
     };
-  }, []);
+  }, [open]);
 
   return (
     <div>
