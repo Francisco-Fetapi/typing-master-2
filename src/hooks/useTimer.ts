@@ -77,7 +77,7 @@ export default function useTimer() {
     } else if (!gameFinished) {
       handleTimer();
     }
-  }, [seconds, gameFinished]);
+  }, [seconds, gameFinished, timerPaused]);
 
   const data = {
     seconds: (seconds || 0) % 60,
