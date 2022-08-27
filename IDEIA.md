@@ -1,5 +1,3 @@
-No backdrop PROXIMO NIVEL, quando eh para sair de um nivel para o outro, informar.
-
 backdrop todos os niveis terminados.
 
 refatorar (useTimer -> useGameLoop)
