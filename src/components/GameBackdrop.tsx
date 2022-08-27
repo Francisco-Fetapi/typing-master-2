@@ -8,7 +8,7 @@ import { BoxColumnCenter, Text } from "../styles/General";
 
 export interface IButton {
   text: string;
-  handleClick?: React.MouseEventHandler<HTMLButtonElement>;
+  handleClick?: () => void;
 }
 
 type IColors =
@@ -67,8 +67,22 @@ export default function GameBackdrop({
   useEffect(() => {
     if (open) {
       onMount && onMount();
+    } else {
+      window.onkeyup = null;
     }
   }, [open]);
+
+  useEffect(() => {
+    window.onkeyup = (e) => {
+      if (e.key === "Enter") {
+        console.log(e.key);
+        if (primaryButton?.handleClick !== undefined) {
+          console.log("Clicou");
+          primaryButton.handleClick();
+        }
+      }
+    };
+  }, []);
 
   return (
     <div>

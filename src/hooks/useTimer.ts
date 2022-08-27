@@ -15,7 +15,6 @@ import doNotAnything from "../helpers/doNotAnything";
 export default function useTimer() {
   const timeLimit = useSelector(selectTimeLimit);
   const level = useSelector(selectLevel);
-  // const [seconds, setSeconds] = useState(timeLimit);
   const seconds = useSelector(selectTimer);
   const timerPaused = useSelector(selectTimerPaused);
   const toDecrease = timeLimit !== 0;
@@ -43,12 +42,6 @@ export default function useTimer() {
       }
     }, 1000);
   };
-
-  // useEffect(() => {
-  //   if (typedWords > 0 && !interval) {
-  //     handleTimer();
-  //   }
-  // }, [typedWords]);
 
   function stopTimer() {
     // interval = null;
@@ -85,6 +78,7 @@ export default function useTimer() {
     onTimeOver,
     stopTimer,
     resetTimer,
+    gameFinished,
   };
 
   return data;

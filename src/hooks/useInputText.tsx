@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import doNotAnything from "../helpers/doNotAnything";
-import { selectPhraseSize, selectTypedWords } from "../store/App.selectors";
+import {
+  selectBackdropInfo,
+  selectPhraseSize,
+  selectTypedWords,
+} from "../store/App.selectors";
 import {
   increaseTypedWords,
   pauseTimer,
@@ -25,8 +29,9 @@ export default function useInputText(wordToType: string) {
   const dispatch = useDispatch();
   const typedWords = useSelector(selectTypedWords);
   const phraseSize = useSelector(selectPhraseSize);
-  const { onTimeOver } = useTimer();
+  const { onTimeOver, gameFinished } = useTimer();
   const { gameOverAllWordsTyped } = useBackdrop();
+  const backdrop = useSelector(selectBackdropInfo);
 
   const checkWord = () => {
     if (onTimeOver) return doNotAnything();
@@ -46,7 +51,7 @@ export default function useInputText(wordToType: string) {
 
   useEffect(() => {
     setInputText("");
-  }, [onTimeOver]);
+  }, [onTimeOver, gameFinished]);
 
   useEffect(() => {
     if (typedWords === phraseSize) {
@@ -61,7 +66,7 @@ export default function useInputText(wordToType: string) {
   }, [typedWords]);
 
   const filterSomeKeys: FuncFilterSomeKeys = (e) => {
-    if (onTimeOver) return doNotAnything();
+    if (onTimeOver || gameFinished || backdrop.open) return doNotAnything();
     if (filteredKeys.includes(e.code)) {
       checkWord();
       return false;
@@ -69,7 +74,8 @@ export default function useInputText(wordToType: string) {
   };
 
   const type: InputEvent = (e) => {
-    if (onTimeOver) return doNotAnything();
+    console.log(onTimeOver, gameFinished);
+    if (onTimeOver || gameFinished || backdrop.open) return doNotAnything();
     const value = e.target.value;
     setInputText(value.trim());
   };
