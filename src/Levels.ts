@@ -37,7 +37,7 @@ export class Level {
         return role;
       }
     }
-    return "Beginner"; //otherwise -> default value
+    return "Advanced"; //otherwise -> is the last level
   }
   getLevelRoleInPortuguese() {
     return Level.rolesInPortuguese[this._level];

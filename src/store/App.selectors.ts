@@ -3,20 +3,23 @@ import { RootState } from "./App.store";
 
 export const selectTheme = (state: RootState) => state.app.darkMode;
 export const selectTextToType = (state: RootState) =>
-  selectLevelInfo(state).phrase;
+  selectCurrentLevelInfo(state).phrase;
 export const selectTypedWords = (state: RootState) => state.app.typedWords;
 export const selectCurrentLevel = (state: RootState) => state.app.currentLevel;
 export const selectPhraseSize = (state: RootState) => {
-  return selectLevelInfo(state).numWords;
+  return selectCurrentLevelInfo(state).numWords;
 };
 export const selectTextToTypeArray = (state: RootState) => {
-  return selectLevelInfo(state).phrase.split(" ");
+  return selectCurrentLevelInfo(state).phrase.split(" ");
 };
-export const selectLevelInfo = (state: RootState) => {
-  return Levels[Math.min(Levels.length - 1, state.app.currentLevel)];
+export const selectCurrentLevelInfo = (state: RootState) => {
+  const key = Math.min(Levels.length - 1, state.app.currentLevel);
+  return Levels[key];
 };
 export const selectPreviousLevel = (state: RootState) => {
-  return Levels[Math.max(0, Levels.length - 2)];
+  const key = Math.max(0, Levels.length - 2);
+  return Levels[key];
+  // return Levels[Math.max(0, state.app.currentLevel - 1)];
 };
 export const selectWordToType = (state: RootState) => {
   const words = selectTextToTypeArray(state);
@@ -24,13 +27,13 @@ export const selectWordToType = (state: RootState) => {
 };
 
 export const selectTimeLimit = (state: RootState) => {
-  return selectLevelInfo(state).timeLimit;
+  return selectCurrentLevelInfo(state).timeLimit;
 };
 export const selectTimerPaused = (state: RootState) => {
   return state.app.timerPaused;
 };
 export const selectLevel = (state: RootState) => {
-  return selectLevelInfo(state).getLevelRoleInPortuguese();
+  return selectCurrentLevelInfo(state).getLevelRoleInPortuguese();
 };
 export const selectBackdropInfo = (state: RootState) => {
   return state.app.backdrop;

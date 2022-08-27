@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Levels } from "../Levels";
 import {
   selectCurrentLevel,
-  selectLevelInfo,
+  selectCurrentLevelInfo,
   selectPreviousLevel,
 } from "../store/App.selectors";
 import { showMessageBackdrop } from "../store/App.store";
 import useBackdrop from "./useBackdrop";
 
 export default function useGameLoop() {
-  const currentLevel = useSelector(selectLevelInfo);
+  const currentLevel = useSelector(selectCurrentLevelInfo);
   const previousLevel = useSelector(selectPreviousLevel);
   const dispatch = useDispatch();
   const backdrop = useBackdrop();
