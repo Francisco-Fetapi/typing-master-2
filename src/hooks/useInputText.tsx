@@ -21,7 +21,7 @@ type FuncFilterSomeKeys =
   | React.KeyboardEventHandler<HTMLInputElement>
   | undefined;
 
-const filteredKeys = ["Space", "Enter"];
+const filteredKeys = ["Space", "Enter"]; //to complete typing
 
 export default function useInputText(wordToType: string) {
   const [inputText, setInputText] = useState("");
@@ -66,6 +66,7 @@ export default function useInputText(wordToType: string) {
   }, [typedWords]);
 
   const filterSomeKeys: FuncFilterSomeKeys = (e) => {
+    console.log(e.code);
     if (onTimeOver || gameFinished || backdrop.open) return doNotAnything();
     if (filteredKeys.includes(e.code)) {
       checkWord();
@@ -74,7 +75,6 @@ export default function useInputText(wordToType: string) {
   };
 
   const type: InputEvent = (e) => {
-    console.log(onTimeOver, gameFinished);
     if (onTimeOver || gameFinished || backdrop.open) return doNotAnything();
     const value = e.target.value;
     setInputText(value.trim());
