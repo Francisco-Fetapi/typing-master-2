@@ -37,7 +37,9 @@ export class Level {
         return role;
       }
     }
-    return "Advanced"; //otherwise -> is the last level
+    let levels = Object.keys(Level.roles) as ILevel[];
+    const lastLevel = levels[levels.length - 1];
+    return lastLevel; //otherwise -> is the last level
   }
   getLevelRoleInPortuguese() {
     return Level.rolesInPortuguese[this._level];

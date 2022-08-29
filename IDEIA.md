@@ -1,3 +1,5 @@
+Bug chega ate o nivel 16.
+
 refatorar (useTimer -> useGameLoop)
 
 O backdrop NIVEL X so deve aparecer para o 2 nivel para frente, e devem apenas aparecer 1 vez. Store, guardar states permanentes configs.
