@@ -17,7 +17,7 @@ export const selectCurrentLevelInfo = (state: RootState) => {
   return Levels[key];
 };
 export const selectPreviousLevel = (state: RootState) => {
-  const key = Math.max(0, Levels.length - 2);
+  const key = Math.max(0, state.app.currentLevel - 1);
   return Levels[key];
   // return Levels[Math.max(0, state.app.currentLevel - 1)];
 };

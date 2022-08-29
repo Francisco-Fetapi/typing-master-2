@@ -30,6 +30,15 @@ export default function useBackdrop() {
     secondaryButton: { text: "Sair" },
     open: true,
     type: "error",
+    onMount() {},
+  };
+
+  const increaseLevelOnMount = function () {
+    const currentLevel = useStatePersist<number>(
+      CURRENT_LEVEL_KEY_IN_LOCALSTORAGE
+    );
+    const level = currentLevel.get() + 1;
+    currentLevel.save(level);
   };
   const gameOverAllWordsTyped: Backdrop.Props = {
     title: "Nivel finalizado.",
@@ -44,11 +53,7 @@ export default function useBackdrop() {
     open: true,
     type: "success",
     onMount() {
-      const { save, get } = useStatePersist<number>(
-        CURRENT_LEVEL_KEY_IN_LOCALSTORAGE
-      );
-      const currentLevel = get() + 1;
-      save(currentLevel);
+      increaseLevelOnMount();
     },
   };
   const newLevelAchieved = (props: Partial<Backdrop.Props>): Backdrop.Props =>
@@ -63,11 +68,7 @@ export default function useBackdrop() {
         open: true,
         type: "success",
         onMount() {
-          const { save, get } = useStatePersist<number>(
-            CURRENT_LEVEL_KEY_IN_LOCALSTORAGE
-          );
-          const currentLevel = get() + 1;
-          save(currentLevel);
+          increaseLevelOnMount();
         },
       },
       props
