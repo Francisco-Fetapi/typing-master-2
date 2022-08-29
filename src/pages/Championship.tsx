@@ -1,4 +1,5 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import DisplayProgress from "../components/DisplayProgress";
 import GameBackdrop from "../components/GameBackdrop";
 import InputText from "../components/InputText";
@@ -11,6 +12,7 @@ import {
   selectLevel,
   selectWordToType,
 } from "../store/App.selectors";
+import { clearTypedWords, pauseTimer, setTimer } from "../store/App.store";
 import { BoxColumnCenter, Text } from "../styles/General";
 
 export default function Championship() {
@@ -19,6 +21,15 @@ export default function Championship() {
   const levelLabel = useSelector(selectLevel);
   const backdropInfo = useSelector(selectBackdropInfo);
   useGameLoop();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    return () => {
+      dispatch(setTimer(0));
+      dispatch(pauseTimer());
+      dispatch(clearTypedWords());
+    };
+  }, []);
 
   return (
     <BoxColumnCenter height="100vh" py={5}>

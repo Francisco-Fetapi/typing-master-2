@@ -51,6 +51,9 @@ export const app = createSlice({
     increaseTypedWords(state) {
       state.typedWords = state.typedWords + 1;
     },
+    clearTypedWords(state) {
+      state.typedWords = 0;
+    },
     increaseLevel(state) {
       state.currentLevel = Math.min(state.currentLevel + 1, Levels.length - 1);
       Object.assign(state, stateReseted());
@@ -93,6 +96,7 @@ export const {
   setTimer,
   playTimer,
   pauseTimer,
+  clearTypedWords,
 } = app.actions;
 
 export default store;
