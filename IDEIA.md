@@ -1,6 +1,14 @@
+refatorar (useTimer -> useGameLoop)
+
+O backdrop NIVEL X so deve aparecer para o 2 nivel para frente, e devem apenas aparecer 1 vez. Store, guardar states permanentes configs.
+
 backdrop todos os niveis terminados.
 
-refatorar (useTimer -> useGameLoop)
+Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
+
+impedir que o usuario cole o texto no input
+
+aumentar pontos com base no numero de letras da palavras digitada.
 
 # Typing Master
 
@@ -10,8 +18,8 @@ Anotações escritas na fase de desenvolvimento para melhor esclarecer até onde
 
 `Contra relogio`
 
-- Frase por nivel
-- Frases mais complicadas por nivel
+- Frase por nivel V
+- Frases mais complicadas por nivel V
 - Ranking X (should have backend)
 - pts level up
 
@@ -43,13 +51,7 @@ Mostrar palavra a ser digitada abaixo do input - true or false
 
 Algumas configs farao o usuario ganhar X vezes mais pontos.
 
-Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
-
-aumentar pontos com base no numero de letras da palavras digitada.
-
 funcao random na classe Level, para embaralhar a frase.
-
-impedir que o usuario cole o texto no inout
 
 _Em Treino_
 tabela de palavras que mais erraste.
