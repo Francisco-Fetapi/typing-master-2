@@ -66,7 +66,6 @@ export default function useInputText(wordToType: string) {
   }, [typedWords]);
 
   const filterSomeKeys: FuncFilterSomeKeys = (e) => {
-    console.log(e.code);
     if (onTimeOver || gameFinished || backdrop.open) return doNotAnything();
     if (filteredKeys.includes(e.code)) {
       checkWord();

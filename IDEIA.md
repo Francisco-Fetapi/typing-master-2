@@ -1,7 +1,5 @@
 Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
 
-impedir que o usuario cole o texto no input
-
 refatorar (useTimer -> useGameLoop)
 
 backdrop todos os niveis terminados.
