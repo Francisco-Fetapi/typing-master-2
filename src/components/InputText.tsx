@@ -18,7 +18,7 @@ export default function InputText({ text }: Props) {
         onKeyUp={filterSomeKeys}
         onPaste={(e) => e.preventDefault()}
         autoFocus
-        // style={{ opacity: 0, pointerEvents: "none" }}
+        style={{ opacity: 0, pointerEvents: "none" }}
         onBlurCapture={(e) => e.target.focus()}
       />
       <InputTextContainer variant="outlined" className={error ? "error" : ""}>
