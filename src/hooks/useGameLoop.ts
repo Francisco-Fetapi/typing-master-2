@@ -11,6 +11,7 @@ import useBackdrop from "./useBackdrop";
 import useStatePersist from "./useStatePersist";
 
 export default function useGameLoop() {
+  const level = useSelector(selectCurrentLevel);
   const currentLevel = useSelector(selectCurrentLevelInfo);
   const previousLevel = useSelector(selectPreviousLevel);
   const dispatch = useDispatch();
@@ -18,13 +19,15 @@ export default function useGameLoop() {
   const backdropNewLevel = useStatePersist<string>("newLevel");
 
   useEffect(() => {
-    console.log("current", currentLevel, "previous", previousLevel);
-    if (previousLevel.level !== currentLevel.level) {
-      if (backdropNewLevel.get()) {
+    if (level === 0) {
+      return;
+    }
+    // console.log("current", currentLevel, "previous", previousLevel);
+    if (previousLevel?.level !== currentLevel?.level) {
+      if (backdropNewLevel.get() === currentLevel.level) {
         return;
       }
-      backdropNewLevel.save("true");
-      console.log("Parabens");
+      backdropNewLevel.save(currentLevel.level);
       dispatch(
         showMessageBackdrop(
           backdrop.newLevelAchieved({
@@ -33,10 +36,6 @@ export default function useGameLoop() {
           })
         )
       );
-    } else {
-      if (currentLevel.level !== "Beginner") {
-        backdropNewLevel.save("false");
-      }
     }
   }, [currentLevel]);
 
