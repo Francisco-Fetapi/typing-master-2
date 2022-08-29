@@ -18,7 +18,7 @@ export default function useGameLoop() {
   const backdropNewLevel = useStatePersist<string>("newLevel");
 
   useEffect(() => {
-    console.log(currentLevel, previousLevel);
+    console.log("current", currentLevel, "previous", previousLevel);
     if (previousLevel.level !== currentLevel.level) {
       if (backdropNewLevel.get()) {
         return;
@@ -34,7 +34,9 @@ export default function useGameLoop() {
         )
       );
     } else {
-      backdropNewLevel.save("false");
+      if (currentLevel.level !== "Beginner") {
+        backdropNewLevel.save("false");
+      }
     }
   }, [currentLevel]);
 
