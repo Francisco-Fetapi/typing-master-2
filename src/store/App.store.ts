@@ -52,7 +52,7 @@ export const app = createSlice({
       state.typedWords = state.typedWords + 1;
     },
     increaseLevel(state) {
-      const currentLevel = ++state.currentLevel;
+      state.currentLevel = Math.min(state.currentLevel + 1, Levels.length - 1);
       Object.assign(state, stateReseted());
     },
     showMessageBackdrop(state, action: PayloadAction<Backdrop.Props>) {
