@@ -1,14 +1,10 @@
-Bug chega ate o nivel 16.
-
-refatorar (useTimer -> useGameLoop)
-
-O backdrop NIVEL X so deve aparecer para o 2 nivel para frente, e devem apenas aparecer 1 vez. Store, guardar states permanentes configs.
-
-backdrop todos os niveis terminados.
-
 Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
 
 impedir que o usuario cole o texto no input
+
+refatorar (useTimer -> useGameLoop)
+
+backdrop todos os niveis terminados.
 
 aumentar pontos com base no numero de letras da palavras digitada.
 
