@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import * as Backdrop from "../components/GameBackdrop";
 import { selectTimeLimit } from "../store/App.selectors";
 import {
@@ -12,6 +13,7 @@ import useStatePersist from "./useStatePersist";
 export default function useBackdrop() {
   const timeLimit = useSelector(selectTimeLimit);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function resetTimer() {
     dispatch(setTimer(timeLimit));
@@ -25,21 +27,6 @@ export default function useBackdrop() {
       handleClick: () => {
         dispatch(resetAllState());
         resetTimer();
-      },
-    },
-    secondaryButton: { text: "Sair" },
-    open: true,
-    type: "error",
-    onMount() {},
-  };
-  const allLevelsFinished: Backdrop.Props = {
-    title: "Jogo Finalizado",
-    message:
-      "Todos os niveis do jogo foram completamente finalizados, agora você é um Typing Master.",
-    primaryButton: {
-      text: "Listagem de Niveis",
-      handleClick: () => {
-        console.log("Listagem de niveis");
       },
     },
     secondaryButton: { text: "Sair" },
@@ -88,6 +75,22 @@ export default function useBackdrop() {
       },
       props
     );
+
+  const allLevelsFinished: Backdrop.Props = {
+    title: "Jogo Finalizado",
+    message:
+      "Todos os niveis do jogo foram completamente finalizados, agora você é um Typing Master.",
+    primaryButton: {
+      text: "Listagem de Niveis",
+      handleClick: () => {
+        navigate("/levels", { replace: true });
+      },
+    },
+    secondaryButton: { text: "Sair" },
+    open: true,
+    type: "success",
+    onMount() {},
+  };
 
   return {
     gameOverTimeLimit,

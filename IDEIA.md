@@ -53,6 +53,7 @@ Case sensitive - true or false
 Sinais de pontuação - true or false
 Exibir letras erradas em tempo real - true or false
 Mostrar palavra a ser digitada abaixo do input - true or false
+Concluir digitacao apos clicar na tecla (Espaco,Enter,Automaticamente)
 
 ---
 
