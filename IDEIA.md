@@ -10,8 +10,6 @@ botao resetar tudo. (repetir nivel.)
 
 refatorar (useTimer -> useGameLoop)
 
-erro, ir e voltar, backdrop timeout displayed, why
-
 # Typing Master
 
 Anotações escritas na fase de desenvolvimento para melhor esclarecer até onde quero chegar com a aplicação. Já que não entendo nada sobre `engenharia de software`, então é assim que geralmente eu arquiteto meus apps para estudo.
