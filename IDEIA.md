@@ -40,6 +40,13 @@ nivel 6 - amador 3
 
 ...
 
+## Modo infinito
+
+Sem frase.
+Palavra por palavra (timer por Palavra)
+Pts++ por cada palavra digitada
+O jogo nunca termina
+
 ## Seção de configs
 
 Case sensitive - true or false
