@@ -6,7 +6,11 @@ aumentar pontos com base no numero de letras da palavras digitada.
 
 ---
 
+botao resetar tudo. (repetir nivel.)
+
 refatorar (useTimer -> useGameLoop)
+
+erro, ir e voltar, backdrop timeout displayed, why
 
 # Typing Master
 
