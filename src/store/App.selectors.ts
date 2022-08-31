@@ -14,7 +14,6 @@ export const selectTextToTypeArray = (state: RootState) => {
 };
 export const selectCurrentLevelInfo = (state: RootState) => {
   const key = Math.min(Levels.length - 1, state.app.currentLevel);
-  console.log(Levels[key]);
   return Levels[key];
 };
 export const selectPreviousLevel = (state: RootState) => {

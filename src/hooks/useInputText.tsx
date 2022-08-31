@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import doNotAnything from "../helpers/doNotAnything";
+import { Levels } from "../Levels";
 import {
   selectBackdropInfo,
+  selectCurrentLevel,
   selectPhraseSize,
   selectTypedWords,
 } from "../store/App.selectors";
@@ -30,8 +32,9 @@ export default function useInputText(wordToType: string) {
   const typedWords = useSelector(selectTypedWords);
   const phraseSize = useSelector(selectPhraseSize);
   const { onTimeOver, gameFinished } = useTimer();
-  const { gameOverAllWordsTyped } = useBackdrop();
+  const { gameOverAllWordsTyped, allLevelsFinished } = useBackdrop();
   const backdrop = useSelector(selectBackdropInfo);
+  const level = useSelector(selectCurrentLevel);
 
   const checkWord = () => {
     if (onTimeOver) return doNotAnything();
@@ -56,6 +59,10 @@ export default function useInputText(wordToType: string) {
   useEffect(() => {
     if (typedWords === phraseSize) {
       dispatch(pauseTimer());
+      if (!Levels[level + 1]) {
+        dispatch(showMessageBackdrop(allLevelsFinished));
+        return;
+      }
       dispatch(showMessageBackdrop(gameOverAllWordsTyped));
     }
   }, [typedWords]);

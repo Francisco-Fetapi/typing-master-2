@@ -103,8 +103,8 @@ export default function GameBackdrop({
             >
               {title}
             </Text>
-            <Box mt={1.5}>
-              <Text variant="subtitle2" color="white">
+            <Box mt={1.5} width={0.85}>
+              <Text align="center" variant="subtitle2" color="white">
                 {message}
               </Text>
             </Box>

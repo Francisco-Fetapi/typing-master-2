@@ -32,6 +32,21 @@ export default function useBackdrop() {
     type: "error",
     onMount() {},
   };
+  const allLevelsFinished: Backdrop.Props = {
+    title: "Jogo Finalizado",
+    message:
+      "Todos os niveis do jogo foram completamente finalizados, agora você é um Typing Master.",
+    primaryButton: {
+      text: "Listagem de Niveis",
+      handleClick: () => {
+        console.log("Listagem de niveis");
+      },
+    },
+    secondaryButton: { text: "Sair" },
+    open: true,
+    type: "error",
+    onMount() {},
+  };
 
   const increaseLevelOnMount = function () {
     const currentLevel = useStatePersist<number>(
@@ -74,5 +89,10 @@ export default function useBackdrop() {
       props
     );
 
-  return { gameOverTimeLimit, gameOverAllWordsTyped, newLevelAchieved };
+  return {
+    gameOverTimeLimit,
+    gameOverAllWordsTyped,
+    newLevelAchieved,
+    allLevelsFinished,
+  };
 }
