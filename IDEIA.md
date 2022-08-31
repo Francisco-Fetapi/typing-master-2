@@ -1,14 +1,14 @@
-Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
-
 backdrop todos os niveis terminados. (msg, btn Repetir)
 
-aumentar pontos com base no numero de letras da palavras digitada.
+refatorar (useTimer -> useGameLoop)
 
 ---
 
-botao resetar tudo. (repetir nivel.)
+botao resetar tudo e paused. (repetir nivel, pausar relogio)
 
-refatorar (useTimer -> useGameLoop)
+aumentar pontos com base no numero de letras da palavras digitada.
+
+Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
 
 # Typing Master
 

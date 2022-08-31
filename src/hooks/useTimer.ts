@@ -33,7 +33,6 @@ export default function useTimer() {
   }, [timeLimit]);
 
   const handleTimer = () => {
-    console.log(timerPaused);
     interval.current = setTimeout(() => {
       if (timerPaused) return doNotAnything();
       if (seconds) {
@@ -44,7 +43,6 @@ export default function useTimer() {
   };
 
   function stopTimer() {
-    // interval = null;
     if (interval.current) {
       clearTimeout(interval.current);
     }
@@ -64,7 +62,6 @@ export default function useTimer() {
   }
 
   useEffect(() => {
-    console.log("mais 1 segundo.");
     if (onTimeOver && !gameFinished) {
       onTimeLimit();
     } else if (!gameFinished) {
