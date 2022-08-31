@@ -1,5 +1,3 @@
-backdrop todos os niveis terminados. (msg, btn Repetir)
-
 refatorar (useTimer -> useGameLoop)
 
 ---
@@ -67,3 +65,8 @@ Treinar aquele palavra em especifico num certo timer com base no numero de letra
 
 BTN -> Treinar todas essas palavras de uma vez
 Treinar frase personalizada
+
+## Sobre
+
+info.
+instrucoes
