@@ -9,25 +9,33 @@ import useGameLoop from "../hooks/useGameLoop";
 import {
   selectBackdropInfo,
   selectCurrentLevel,
+  selectCurrentLevelInfo,
   selectLevel,
   selectWordToType,
 } from "../store/App.selectors";
-import { clearTypedWords, pauseTimer, setTimer } from "../store/App.store";
+import {
+  clearTypedWords,
+  hideMessageBackdrop,
+  pauseTimer,
+  setTimer,
+} from "../store/App.store";
 import { BoxColumnCenter, Text } from "../styles/General";
 
 export default function Championship() {
   const wordToType = useSelector(selectWordToType);
   const level = useSelector(selectCurrentLevel);
   const levelLabel = useSelector(selectLevel);
+  const currentLevel = useSelector(selectCurrentLevelInfo);
   const backdropInfo = useSelector(selectBackdropInfo);
   useGameLoop();
   const dispatch = useDispatch();
 
   useEffect(() => {
     return () => {
-      dispatch(setTimer(0));
+      dispatch(setTimer(currentLevel.timeLimit));
       dispatch(pauseTimer());
       dispatch(clearTypedWords());
+      dispatch(hideMessageBackdrop());
     };
   }, []);
 
