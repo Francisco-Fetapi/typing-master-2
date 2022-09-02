@@ -4,8 +4,6 @@ Timer ContextAPI
 
 ---
 
-botao resetar tudo e paused. (repetir nivel, pausar relogio)
-
 aumentar pontos com base no numero de letras da palavras digitada.
 
 Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
@@ -72,3 +70,7 @@ Treinar frase personalizada
 
 info.
 instrucoes
+
+# Implementados
+
+botao resetar tudo e paused. (repetir nivel, pausar relogio)
