@@ -5,6 +5,7 @@ import store from "./store/App.store";
 import { Provider } from "react-redux";
 import Routes from "./routes";
 import { Levels } from "./Levels";
+import PointCounter from "./components/PointCounter";
 
 function App() {
   console.log(Levels);
@@ -13,6 +14,7 @@ function App() {
       <Layout>
         <S.AppContainer>
           <SnackbarProvider maxSnack={3}>
+            <PointCounter />
             <Routes />
           </SnackbarProvider>
         </S.AppContainer>

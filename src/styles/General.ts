@@ -46,3 +46,9 @@ export const BoxColumnCenter = styled(Box)`
 ` as typeof Box;
 
 export const Text = styled(Typography)`` as typeof Typography;
+
+export const PointCounterContainer = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 20px;
+`;

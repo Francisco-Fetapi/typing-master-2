@@ -6,6 +6,7 @@ import { Levels } from "../Levels";
 
 export const THEME_KEY_IN_LOCALSTORAGE = "darkMode";
 export const CURRENT_LEVEL_KEY_IN_LOCALSTORAGE = "currentLevel";
+export const POINTS_KEY_IN_LOCALSTORAGE = "points";
 
 export interface IDarkMode {
   darkMode: boolean;
@@ -16,6 +17,7 @@ export interface App extends IDarkMode {
   backdrop: Backdrop.Props;
   timer: number | null;
   timerPaused: boolean;
+  points: number;
 }
 
 const initialState: App = {
@@ -30,6 +32,7 @@ const initialState: App = {
     message: "",
     open: false,
   },
+  points: useStatePersist<number>(POINTS_KEY_IN_LOCALSTORAGE).get() || 0,
 };
 
 function stateReseted(): App {
@@ -77,6 +80,11 @@ export const app = createSlice({
     pauseTimer(state) {
       state.timerPaused = true;
     },
+    increasePoints(state, action: PayloadAction<number>) {
+      state.points += action.payload;
+      const { save } = useStatePersist<number>(POINTS_KEY_IN_LOCALSTORAGE);
+      save(state.points);
+    },
   },
 });
 
@@ -97,6 +105,7 @@ export const {
   playTimer,
   pauseTimer,
   clearTypedWords,
+  increasePoints,
 } = app.actions;
 
 export default store;

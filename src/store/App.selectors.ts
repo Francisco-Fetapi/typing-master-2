@@ -41,3 +41,6 @@ export const selectBackdropInfo = (state: RootState) => {
 export const selectTimer = (state: RootState) => {
   return state.app.timer;
 };
+export const selectPoints = (state: RootState) => {
+  return state.app.points;
+};
