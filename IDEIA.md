@@ -1,12 +1,15 @@
-refatorar (useTimer -> useGameLoop)
+Criar pagina Treino.
 
-Timer ContextAPI
+- Criar propria frase.
+- Gerar automaticamente.
 
 ---
 
-aumentar pontos com base no numero de letras da palavras digitada.
-
 Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
+
+refatorar (useTimer -> useGameLoop)
+
+Timer ContextAPI
 
 # Typing Master
 
@@ -19,7 +22,7 @@ Anotações escritas na fase de desenvolvimento para melhor esclarecer até onde
 - Frase por nivel V
 - Frases mais complicadas por nivel V
 - Ranking X (should have backend)
-- pts level up
+- pts level up V
 
 ## Treino (like the last) (x0 pts)
 
@@ -74,3 +77,5 @@ instrucoes
 # Implementados
 
 botao resetar tudo e paused. (repetir nivel, pausar relogio)
+
+aumentar pontos com base no numero de letras da palavras digitada.
