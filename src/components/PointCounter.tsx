@@ -6,7 +6,9 @@ export default function PointCounter() {
   const points = useSelector(selectPoints);
   return (
     <PointCounterContainer>
-      <Text variant="h6">{points} pt</Text>
+      <Text variant="h6" color="primary">
+        {points} pt
+      </Text>
     </PointCounterContainer>
   );
 }
