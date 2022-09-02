@@ -12,6 +12,7 @@ import {
   selectTypedWords,
 } from "../store/App.selectors";
 import {
+  increasePoints,
   increaseTypedWords,
   pauseTimer,
   playTimer,
@@ -49,6 +50,7 @@ export default function useInputText(wordToType: string) {
     if (onTimeOver) return doNotAnything();
     if (inputText === wordToType) {
       dispatch(increaseTypedWords());
+      dispatch(increasePoints(wordToType.length));
       setInputText("");
     } else {
       setError(true);

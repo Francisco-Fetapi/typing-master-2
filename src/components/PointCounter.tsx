@@ -7,7 +7,7 @@ export default function PointCounter() {
   return (
     <PointCounterContainer>
       <Text variant="h6" color="primary">
-        {points} pt
+        {points.toLocaleString()} pt{points > 0 && "s"}
       </Text>
     </PointCounterContainer>
   );
