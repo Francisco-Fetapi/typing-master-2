@@ -5,7 +5,10 @@ import { Levels } from "../Levels";
 import {
   selectBackdropInfo,
   selectCurrentLevel,
+  selectCurrentLevelInfo,
   selectPhraseSize,
+  selectTimer,
+  selectTimerPaused,
   selectTypedWords,
 } from "../store/App.selectors";
 import {
@@ -35,6 +38,12 @@ export default function useInputText(wordToType: string) {
   const { gameOverAllWordsTyped, allLevelsFinished } = useBackdrop();
   const backdrop = useSelector(selectBackdropInfo);
   const level = useSelector(selectCurrentLevel);
+  const currentLevel = useSelector(selectCurrentLevelInfo);
+  const timerPaused = useSelector(selectTimerPaused);
+  const timer = useSelector(selectTimer);
+  const gamePaused = timerPaused && timer !== currentLevel.timeLimit;
+  const inCasesToDoAnything =
+    onTimeOver || gameFinished || backdrop.open || gamePaused;
 
   const checkWord = () => {
     if (onTimeOver) return doNotAnything();
@@ -73,7 +82,7 @@ export default function useInputText(wordToType: string) {
   }, [typedWords]);
 
   const filterSomeKeys: FuncFilterSomeKeys = (e) => {
-    if (onTimeOver || gameFinished || backdrop.open) return doNotAnything();
+    if (inCasesToDoAnything) return doNotAnything();
     if (filteredKeys.includes(e.code)) {
       checkWord();
       return false;
@@ -81,7 +90,7 @@ export default function useInputText(wordToType: string) {
   };
 
   const type: InputEvent = (e) => {
-    if (onTimeOver || gameFinished || backdrop.open) return doNotAnything();
+    if (inCasesToDoAnything) return doNotAnything();
     const value = e.target.value;
     setInputText(value.trim());
   };

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import DisplayProgress from "../components/DisplayProgress";
 import GameBackdrop from "../components/GameBackdrop";
 import InputText from "../components/InputText";
+import PauseAndReset from "../components/PauseAndReset";
 import TextToType from "../components/TextToType";
 import Timer from "../components/Timer";
 import useGameLoop from "../hooks/useGameLoop";
@@ -57,6 +58,7 @@ export default function Championship() {
       <div style={{ flexGrow: 1 }} />
       <BoxColumnCenter mt={2}>
         <DisplayProgress />
+        <PauseAndReset />
       </BoxColumnCenter>
       <GameBackdrop {...backdropInfo} />
     </BoxColumnCenter>

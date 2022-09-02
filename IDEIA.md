@@ -1,5 +1,7 @@
 refatorar (useTimer -> useGameLoop)
 
+Timer ContextAPI
+
 ---
 
 botao resetar tudo e paused. (repetir nivel, pausar relogio)
