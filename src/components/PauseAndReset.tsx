@@ -6,8 +6,14 @@ import {
   selectCurrentLevelInfo,
   selectTimer,
   selectTimerPaused,
+  selectTypedWords,
 } from "../store/App.selectors";
-import { pauseTimer, playTimer } from "../store/App.store";
+import {
+  clearTypedWords,
+  pauseTimer,
+  playTimer,
+  setTimer,
+} from "../store/App.store";
 
 interface IActionsPausePlay {
   text: string;
@@ -20,6 +26,8 @@ export default function PauseAndReset() {
   const timer = useSelector(selectTimer);
   const level = useSelector(selectCurrentLevelInfo);
   const dispatch = useDispatch();
+  const typedWords = useSelector(selectTypedWords);
+  const gameNotStarted = timer === level.timeLimit || typedWords === 0;
   const statusGame: IActionsPausePlay = timerPaused
     ? {
         text: "Retomar",
@@ -36,16 +44,28 @@ export default function PauseAndReset() {
         },
       };
 
+  function restart() {
+    dispatch(clearTypedWords());
+    dispatch(pauseTimer());
+    dispatch(setTimer(level.timeLimit));
+  }
+
   return (
     <Stack
       justifyContent="center"
-      style={{ display: timer === level.timeLimit ? "none" : "flex" }}
+      style={{ display: gameNotStarted ? "none" : "flex" }}
     >
       <ButtonGroup variant="contained" color="primary" size="small">
         <Button onClick={statusGame.onClick} startIcon={statusGame.icon}>
           {statusGame.text}
         </Button>
-        <Button startIcon={<MdRestartAlt />}>Reiniciar</Button>
+        <Button
+          onClick={restart}
+          startIcon={<MdRestartAlt />}
+          disabled={!timerPaused}
+        >
+          Reiniciar
+        </Button>
       </ButtonGroup>
     </Stack>
   );
