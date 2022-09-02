@@ -43,7 +43,7 @@ export class Level {
   }
   getLevelRoleInPortuguese() {
     return Level.rolesInPortuguese[this._level];
-  }
+  } 
   set level(level: ILevel) {
     this._level = level;
   }
