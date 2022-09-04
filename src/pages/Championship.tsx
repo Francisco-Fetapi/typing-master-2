@@ -32,6 +32,7 @@ export default function Championship() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(hideMessageBackdrop());
     return () => {
       dispatch(setTimer(currentLevel.timeLimit));
       dispatch(pauseTimer());
