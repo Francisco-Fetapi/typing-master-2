@@ -16,6 +16,13 @@ export default function TextToType() {
           component="span"
           key={key}
           color={key < typedWords ? "blue" : "inherit"}
+          sx={(theme) =>
+            key < typedWords
+              ? {
+                  borderBottom: `1px dashed ${theme.palette.primary.main}`,
+                }
+              : {}
+          }
         >
           {word}
         </Text>

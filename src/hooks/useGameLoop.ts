@@ -6,8 +6,9 @@ import {
   selectCurrentLevel,
   selectCurrentLevelInfo,
   selectPreviousLevel,
+  selectTimerPaused,
 } from "../store/App.selectors";
-import { resetAllState, showMessageBackdrop } from "../store/App.store";
+import { showMessageBackdrop } from "../store/App.store";
 import useBackdrop from "./useBackdrop";
 import useStatePersist from "./useStatePersist";
 
