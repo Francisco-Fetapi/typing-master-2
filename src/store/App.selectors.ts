@@ -35,7 +35,6 @@ export const selectWordToType = (state: RootState) => {
 };
 
 export const selectTimeLimit = (state: RootState) => {
-  console.log(selectCurrentLevelInfo(state).timeLimit);
   return selectCurrentLevelInfo(state).timeLimit;
 };
 export const selectTimerPaused = (state: RootState) => {
