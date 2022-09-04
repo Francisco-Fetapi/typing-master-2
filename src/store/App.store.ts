@@ -91,6 +91,10 @@ export const app = createSlice({
       const { save } = useStatePersist<number>(POINTS_KEY_IN_LOCALSTORAGE);
       save(state.points);
     },
+    chooseRandomPhraseToTrain(state) {
+      state.phraseTraining =
+        selectRandomElement<TrainingPhrase>(trainingPhrases);
+    },
   },
 });
 
@@ -112,6 +116,7 @@ export const {
   pauseTimer,
   clearTypedWords,
   increasePoints,
+  chooseRandomPhraseToTrain,
 } = app.actions;
 
 export default store;

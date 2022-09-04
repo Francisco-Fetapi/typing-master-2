@@ -16,6 +16,7 @@ import {
   selectWordToType,
 } from "../store/App.selectors";
 import {
+  chooseRandomPhraseToTrain,
   clearTypedWords,
   hideMessageBackdrop,
   pauseTimer,
@@ -39,6 +40,7 @@ export default function Trainning() {
       dispatch(pauseTimer());
       dispatch(clearTypedWords());
       dispatch(hideMessageBackdrop());
+      dispatch(chooseRandomPhraseToTrain());
     };
   }, []);
 
