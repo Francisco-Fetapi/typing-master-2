@@ -2,8 +2,11 @@ import { Box, Fab, Stack, Divider } from "@mui/material";
 import { Text } from "../styles/General";
 import { MdModelTraining, MdPlayArrow } from "react-icons/md";
 import IconTextFab from "../components/IconTextFab";
+import useBoolean from "../hooks/useBoolean";
+import ModalTraining from "../components/ModalTraining";
 
 export default function Home() {
+  const modalTrain = useBoolean();
   return (
     <Box display="flex" alignItems="center" flexDirection="column">
       <Text
@@ -30,10 +33,12 @@ export default function Home() {
           <IconTextFab
             label="Treinar"
             icon={<MdModelTraining fontSize={24} />}
-            to="/training"
+            // to="/training"
+            onClick={modalTrain.handleOpen}
           />
         </Stack>
       </Box>
+      <ModalTraining {...modalTrain} />
     </Box>
   );
 }

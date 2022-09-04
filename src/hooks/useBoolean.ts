@@ -5,7 +5,11 @@ export default function useBoolean() {
 
   return {
     open,
-    handleOpen: () => setOpen(true),
-    handleClose: () => setOpen(false),
+    handleOpen: () => {
+      setOpen(true);
+    },
+    handleClose: () => {
+      setOpen(false);
+    },
   };
 }

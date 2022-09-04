@@ -6,11 +6,13 @@ interface Props {
   icon: React.ReactElement;
   label: string;
   to?: "/" | "/championship" | "/training";
+  onClick?(): void;
 }
 
-export default function IconTextFab({ icon, label, to }: Props) {
+export default function IconTextFab({ icon, label, to, onClick }: Props) {
   const navigate = useNavigate();
-  const navigateTo = to ? () => navigate(to) : () => null;
+  const handleClick = onClick ? onClick : () => null;
+  const navigateTo = to ? () => navigate(to) : handleClick;
   return (
     <Box onClick={navigateTo} style={{ userSelect: "none" }}>
       <Fab color="primary">{icon}</Fab>
