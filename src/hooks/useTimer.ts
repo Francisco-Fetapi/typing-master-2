@@ -18,7 +18,7 @@ export default function useTimer() {
   const level = useSelector(selectLevel);
   const seconds = useSelector(selectTimer);
   const timerPaused = useSelector(selectTimerPaused);
-  const toDecrease = timeLimit !== 0;
+  const toDecrease = timeLimit > 0;
   const location = useLocation();
   const inTraining = location.pathname === "/training";
   const onTimeOver = toDecrease && seconds === 0 && !inTraining;
@@ -70,7 +70,7 @@ export default function useTimer() {
     } else if (!gameFinished) {
       handleTimer();
     }
-  }, [seconds, gameFinished, timerPaused]);
+  }, [seconds, gameFinished, timerPaused, onTimeOver]);
 
   const data = {
     seconds: (seconds || 0) % 60,

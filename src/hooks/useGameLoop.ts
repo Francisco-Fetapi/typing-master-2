@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { Levels } from "../Levels";
+
 import {
   selectCurrentLevel,
   selectCurrentLevelInfo,
   selectPreviousLevel,
 } from "../store/App.selectors";
-import { showMessageBackdrop } from "../store/App.store";
+import { resetAllState, showMessageBackdrop } from "../store/App.store";
 import useBackdrop from "./useBackdrop";
 import useStatePersist from "./useStatePersist";
 

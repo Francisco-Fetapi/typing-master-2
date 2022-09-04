@@ -32,15 +32,15 @@ export default function Trainning() {
   useGameLoop();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log(currentLevel);
-    return () => {
-      dispatch(setTimer(currentLevel.timeLimit));
-      dispatch(pauseTimer());
-      dispatch(clearTypedWords());
-      dispatch(hideMessageBackdrop());
-    };
-  }, []);
+  // useEffect(() => {
+  //   console.log(currentLevel);
+  //   return () => {
+  //     dispatch(setTimer(currentLevel.timeLimit));
+  //     dispatch(pauseTimer());
+  //     dispatch(clearTypedWords());
+  //     dispatch(hideMessageBackdrop());
+  //   };
+  // }, []);
 
   return (
     <BoxColumnCenter height="100vh" py={5}>

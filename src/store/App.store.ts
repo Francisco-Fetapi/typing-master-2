@@ -43,7 +43,9 @@ function stateReseted(): App {
   const darkMode = useStatePersist<boolean>(THEME_KEY_IN_LOCALSTORAGE).get();
   const currentLevel =
     useStatePersist<number>(CURRENT_LEVEL_KEY_IN_LOCALSTORAGE).get() || 0;
-  return { ...initialState, darkMode, currentLevel };
+  const points = useStatePersist<number>(POINTS_KEY_IN_LOCALSTORAGE).get() || 0;
+  const phraseTraining = selectRandomElement<TrainingPhrase>(trainingPhrases);
+  return { ...initialState, darkMode, currentLevel, points, phraseTraining };
 }
 
 export const app = createSlice({
@@ -75,7 +77,7 @@ export const app = createSlice({
     resetAllState(state) {
       Object.assign(state, stateReseted());
     },
-    setTimer(state, action: PayloadAction<number>) {
+    setTimer(state, action: PayloadAction<number | null>) {
       state.timer = action.payload;
     },
     playTimer(state) {
