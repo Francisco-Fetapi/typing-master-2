@@ -76,6 +76,10 @@ export default function useInputText(wordToType: string) {
   useEffect(() => {
     if (typedWords === phraseSize) {
       dispatch(pauseTimer());
+      if (inTraining) {
+        console.log("Treino terminou");
+        return;
+      }
       if (!Levels[level + 1]) {
         dispatch(showMessageBackdrop(allLevelsFinished));
         return;

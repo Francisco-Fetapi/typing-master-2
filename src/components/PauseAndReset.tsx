@@ -28,6 +28,7 @@ export default function PauseAndReset() {
   const dispatch = useDispatch();
   const typedWords = useSelector(selectTypedWords);
   const gameNotStarted = timer === level.timeLimit && typedWords === 0;
+  const gameFinished = level.numWords === typedWords;
   const statusGame: IActionsPausePlay = timerPaused
     ? {
         text: "Retomar",
@@ -50,6 +51,9 @@ export default function PauseAndReset() {
     dispatch(setTimer(level.timeLimit));
   }
 
+  if (gameFinished) {
+    return <div />;
+  }
   return (
     <Stack
       justifyContent="center"
