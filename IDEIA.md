@@ -1,15 +1,6 @@
-Criar pagina Treino.
-
-- Criar propria frase.
-- Gerar automaticamente.
-
----
-
 Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
 
 refatorar (useTimer -> useGameLoop)
-
-Timer ContextAPI
 
 background de espaça sideral -> light,dark
 
@@ -81,3 +72,8 @@ instrucoes
 botao resetar tudo e paused. (repetir nivel, pausar relogio)
 
 aumentar pontos com base no numero de letras da palavras digitada.
+
+Criar pagina Treino.
+
+- Criar propria frase.
+- Gerar automaticamente.
