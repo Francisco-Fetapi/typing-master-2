@@ -46,13 +46,13 @@ export default function Trainning() {
 
   return (
     <BoxColumnCenter height="100vh" py={5}>
-      <BoxColumnCenter mb={1.5}>
+      <BoxColumnCenter mb={1.5} className="grayscale-on-paused">
         <Text variant="h6" color="primary">
           MODO TREINO
         </Text>
       </BoxColumnCenter>
       <Timer />
-      <BoxColumnCenter mt={2}>
+      <BoxColumnCenter mt={2} className="grayscale-on-paused">
         <InputText text={wordToType} />
       </BoxColumnCenter>
       <BoxColumnCenter mt={2} maxWidth={600} px={3}>

@@ -5,7 +5,7 @@ import { PointCounterContainer, Text } from "../styles/General";
 export default function PointCounter() {
   const points = useSelector(selectPoints);
   return (
-    <PointCounterContainer>
+    <PointCounterContainer className="grayscale-on-paused">
       <Text variant="h6" color="primary">
         {points.toLocaleString()} pt{points > 0 && "s"}
       </Text>

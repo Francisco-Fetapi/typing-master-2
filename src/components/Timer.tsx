@@ -6,7 +6,13 @@ import { Text } from "../styles/General";
 export default function Timer() {
   const { seconds, minutes } = useTimer();
   return (
-    <Stack direction="row" gap={1} alignItems="center" style={{ zoom: 1.4 }}>
+    <Stack
+      direction="row"
+      gap={1}
+      alignItems="center"
+      style={{ zoom: 1.4 }}
+      className="grayscale-on-paused"
+    >
       <MdTimer fontSize={20} />
       <Text>
         {Math.ceil(minutes).toString().padStart(2, "0")}m:

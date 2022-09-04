@@ -10,7 +10,12 @@ export default function TextToType() {
   const textToType = useSelector(selectTextToTypeArray);
   const typedWords = useSelector(selectTypedWords);
   return (
-    <Stack direction="row" gap={1} flexWrap="wrap">
+    <Stack
+      direction="row"
+      gap={1}
+      flexWrap="wrap"
+      className="grayscale-on-paused"
+    >
       {textToType.map((word, key) => (
         <Text
           component="span"

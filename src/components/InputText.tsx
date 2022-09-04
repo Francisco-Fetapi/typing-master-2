@@ -11,7 +11,7 @@ export default function InputText({ text }: Props) {
     useInputText(text);
 
   return (
-    <BoxColumnCenter>
+    <BoxColumnCenter className="grayscale-on-paused">
       <input
         value={inputText}
         onChange={type}

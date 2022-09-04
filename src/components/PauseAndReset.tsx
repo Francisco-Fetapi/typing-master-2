@@ -57,6 +57,7 @@ export default function PauseAndReset() {
   return (
     <Stack
       justifyContent="center"
+      className="no-grayscale-on-paused"
       style={{ display: gameNotStarted ? "none" : "flex" }}
     >
       <ButtonGroup variant="contained" color="primary" size="small">

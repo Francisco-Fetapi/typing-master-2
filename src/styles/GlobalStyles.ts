@@ -12,7 +12,9 @@ export const GlobalStyles = createGlobalStyle<StylesProps>`
         ${(props) =>
           props.paused &&
           css`
-            filter: grayscale(70);
+            & .grayscale-on-paused {
+              filter: grayscale(1);
+            }
           `}
     }
 `;

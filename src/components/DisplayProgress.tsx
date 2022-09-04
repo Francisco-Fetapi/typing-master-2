@@ -12,7 +12,7 @@ export default function DisplayProgress() {
   const totalWords = useSelector(selectPhraseSize);
   const typedWords = useSelector(selectTypedWords);
   return (
-    <Box display="flex" alignItems="center">
+    <Box display="flex" alignItems="center" className="grayscale-on-paused">
       <Text>{typedWords}</Text>
       <Text variant="h2">/</Text>
       <Text>{totalWords}</Text>

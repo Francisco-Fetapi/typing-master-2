@@ -43,7 +43,7 @@ export default function Championship() {
 
   return (
     <BoxColumnCenter height="100vh" py={5}>
-      <BoxColumnCenter mb={2}>
+      <BoxColumnCenter mb={2} className="grayscale-on-paused">
         <Text color="primary" variant="h4">
           Nivel {level + 1}
         </Text>
