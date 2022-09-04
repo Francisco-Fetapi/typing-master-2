@@ -1,15 +1,15 @@
 import { Level } from "./Levels";
 
-export class TrainingPhrases extends Level {
+export class TrainingPhrase extends Level {
   constructor(public phrase: string) {
     super(phrase, "00m:00s");
   }
   defineLevelByTime(typedIn: number) {}
 }
 
-export const trainingPhrases: TrainingPhrases[] = [];
+export const trainingPhrases: TrainingPhrase[] = [];
 
-trainingPhrases.push(new TrainingPhrases("Ola Mundo."));
-trainingPhrases.push(new TrainingPhrases("Tudo bem."));
-trainingPhrases.push(new TrainingPhrases("Francisco Fetapi."));
-trainingPhrases.push(new TrainingPhrases("Esperem por mim."));
+trainingPhrases.push(new TrainingPhrase("Ola Mundo."));
+trainingPhrases.push(new TrainingPhrase("Tudo bem."));
+trainingPhrases.push(new TrainingPhrase("Francisco Fetapi."));
+trainingPhrases.push(new TrainingPhrase("Esperem por mim."));

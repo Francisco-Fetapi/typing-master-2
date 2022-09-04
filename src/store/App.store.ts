@@ -3,6 +3,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import useStatePersist from "../hooks/useStatePersist";
 import * as Backdrop from "../components/GameBackdrop";
 import { Levels } from "../Levels";
+import { TrainingPhrase, trainingPhrases } from "../TrainingPhrases";
+import selectRandomElement from "../helpers/selectRandomElement";
 
 export const THEME_KEY_IN_LOCALSTORAGE = "darkMode";
 export const CURRENT_LEVEL_KEY_IN_LOCALSTORAGE = "currentLevel";
@@ -18,6 +20,7 @@ export interface App extends IDarkMode {
   timer: number | null;
   timerPaused: boolean;
   points: number;
+  phraseTraining: TrainingPhrase;
 }
 
 const initialState: App = {
@@ -33,6 +36,7 @@ const initialState: App = {
     open: false,
   },
   points: useStatePersist<number>(POINTS_KEY_IN_LOCALSTORAGE).get() || 0,
+  phraseTraining: selectRandomElement<TrainingPhrase>(trainingPhrases),
 };
 
 function stateReseted(): App {

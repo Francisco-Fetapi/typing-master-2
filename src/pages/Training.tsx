@@ -12,6 +12,7 @@ import {
   selectCurrentLevel,
   selectCurrentLevelInfo,
   selectLevel,
+  selectPhraseTraining,
   selectWordToType,
 } from "../store/App.selectors";
 import {
@@ -26,12 +27,13 @@ export default function Trainning() {
   const wordToType = useSelector(selectWordToType);
   // const level = useSelector(selectCurrentLevel);
   // const levelLabel = useSelector(selectLevel);
-  const currentLevel = useSelector(selectCurrentLevelInfo);
+  const currentLevel = useSelector(selectPhraseTraining);
   const backdropInfo = useSelector(selectBackdropInfo);
   useGameLoop();
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(currentLevel);
     return () => {
       dispatch(setTimer(currentLevel.timeLimit));
       dispatch(pauseTimer());

@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { Level, Levels } from "../Levels";
 import { RootState } from "./App.store";
 
@@ -13,8 +14,15 @@ export const selectTextToTypeArray = (state: RootState) => {
   return selectCurrentLevelInfo(state).phrase.split(" ");
 };
 export const selectCurrentLevelInfo = (state: RootState) => {
+  const location = useLocation();
+  if (location.pathname === "/training") {
+    return selectPhraseTraining(state);
+  }
   const key = Math.min(Levels.length - 1, state.app.currentLevel);
   return Levels[key];
+};
+export const selectPhraseTraining = (state: RootState) => {
+  return state.app.phraseTraining;
 };
 export const selectPreviousLevel = (state: RootState) => {
   const key = Math.max(0, state.app.currentLevel - 1);
