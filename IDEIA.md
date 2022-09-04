@@ -11,6 +11,8 @@ refatorar (useTimer -> useGameLoop)
 
 Timer ContextAPI
 
+background de espaça sideral -> light,dark
+
 # Typing Master
 
 Anotações escritas na fase de desenvolvimento para melhor esclarecer até onde quero chegar com a aplicação. Já que não entendo nada sobre `engenharia de software`, então é assim que geralmente eu arquiteto meus apps para estudo.
