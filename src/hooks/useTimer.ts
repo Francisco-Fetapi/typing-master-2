@@ -11,6 +11,7 @@ import {
   selectTypedWords,
 } from "../store/App.selectors";
 import doNotAnything from "../helpers/doNotAnything";
+import { useLocation } from "react-router-dom";
 
 export default function useTimer() {
   const timeLimit = useSelector(selectTimeLimit);
@@ -18,7 +19,9 @@ export default function useTimer() {
   const seconds = useSelector(selectTimer);
   const timerPaused = useSelector(selectTimerPaused);
   const toDecrease = timeLimit !== 0;
-  const onTimeOver = toDecrease && seconds === 0;
+  const location = useLocation();
+  const inTraining = location.pathname === "/training";
+  const onTimeOver = toDecrease && seconds === 0 && !inTraining;
   const backdrop = useBackdrop();
   const dispatch = useDispatch();
   const typedWords = useSelector(selectTypedWords);
@@ -35,7 +38,7 @@ export default function useTimer() {
   const handleTimer = () => {
     interval.current = setTimeout(() => {
       if (timerPaused) return doNotAnything();
-      if (seconds) {
+      if (seconds !== null) {
         const value = toDecrease ? seconds - 1 : seconds + 1;
         dispatch(setTimer(value));
       }

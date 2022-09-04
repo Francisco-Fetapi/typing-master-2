@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import doNotAnything from "../helpers/doNotAnything";
 import { Levels } from "../Levels";
 import {
@@ -46,11 +47,16 @@ export default function useInputText(wordToType: string) {
   const inCasesToDoAnything =
     onTimeOver || gameFinished || backdrop.open || gamePaused;
 
+  const location = useLocation();
+  const inTraining = location.pathname === "/training";
+
   const checkWord = () => {
     if (onTimeOver) return doNotAnything();
     if (inputText === wordToType) {
       dispatch(increaseTypedWords());
-      dispatch(increasePoints(wordToType.length));
+      if (!inTraining) {
+        dispatch(increasePoints(wordToType.length));
+      }
       setInputText("");
     } else {
       setError(true);

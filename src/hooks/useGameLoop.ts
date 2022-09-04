@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { Levels } from "../Levels";
 import {
   selectCurrentLevel,
@@ -17,9 +18,11 @@ export default function useGameLoop() {
   const dispatch = useDispatch();
   const backdrop = useBackdrop();
   const backdropNewLevel = useStatePersist<string>("newLevel");
+  const location = useLocation();
+  const inTraining = location.pathname === "/training";
 
   useEffect(() => {
-    if (level === 0) {
+    if (level === 0 || inTraining) {
       return;
     }
     // console.log("current", currentLevel, "previous", previousLevel);
