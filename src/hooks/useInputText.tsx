@@ -64,14 +64,14 @@ export default function useInputText(wordToType: string) {
   };
 
   useEffect(() => {
+    setInputText("");
+  }, [onTimeOver, gameFinished, typedWords]);
+
+  useEffect(() => {
     if (error) {
       setError(false);
     }
   }, [inputText]);
-
-  useEffect(() => {
-    setInputText("");
-  }, [onTimeOver, gameFinished]);
 
   useEffect(() => {
     if (typedWords === phraseSize) {
