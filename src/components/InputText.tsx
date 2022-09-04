@@ -1,5 +1,7 @@
 import { Box } from "@mui/material";
+import { useSelector } from "react-redux";
 import useInputText from "../hooks/useInputText";
+import { selectTimerPaused, selectTypedWords } from "../store/App.selectors";
 import { InputTextContainer, Text, BoxColumnCenter } from "../styles/General";
 
 interface Props {
@@ -9,6 +11,15 @@ interface Props {
 export default function InputText({ text }: Props) {
   const { textDisplay, inputText, error, type, filterSomeKeys } =
     useInputText(text);
+
+  const timerPaused = useSelector(selectTimerPaused);
+  const typedWords = useSelector(selectTypedWords);
+  const paused = timerPaused && typedWords > 0;
+
+  const classes = [];
+
+  if (error) classes.push("error");
+  if (paused) classes.push("paused");
 
   return (
     <BoxColumnCenter className="grayscale-on-paused">
@@ -21,7 +32,12 @@ export default function InputText({ text }: Props) {
         style={{ opacity: 0, pointerEvents: "none" }}
         onBlurCapture={(e) => e.target.focus()}
       />
-      <InputTextContainer variant="outlined" className={error ? "error" : ""}>
+      <InputTextContainer
+        variant="outlined"
+        className={classes.join(" ")}
+        // paused={paused}
+        // ola
+      >
         <Box mr={0.3}>{textDisplay}</Box>
       </InputTextContainer>
       <Box mt={1.2}>

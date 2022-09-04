@@ -12,6 +12,8 @@ import {
   selectCurrentLevel,
   selectCurrentLevelInfo,
   selectLevel,
+  selectTimerPaused,
+  selectTypedWords,
   selectWordToType,
 } from "../store/App.selectors";
 import {
@@ -28,6 +30,7 @@ export default function Championship() {
   const levelLabel = useSelector(selectLevel);
   const currentLevel = useSelector(selectCurrentLevelInfo);
   const backdropInfo = useSelector(selectBackdropInfo);
+
   useGameLoop();
   const dispatch = useDispatch();
 

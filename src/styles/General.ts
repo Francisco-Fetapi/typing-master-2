@@ -31,6 +31,10 @@ export const InputTextContainer = styled(Paper)`
     width: 2px;
     animation: fadeInOut 0.92s forwards linear infinite alternate;
   }
+  &.paused::after {
+    animation: none;
+  }
+
   @keyframes fadeInOut {
     to {
       opacity: 0;
