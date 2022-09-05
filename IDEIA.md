@@ -1,3 +1,10 @@
+Backdrop treino, nivel, definir proeficiencia do usuario.
+btn treinar mais no backdrop.
+
+aumentar pts por nivel e nao por palavras digitadas.
+
+---
+
 Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
 
 refatorar (useTimer -> useGameLoop)
