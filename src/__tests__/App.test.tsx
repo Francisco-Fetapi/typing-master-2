@@ -8,7 +8,7 @@ import App from "../App";
 // Tests
 test("Renders main page correctly", async () => {
   // Setup
-  // render(<App />);
+  const app = render(<App />);
   // Pre Expecations
   expect(1 + 1).toBe(2);
 });
