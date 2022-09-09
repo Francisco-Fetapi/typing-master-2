@@ -7,5 +7,5 @@ import App from "../App";
 
 test("Renders main page correctly", async () => {
   render(<App />);
-  expect(screen.queryByText("Clicar")).toBeInTheDocument();
+  expect(screen.queryByText("Typing Master")).toBeInTheDocument();
 });

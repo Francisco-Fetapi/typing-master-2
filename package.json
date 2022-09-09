@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "jest": "jest --watch --no-warnings"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
