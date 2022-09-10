@@ -27,7 +27,7 @@ Anotações escritas na fase de desenvolvimento para melhor esclarecer até onde
 ## Treino (like the last) (x0 pts)
 
 - Digitar a propria frase
-- Gerar aleatoriamente
+- Gerar aleatoriamente V
 
 _mostrar status no final_
 
