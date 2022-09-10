@@ -1,7 +1,7 @@
 // Imports
 import { render, screen } from "@testing-library/react";
-import App from "../App";
-import user from "@testing-library/user-event";
+// import App from "../App";
+// import user from "@testing-library/user-event";
 import { AppSetup } from "../test";
 import DisplayProgress from "./DisplayProgress";
 
