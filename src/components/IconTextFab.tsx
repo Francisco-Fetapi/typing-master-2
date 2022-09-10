@@ -14,7 +14,11 @@ export default function IconTextFab({ icon, label, to, onClick }: Props) {
   const handleClick = onClick ? onClick : () => null;
   const navigateTo = to ? () => navigate(to) : handleClick;
   return (
-    <Box onClick={navigateTo} style={{ userSelect: "none" }}>
+    <Box
+      onClick={navigateTo}
+      data-testid={"btn-" + label}
+      style={{ userSelect: "none" }}
+    >
       <Fab color="primary">{icon}</Fab>
       <Box mt={1}>
         <Text variant="subtitle2" color="textSecondary" align="center">
