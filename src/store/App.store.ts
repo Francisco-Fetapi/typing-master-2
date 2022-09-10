@@ -102,6 +102,18 @@ const store = configureStore({
   reducer: {
     app: app.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        // Ignore these paths in the state
+        ignoredPaths: [
+          "app.phraseTraining",
+          "app.backdrop.primaryButton.handleClick",
+          "app.backdrop.onMount",
+          "payload.primaryButton.handleClick",
+        ],
+      },
+    }),
 });
 
 export const {
