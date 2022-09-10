@@ -1,3 +1,8 @@
+Testes
+
+mock do store.
+mock do router. (one page with default path)
+
 Backdrop treino, nivel, definir proeficiencia do usuario.
 btn treinar mais no backdrop.
 
