@@ -17,4 +17,9 @@ export const GlobalStyles = createGlobalStyle<StylesProps>`
             }
           `}
     }
+
+    .input-text{
+      pointer-events:none;
+      opacity:0;
+    }
 `;

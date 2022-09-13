@@ -29,8 +29,9 @@ export default function InputText({ text }: Props) {
         onKeyUp={filterSomeKeys}
         onPaste={(e) => e.preventDefault()}
         autoFocus
-        style={{ opacity: 0, pointerEvents: "none" }}
+        className="input-text"
         onBlurCapture={(e) => e.target.focus()}
+        data-testid="input-text"
       />
       <InputTextContainer
         variant="outlined"
@@ -44,6 +45,8 @@ export default function InputText({ text }: Props) {
         <Text color="textSecondary" variant="subtitle2">
           {text}
         </Text>
+        <div hidden>{inputText}</div>
+        {/* For test proposals */}
       </Box>
     </BoxColumnCenter>
   );
