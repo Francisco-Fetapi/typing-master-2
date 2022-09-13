@@ -48,7 +48,7 @@ function stateReseted(initialState: App): App {
   return { ...initialState, darkMode, currentLevel, points, phraseTraining };
 }
 
-function sliceCreator(initialState: App) {
+export function sliceCreator(initialState: App) {
   return createSlice({
     name: "app",
     initialState,
