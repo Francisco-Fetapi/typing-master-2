@@ -1,5 +1,5 @@
 import { ThemeProvider, createTheme } from "@mui/material";
-import store from "../store/App.store";
+import store from "./App.store";
 import { Provider } from "react-redux";
 import { ReactNode } from "react";
 import { BrowserRouter } from "react-router-dom";

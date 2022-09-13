@@ -1,5 +1,4 @@
 import { useLocation } from "react-router-dom";
-import { Level, Levels } from "../Levels";
 import { RootState } from "./App.store";
 
 export const selectTheme = (state: RootState) => state.app.darkMode;
@@ -18,16 +17,16 @@ export const selectCurrentLevelInfo = (state: RootState) => {
   if (location.pathname === "/training") {
     return selectPhraseTraining(state);
   }
-  const key = Math.min(Levels.length - 1, state.app.currentLevel);
-  return Levels[key];
+  const key = Math.min(state.app.levels.length - 1, state.app.currentLevel);
+  return state.app.levels[key];
 };
 export const selectPhraseTraining = (state: RootState) => {
   return state.app.phraseTraining;
 };
 export const selectPreviousLevel = (state: RootState) => {
   const key = Math.max(0, state.app.currentLevel - 1);
-  return Levels[key];
-  // return Levels[Math.max(0, state.app.currentLevel - 1)];
+  return state.app.levels[key];
+  // return state.app.levels[Math.max(0, state.app.currentLevel - 1)];
 };
 export const selectWordToType = (state: RootState) => {
   const words = selectTextToTypeArray(state);

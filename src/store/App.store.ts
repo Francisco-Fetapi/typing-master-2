@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
 import useStatePersist from "../hooks/useStatePersist";
 import * as Backdrop from "../components/GameBackdrop";
-import { Levels } from "../Levels";
+import { Level, Levels } from "../Levels";
 import { TrainingPhrase, trainingPhrases } from "../TrainingPhrases";
 import selectRandomElement from "../helpers/selectRandomElement";
 
@@ -21,6 +21,7 @@ export interface App extends IDarkMode {
   timerPaused: boolean;
   points: number;
   phraseTraining: TrainingPhrase;
+  levels: Level[];
 }
 
 const initialState: App = {
@@ -37,6 +38,7 @@ const initialState: App = {
   },
   points: useStatePersist<number>(POINTS_KEY_IN_LOCALSTORAGE).get() || 0,
   phraseTraining: selectRandomElement<TrainingPhrase>(trainingPhrases),
+  levels: Levels,
 };
 
 function stateReseted(initialState: App): App {

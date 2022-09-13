@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { Level } from "../Levels";
 import { App, middlewares, sliceCreator } from "../store/App.store";
 import { TrainingPhrase } from "../TrainingPhrases";
 
 const trainingPhrases: TrainingPhrase[] = [new TrainingPhrase("Ola Mundo.")];
+const levels = [new Level("Ola Mundo.", "2m:10")];
 
 const initialState: App = {
   darkMode: false,
@@ -17,6 +19,7 @@ const initialState: App = {
   },
   points: 0,
   phraseTraining: trainingPhrases[0],
+  levels,
 };
 
 const app = sliceCreator(initialState);
