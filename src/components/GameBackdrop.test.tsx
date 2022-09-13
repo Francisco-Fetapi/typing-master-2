@@ -1,12 +1,13 @@
 // Imports
 import { useEffect } from "react";
 import { render } from "@testing-library/react";
+import user from "@testing-library/user-event";
 import { useDispatch, useSelector } from "react-redux";
 import useBackdrop from "../hooks/useBackdrop";
 import { selectBackdropInfo } from "../store/App.selectors";
 import { AppSetup } from "../test";
 import GameBackdrop from "./GameBackdrop";
-import { showMessageBackdrop } from "../store/App.store";
+import { hideMessageBackdrop, showMessageBackdrop } from "../store/App.store";
 
 function GameWrapper() {
   const { allLevelsFinished } = useBackdrop();
@@ -18,7 +19,8 @@ function GameWrapper() {
   }, []);
   return (
     <div>
-      <GameBackdrop {...backdrop} />
+      {backdrop.open && <GameBackdrop {...backdrop} />}
+      <button onClick={() => dispatch(hideMessageBackdrop())}>Fechar</button>
     </div>
   );
 }
@@ -32,5 +34,16 @@ describe("GameBackdrop", () => {
     );
 
     expect(getByText("Jogo Finalizado")).toBeInTheDocument();
+  });
+  test("it should closed", async () => {
+    const { getByText, queryByText } = render(
+      <AppSetup>
+        <GameWrapper />
+      </AppSetup>
+    );
+
+    const btnClose = getByText("Fechar");
+    await user.click(btnClose);
+    expect(queryByText("Jogo Finalizado")).not.toBeInTheDocument();
   });
 });
