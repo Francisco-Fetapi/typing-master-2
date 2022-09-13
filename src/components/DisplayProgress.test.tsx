@@ -5,10 +5,14 @@ import DisplayProgress from "./DisplayProgress";
 
 describe("DisplayProgress", () => {
   test("it should renders correctly", async () => {
-    render(
+    const { getByText } = render(
       <AppSetup>
         <DisplayProgress />
       </AppSetup>
     );
+
+    expect(getByText("0")).toBeInTheDocument();
+    expect(getByText("/")).toBeInTheDocument();
+    expect(getByText("2")).toBeInTheDocument();
   });
 });
