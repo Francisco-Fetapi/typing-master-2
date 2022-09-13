@@ -4,7 +4,7 @@ import { AppSetup } from "../test";
 import DisplayProgress from "./DisplayProgress";
 
 describe("DisplayProgress", () => {
-  test("Renders correctly", async () => {
+  test("it should renders correctly", async () => {
     render(
       <AppSetup>
         <DisplayProgress />
