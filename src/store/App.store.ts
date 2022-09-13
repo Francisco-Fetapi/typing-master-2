@@ -115,6 +115,7 @@ export const middlewares = {
       "app.backdrop.primaryButton.handleClick",
       "app.backdrop.onMount",
       "payload.primaryButton.handleClick",
+      "app.levels",
     ],
   },
 };
