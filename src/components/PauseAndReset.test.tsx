@@ -1,25 +1,11 @@
 // Imports
-// import { useEffect } from "react";
 import { render } from "@testing-library/react";
-import { useDispatch } from "react-redux";
 import user from "@testing-library/user-event";
 import { AppSetup } from "../test";
 import PauseAndReset from "./PauseAndReset";
-import { useEffect } from "react";
 import { InputTextWrapper } from "./InputText.test";
-import { resetAllState } from "../store/App.store";
 
-interface Props {
-  cleanStore?: boolean;
-}
-function PauseAndResetWrapper({ cleanStore }: Props) {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    if (cleanStore) {
-      console.log("Resetou todo estado.");
-      dispatch(resetAllState());
-    }
-  }, []);
+function PauseAndResetWrapper() {
   return (
     <div>
       <InputTextWrapper />
@@ -32,7 +18,7 @@ describe("PauseAndReset", () => {
   test("it should renders correctly", async () => {
     const { getByTestId } = render(
       <AppSetup>
-        <PauseAndResetWrapper cleanStore={true} />
+        <PauseAndResetWrapper />
       </AppSetup>
     );
     const pauseResetContainer = getByTestId("pause-reset");

@@ -52,7 +52,7 @@ export default function PauseAndReset() {
     dispatch(pauseTimer());
     dispatch(setTimer(level.timeLimit));
   }
-  console.log(gameStarted, typedWords);
+
   if (gameFinished) {
     return <div />;
   }

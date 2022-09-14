@@ -1,8 +1,9 @@
 import { ThemeProvider, createTheme } from "@mui/material";
 import store from "./App.store";
-import { Provider } from "react-redux";
-import { ReactNode } from "react";
+import { Provider, useDispatch, useSelector } from "react-redux";
+import { ReactNode, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
+import { resetAllState, RootState } from "../store/App.store";
 
 interface AppSetupProps {
   children: ReactNode;
@@ -14,8 +15,24 @@ export function AppSetup({ children }: AppSetupProps) {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <BrowserRouter>{children}</BrowserRouter>
+        <BrowserRouter>
+          <ComponentWrapper>{children}</ComponentWrapper>
+        </BrowserRouter>
       </ThemeProvider>
     </Provider>
   );
+}
+
+interface ComponentWrapperProps {
+  children: ReactNode;
+}
+
+function ComponentWrapper({ children }: ComponentWrapperProps) {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    return () => {
+      dispatch(resetAllState());
+    };
+  }, [children]);
+  return <div>{children}</div>;
 }
