@@ -10,10 +10,11 @@ import { InputTextWrapper } from "./InputText.test";
 import { resetAllState } from "../store/App.store";
 
 function PauseAndResetWrapper() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(resetAllState());
-  }, []);
+  //   const dispatch = useDispatch();
+  //   useEffect(() => {
+  //     console.log("Resetou todo estado.");
+  //     dispatch(resetAllState());
+  //   }, []);
   return (
     <div>
       <InputTextWrapper />
