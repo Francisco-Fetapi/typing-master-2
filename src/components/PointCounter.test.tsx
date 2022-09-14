@@ -24,7 +24,7 @@ describe("PointCounter", () => {
 
     expect(getByText("0 pt")).toBeInTheDocument();
   });
-  test("it should be showed after first word to be typed", async () => {
+  test("it should be increased when user type correctly a word", async () => {
     const { getByTestId, getByText, queryByText } = render(
       <AppSetup>
         <PointCounterWrapper />
