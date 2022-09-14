@@ -14,7 +14,7 @@ export default function Timer() {
       className="grayscale-on-paused"
     >
       <MdTimer fontSize={20} />
-      <Text>
+      <Text data-testid="timer">
         {Math.ceil(minutes).toString().padStart(2, "0")}m:
         {Math.ceil(seconds).toString().padStart(2, "0")}s
       </Text>
