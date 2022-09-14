@@ -14,6 +14,7 @@ export default function TextToType() {
       direction="row"
       gap={1}
       flexWrap="wrap"
+      data-testid="text-to-type"
       className="grayscale-on-paused"
     >
       {textToType.map((word, key) => (
@@ -29,7 +30,7 @@ export default function TextToType() {
               : {}
           }
         >
-          {word}
+          {word + " "}
         </Text>
       ))}
     </Stack>
