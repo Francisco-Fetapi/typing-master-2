@@ -1,6 +1,8 @@
 // Imports
 import { render } from "@testing-library/react";
+import user from "@testing-library/user-event";
 import { AppSetup } from "../test";
+import { InputTextWrapper } from "./InputText.test";
 import Timer from "./Timer";
 
 function TimerWrapper() {
@@ -11,6 +13,9 @@ function TimerWrapper() {
   );
 }
 
+export const sleep = (time: number) =>
+  new Promise((res, rej) => setTimeout(() => res(null), time));
+
 describe("Timer", () => {
   test("it should renders correctly", async () => {
     const { getByTestId } = render(
@@ -20,6 +25,27 @@ describe("Timer", () => {
     );
     const timer = getByTestId("timer");
 
-    expect(timer.textContent?.trim()).toBe("02m:10s");
+    expect(timer.textContent).toBe("02m:10s");
+  });
+  test("it should renders correctly", async () => {
+    const { getByTestId } = render(
+      <AppSetup>
+        <InputTextWrapper />
+        <TimerWrapper />
+      </AppSetup>
+    );
+
+    const timer = getByTestId("timer");
+
+    expect(timer.textContent).toBe("02m:10s");
+
+    const input = getByTestId("input-text");
+    await user.type(input, "Ola");
+    await user.keyboard(" ");
+
+    await sleep(1000);
+    expect(timer.textContent).toBe("02m:09s");
+    await sleep(1000);
+    expect(timer.textContent).toBe("02m:08s");
   });
 });
