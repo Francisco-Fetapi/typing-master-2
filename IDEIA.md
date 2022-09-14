@@ -1,7 +1,5 @@
 Testes
 
-mock do store.
-
 Backdrop treino, nivel, definir proeficiencia do usuario.
 btn treinar mais no backdrop.
 
