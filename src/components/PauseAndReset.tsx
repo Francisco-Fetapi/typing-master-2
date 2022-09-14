@@ -27,7 +27,9 @@ export default function PauseAndReset() {
   const level = useSelector(selectCurrentLevelInfo);
   const dispatch = useDispatch();
   const typedWords = useSelector(selectTypedWords);
-  const gameNotStarted = timer === level.timeLimit && typedWords === 0;
+  // const gameNotStarted =
+  //   timer !== null && timer === level.timeLimit && typedWords === 0;
+  const gameStarted = typedWords > 0;
   const gameFinished = level.numWords === typedWords;
   const statusGame: IActionsPausePlay = timerPaused
     ? {
@@ -50,7 +52,7 @@ export default function PauseAndReset() {
     dispatch(pauseTimer());
     dispatch(setTimer(level.timeLimit));
   }
-
+  console.log(gameStarted, typedWords);
   if (gameFinished) {
     return <div />;
   }
@@ -58,7 +60,8 @@ export default function PauseAndReset() {
     <Stack
       justifyContent="center"
       className="no-grayscale-on-paused"
-      style={{ display: gameNotStarted ? "none" : "flex" }}
+      data-testid="pause-reset"
+      style={{ display: !gameStarted ? "none" : "flex" }}
     >
       <ButtonGroup variant="contained" color="primary" size="small">
         <Button onClick={statusGame.onClick} startIcon={statusGame.icon}>

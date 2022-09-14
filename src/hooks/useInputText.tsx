@@ -43,11 +43,11 @@ export default function useInputText(wordToType: string) {
   const currentLevel = useSelector(selectCurrentLevelInfo);
   const timerPaused = useSelector(selectTimerPaused);
   const timer = useSelector(selectTimer);
+  const location = useLocation();
   const gamePaused = timerPaused && timer !== currentLevel.timeLimit;
   const inCasesToDoAnything =
     onTimeOver || gameFinished || backdrop.open || gamePaused;
 
-  const location = useLocation();
   const inTraining = location.pathname === "/training";
 
   const checkWord = () => {

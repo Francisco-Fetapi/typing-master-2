@@ -7,7 +7,7 @@ import user from "@testing-library/user-event";
 import { AppSetup } from "../test";
 import InputText from "./InputText";
 
-function InputTextWrapper() {
+export function InputTextWrapper() {
   const text = useSelector(selectWordToType);
   return (
     <div>
