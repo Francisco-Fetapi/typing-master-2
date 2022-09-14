@@ -8,10 +8,9 @@ import { AppSetup } from "../test";
 import InputText from "./InputText";
 
 export function InputTextWrapper() {
-  const text = useSelector(selectWordToType);
   return (
     <div>
-      <InputText text={text} />
+      <InputText />
     </div>
   );
 }

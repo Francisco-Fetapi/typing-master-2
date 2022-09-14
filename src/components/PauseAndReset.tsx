@@ -23,7 +23,7 @@ interface IActionsPausePlay {
 
 export default function PauseAndReset() {
   const timerPaused = useSelector(selectTimerPaused);
-  const timer = useSelector(selectTimer);
+  // const timer = useSelector(selectTimer);
   const level = useSelector(selectCurrentLevelInfo);
   const dispatch = useDispatch();
   const typedWords = useSelector(selectTypedWords);

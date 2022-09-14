@@ -25,7 +25,6 @@ import {
 import { BoxColumnCenter, Text } from "../styles/General";
 
 export default function Championship() {
-  const wordToType = useSelector(selectWordToType);
   const level = useSelector(selectCurrentLevel);
   const levelLabel = useSelector(selectLevel);
   const currentLevel = useSelector(selectCurrentLevelInfo);
@@ -54,7 +53,7 @@ export default function Championship() {
       </BoxColumnCenter>
       <Timer />
       <BoxColumnCenter mt={2}>
-        <InputText text={wordToType} />
+        <InputText />
       </BoxColumnCenter>
       <BoxColumnCenter mt={2} maxWidth={600} px={3}>
         <TextToType />

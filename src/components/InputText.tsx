@@ -1,19 +1,20 @@
 import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
 import useInputText from "../hooks/useInputText";
-import { selectTimerPaused, selectTypedWords } from "../store/App.selectors";
+import {
+  selectTimerPaused,
+  selectTypedWords,
+  selectWordToType,
+} from "../store/App.selectors";
 import { InputTextContainer, Text, BoxColumnCenter } from "../styles/General";
 
-interface Props {
-  text: string;
-}
-
-export default function InputText({ text }: Props) {
+export default function InputText() {
   const { textDisplay, inputText, error, type, filterSomeKeys } =
-    useInputText(text);
+    useInputText();
 
   const timerPaused = useSelector(selectTimerPaused);
   const typedWords = useSelector(selectTypedWords);
+  const text = useSelector(selectWordToType);
   const paused = timerPaused && typedWords > 0;
 
   const classes = [];

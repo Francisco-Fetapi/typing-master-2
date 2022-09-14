@@ -11,6 +11,7 @@ import {
   selectTimer,
   selectTimerPaused,
   selectTypedWords,
+  selectWordToType,
 } from "../store/App.selectors";
 import {
   increasePoints,
@@ -30,7 +31,7 @@ type FuncFilterSomeKeys =
 
 const filteredKeys = ["Space", "Enter"]; //to complete typing
 
-export default function useInputText(wordToType: string) {
+export default function useInputText() {
   const [inputText, setInputText] = useState("");
   const [error, setError] = useState(false);
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ export default function useInputText(wordToType: string) {
   const level = useSelector(selectCurrentLevel);
   const currentLevel = useSelector(selectCurrentLevelInfo);
   const timerPaused = useSelector(selectTimerPaused);
+  const wordToType = useSelector(selectWordToType);
   const timer = useSelector(selectTimer);
   const location = useLocation();
   const gamePaused = timerPaused && timer !== currentLevel.timeLimit;
