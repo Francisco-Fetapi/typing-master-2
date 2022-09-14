@@ -27,7 +27,7 @@ describe("Timer", () => {
 
     expect(timer.textContent).toBe("02m:10s");
   });
-  test("it should renders correctly", async () => {
+  test("it should decrease the timer per second when user begins typing", async () => {
     const { getByTestId } = render(
       <AppSetup>
         <InputTextWrapper />
