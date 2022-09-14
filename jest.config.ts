@@ -14,7 +14,7 @@ export default {
   // cacheDirectory: "/private/var/folders/ls/x2hs2rkx2r99frfkjtf4t9gh0000gn/T/jest_dx",
 
   // Automatically clear mock calls, instances and results before every test
-  clearMocks: true,
+  // clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
@@ -102,10 +102,10 @@ export default {
   // reporters: undefined,
 
   // Automatically reset mock state before every test
-  resetMocks: true,
+  // resetMocks: true,
 
   // Reset the module registry before running each individual test
-  resetModules: true,
+  // resetModules: true,
 
   // A path to a custom resolver
   // resolver: undefined,
@@ -204,7 +204,7 @@ export default {
   // unmockedModulePathPatterns: undefined,
 
   // Indicates whether each individual test should be reported during the run
-  // verbose: undefined,
+  verbose: false,
 
   // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
   // watchPathIgnorePatterns: [],
