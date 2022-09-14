@@ -80,7 +80,10 @@ export function sliceCreator(initialState: App) {
       hideMessageBackdrop(state) {
         state.backdrop.open = false;
       },
-      resetAllState(state) {
+      resetAllState(state, action: PayloadAction<boolean | undefined>) {
+        if (action.payload) {
+          return Object.assign(state, initialState);
+        }
         Object.assign(state, stateReseted(initialState));
       },
       setTimer(state, action: PayloadAction<number | null>) {

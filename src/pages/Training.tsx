@@ -9,11 +9,7 @@ import Timer from "../components/Timer";
 import useGameLoop from "../hooks/useGameLoop";
 import {
   selectBackdropInfo,
-  selectCurrentLevel,
-  selectCurrentLevelInfo,
-  selectLevel,
   selectPhraseTraining,
-  selectWordToType,
 } from "../store/App.selectors";
 import {
   chooseRandomPhraseToTrain,
@@ -25,16 +21,12 @@ import {
 import { BoxColumnCenter, Text } from "../styles/General";
 
 export default function Trainning() {
-  const wordToType = useSelector(selectWordToType);
-  // const level = useSelector(selectCurrentLevel);
-  // const levelLabel = useSelector(selectLevel);
   const currentLevel = useSelector(selectPhraseTraining);
   const backdropInfo = useSelector(selectBackdropInfo);
   useGameLoop();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(currentLevel);
     return () => {
       dispatch(setTimer(currentLevel.timeLimit));
       dispatch(pauseTimer());
@@ -53,7 +45,7 @@ export default function Trainning() {
       </BoxColumnCenter>
       <Timer />
       <BoxColumnCenter mt={2} className="grayscale-on-paused">
-        <InputText text={wordToType} />
+        <InputText />
       </BoxColumnCenter>
       <BoxColumnCenter mt={2} maxWidth={600} px={3}>
         <TextToType />

@@ -31,7 +31,7 @@ function ComponentWrapper({ children }: ComponentWrapperProps) {
   const dispatch = useDispatch();
   useEffect(() => {
     return () => {
-      dispatch(resetAllState());
+      dispatch(resetAllState(true));
     };
   }, [children]);
   return <div>{children}</div>;
