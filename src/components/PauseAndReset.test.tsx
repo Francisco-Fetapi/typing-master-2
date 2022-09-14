@@ -9,12 +9,17 @@ import { useEffect } from "react";
 import { InputTextWrapper } from "./InputText.test";
 import { resetAllState } from "../store/App.store";
 
-function PauseAndResetWrapper() {
-  //   const dispatch = useDispatch();
-  //   useEffect(() => {
-  //     console.log("Resetou todo estado.");
-  //     dispatch(resetAllState());
-  //   }, []);
+interface Props {
+  cleanStore?: boolean;
+}
+function PauseAndResetWrapper({ cleanStore }: Props) {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (cleanStore) {
+      console.log("Resetou todo estado.");
+      dispatch(resetAllState());
+    }
+  }, []);
   return (
     <div>
       <InputTextWrapper />
@@ -27,7 +32,7 @@ describe("PauseAndReset", () => {
   test("it should renders correctly", async () => {
     const { getByTestId } = render(
       <AppSetup>
-        <PauseAndResetWrapper />
+        <PauseAndResetWrapper cleanStore={true} />
       </AppSetup>
     );
     const pauseResetContainer = getByTestId("pause-reset");
@@ -44,6 +49,6 @@ describe("PauseAndReset", () => {
     await user.keyboard(" ");
 
     const pauseResetContainer = getByTestId("pause-reset");
-    expect(pauseResetContainer.style.display).toBe("none");
+    expect(pauseResetContainer.style.display).toBe("flex");
   });
 });
