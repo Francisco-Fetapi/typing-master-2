@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "jest": "jest --watchAll"
+    "test": "jest --watchAll"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
