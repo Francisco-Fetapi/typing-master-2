@@ -37,10 +37,10 @@ export default function ModalTraining({ handleClose, open }: Props) {
       >
         <DialogTitle variant="h6">TYPING MASTER - MODO TREINO</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
+          <Text variant="subtitle2">
             <b>O Modo Treino</b> é o lugar ideal para melhorar as suas
             habilidades na arte da digitação.
-          </DialogContentText>
+          </Text>
           <Box sx={{ zoom: 0.9 }}>
             <TrainingMode
               title="GERAR FRASES ALEATÓRIAS"
@@ -75,7 +75,7 @@ function TrainingMode({ title, content, handleSelected }: TrainingModeProps) {
         {title}
       </Text>
       <Box mt={0.4}>
-        <Text>{content}</Text>
+        <Text color="GrayText">{content}</Text>
       </Box>
       <Box mt={1}>
         <Stack justifyContent="center">
