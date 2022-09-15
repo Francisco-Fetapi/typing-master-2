@@ -27,8 +27,6 @@ export default function Trainning() {
   useGameLoop();
   const dispatch = useDispatch();
 
-  console.log(new TrainingPhrase("Ola Mundo.").showMinTimeWritingByLevel());
-
   useEffect(() => {
     return () => {
       dispatch(setTimer(currentLevel.timeLimit));
