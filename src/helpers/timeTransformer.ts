@@ -7,3 +7,12 @@ export function timeTransformer(time: string) {
 
   return minutesNumber * 60 + secondsNumber;
 }
+
+export function timeTransformer2(seconds: number) {
+  const seconds2 = seconds % 60;
+  const minutes = Math.floor(seconds / 60);
+
+  return `${minutes.toString().padStart(2, "0")}m:${seconds2
+    .toString()
+    .padStart(2, "0")}s`;
+}

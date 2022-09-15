@@ -1,3 +1,4 @@
+import { timeTransformer } from "./helpers/timeTransformer";
 import { Level, ILevelRoles, ILevel } from "./Levels";
 
 export class TrainingPhrase extends Level {
@@ -26,6 +27,20 @@ export class TrainingPhrase extends Level {
     let levels = Object.keys(TrainingPhrase.levelRoles) as ILevel[];
     const lastLevel = levels[levels.length - 1];
     return lastLevel; //otherwise -> is the last level
+  }
+  showMinTimeWritingByLevel(): Partial<ILevelRoles> {
+    const maxTimeToWrite = this.numLetters; //64
+
+    const levels: Partial<ILevelRoles> = {};
+
+    let role: ILevel;
+    for (role in TrainingPhrase.levelRoles) {
+      const maxPercent = TrainingPhrase.levelRoles[role];
+      const minSeconds = Math.ceil(maxTimeToWrite * (maxPercent / 100));
+      // levels[role] = timeTransformer(minSeconds);
+    }
+
+    return {};
   }
 }
 
