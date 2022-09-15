@@ -1,6 +1,11 @@
 import { timeTransformer, timeTransformer2 } from "./helpers/timeTransformer";
 import { Level, ILevelRoles, ILevel } from "./Levels";
 
+interface TimeInterval {
+  from: number;
+  to: number;
+}
+
 export class TrainingPhrase extends Level {
   private numLetters: number = 0;
   static levelRoles: ILevelRoles = {
@@ -28,20 +33,52 @@ export class TrainingPhrase extends Level {
     const lastLevel = levels[levels.length - 1];
     return lastLevel; //otherwise -> is the last level
   }
-  showMinTimeWritingByLevel(): Partial<ILevelRoles<string>> {
+  showIntervalTimeByLevel(): Partial<ILevelRoles<TimeInterval>> {
     const maxTimeToWrite = this.numLetters; //64
 
-    const levels: Partial<ILevelRoles<string>> = {};
+    const levels: Partial<ILevelRoles<TimeInterval>> = {};
+    const levelsRoles = Object.keys(TrainingPhrase.levelRoles) as ILevel[];
 
-    let role: ILevel;
-    for (role in TrainingPhrase.levelRoles) {
+    function calculateTime(role: ILevel) {
       const maxPercent = TrainingPhrase.levelRoles[role];
       const minSeconds = Math.ceil(maxTimeToWrite * (maxPercent / 100));
-      levels[role] = timeTransformer2(minSeconds);
+
+      return minSeconds;
     }
+
+    levelsRoles.forEach((role, key, arr) => {
+      if (!arr[key + 1]) return;
+      levels[role] = {
+        from: calculateTime(role),
+        to: calculateTime(arr[key + 1]),
+      };
+    });
+
+    // for (let role in Object.keys(TrainingPhrase.levelRoles)) {
+    //   const maxPercent = TrainingPhrase.levelRoles[role];
+    //   const minSeconds = Math.ceil(maxTimeToWrite * (maxPercent / 100));
+    //   levels[role] = {
+    //     from: minSeconds,
+    //     to:
+    //   };
+    // }
 
     return levels;
   }
+  // showMinTimeWritingByLevel(): Partial<ILevelRoles<string>> {
+  //   const maxTimeToWrite = this.numLetters; //64
+
+  //   const levels: Partial<ILevelRoles<string>> = {};
+
+  //   let role: ILevel;
+  //   for (role in TrainingPhrase.levelRoles) {
+  //     const maxPercent = TrainingPhrase.levelRoles[role];
+  //     const minSeconds = Math.ceil(maxTimeToWrite * (maxPercent / 100));
+  //     levels[role] = timeTransformer2(minSeconds);
+  //   }
+
+  //   return levels;
+  // }
 }
 
 export const trainingPhrases: TrainingPhrase[] = [];
