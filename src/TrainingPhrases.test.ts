@@ -27,7 +27,10 @@ describe("TrainingPhrase", () => {
   //   });
   // });
   it("should show a correct information about levels timing", () => {
-    console.log(sut.showIntervalTimeByLevel());
-    expect(true).toBe(true);
+    expect(sut.showIntervalTimeByLevel()).toEqual({
+      Advanced: { from: 0, to: 2 },
+      Intermediate: { from: 3, to: 5 },
+      Beginner: { from: 6, to: Infinity },
+    });
   });
 });

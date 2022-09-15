@@ -37,7 +37,6 @@ export class TrainingPhrase extends Level {
     const maxTimeToWrite = this.numLetters; //64
 
     const levels: Partial<ILevelRoles<TimeInterval>> = {};
-    const levelsRoles = Object.keys(TrainingPhrase.levelRoles) as ILevel[];
 
     function calculateTime(role: ILevel) {
       const maxPercent = TrainingPhrase.levelRoles[role];
@@ -46,22 +45,18 @@ export class TrainingPhrase extends Level {
       return minSeconds;
     }
 
-    levelsRoles.forEach((role, key, arr) => {
-      if (!arr[key + 1]) return;
-      levels[role] = {
-        from: calculateTime(role),
-        to: calculateTime(arr[key + 1]),
-      };
-    });
-
-    // for (let role in Object.keys(TrainingPhrase.levelRoles)) {
-    //   const maxPercent = TrainingPhrase.levelRoles[role];
-    //   const minSeconds = Math.ceil(maxTimeToWrite * (maxPercent / 100));
-    //   levels[role] = {
-    //     from: minSeconds,
-    //     to:
-    //   };
-    // }
+    levels["Advanced"] = {
+      from: calculateTime("Advanced"),
+      to: calculateTime("Intermediate") - 1,
+    };
+    levels["Intermediate"] = {
+      from: calculateTime("Intermediate"),
+      to: calculateTime("Beginner") - 1,
+    };
+    levels["Beginner"] = {
+      from: calculateTime("Beginner"),
+      to: Infinity,
+    };
 
     return levels;
   }

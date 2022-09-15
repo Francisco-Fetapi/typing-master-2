@@ -37,6 +37,8 @@ export default function Trainning() {
     };
   }, []);
 
+  console.log(new TrainingPhrase("Ola Mundo.").showIntervalTimeByLevel());
+
   return (
     <BoxColumnCenter height="100vh" py={5}>
       <BoxColumnCenter mb={1.5} className="grayscale-on-paused">
