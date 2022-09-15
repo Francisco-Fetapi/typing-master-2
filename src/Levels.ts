@@ -1,12 +1,12 @@
 import { timeTransformer } from "./helpers/timeTransformer";
 import { transformTextToArray } from "./helpers/transformTextToArray";
 
-interface ILevelRoles<T = number> {
+export interface ILevelRoles<T = number> {
   Beginner: T;
   Intermediate: T;
   Advanced: T;
 }
-type ILevel = keyof ILevelRoles;
+export type ILevel = keyof ILevelRoles;
 
 export class Level {
   private _level: ILevel = "Beginner"; //default value
@@ -14,6 +14,7 @@ export class Level {
   public arrayText: string[] = [];
   public timeLimit: number = 0;
   static roles: ILevelRoles = {
+    // num words to define the phrase level
     Beginner: 5, //25
     Intermediate: 10, //40
     Advanced: 15, //60
@@ -43,7 +44,7 @@ export class Level {
   }
   getLevelRoleInPortuguese() {
     return Level.rolesInPortuguese[this._level];
-  } 
+  }
   set level(level: ILevel) {
     this._level = level;
   }
