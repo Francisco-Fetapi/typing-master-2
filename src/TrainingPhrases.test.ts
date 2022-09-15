@@ -6,7 +6,7 @@ describe("TrainingPhrase", () => {
   it("should have time equal zero", () => {
     expect(sut.timeLimit).toBe(0);
   });
-  it("should define a level by words number and time for typing", () => {
+  it("should define a level by words number and time for typing.", () => {
     expect(sut.defineLevelByTimeAndNumLetters(6)).toBe("Beginner");
     expect(sut.defineLevelByTimeAndNumLetters(7)).toBe("Beginner");
     expect(sut.defineLevelByTimeAndNumLetters(11)).toBe("Beginner");
@@ -20,7 +20,10 @@ describe("TrainingPhrase", () => {
     expect(sut.defineLevelByTimeAndNumLetters(0.9)).toBe("Advanced");
   });
   it("should show a correct information about levels timing", () => {
-    console.log(sut.showMinTimeWritingByLevel());
-    expect(true).toBe(true);
+    expect(sut.showMinTimeWritingByLevel()).toEqual({
+      Advanced: "00m:00s",
+      Intermediate: "00m:03s",
+      Beginner: "00m:06s",
+    });
   });
 });
