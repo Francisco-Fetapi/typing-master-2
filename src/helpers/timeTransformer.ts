@@ -9,6 +9,9 @@ export function timeTransformer(time: string) {
 }
 
 export function timeTransformer2(seconds: number) {
+  if (seconds === Infinity) {
+    return "Indeterminado";
+  }
   const seconds2 = seconds % 60;
   const minutes = Math.floor(seconds / 60);
 

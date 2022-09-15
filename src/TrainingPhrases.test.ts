@@ -19,13 +19,6 @@ describe("TrainingPhrase", () => {
     expect(sut.defineLevelByTimeAndNumLetters(2)).toBe("Advanced");
     expect(sut.defineLevelByTimeAndNumLetters(0.9)).toBe("Advanced");
   });
-  // it("should show a correct information about levels timing", () => {
-  //   expect(sut.showMinTimeWritingByLevel()).toEqual({
-  //     Advanced: "00m:00s",
-  //     Intermediate: "00m:03s",
-  //     Beginner: "00m:06s",
-  //   });
-  // });
   it("should show a correct information about levels timing", () => {
     expect(sut.showIntervalTimeByLevel()).toEqual({
       Advanced: { from: 0, to: 2 },
