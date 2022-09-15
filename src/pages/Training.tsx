@@ -19,12 +19,15 @@ import {
   setTimer,
 } from "../store/App.store";
 import { BoxColumnCenter, Text } from "../styles/General";
+import { TrainingPhrase } from "../TrainingPhrases";
 
 export default function Trainning() {
   const currentLevel = useSelector(selectPhraseTraining);
   const backdropInfo = useSelector(selectBackdropInfo);
   useGameLoop();
   const dispatch = useDispatch();
+
+  console.log(new TrainingPhrase("Ola Mundo.").showMinTimeWritingByLevel());
 
   useEffect(() => {
     return () => {
