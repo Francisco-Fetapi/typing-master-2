@@ -12,6 +12,7 @@ import {
 } from "../store/App.selectors";
 import doNotAnything from "../helpers/doNotAnything";
 import { useLocation } from "react-router-dom";
+import { timeTransformer2 } from "../helpers/timeTransformer";
 
 export default function useTimer() {
   const timeLimit = useSelector(selectTimeLimit);
@@ -75,6 +76,7 @@ export default function useTimer() {
   const data = {
     seconds: (seconds || 0) % 60,
     minutes: Math.floor((seconds || 0) / 60),
+    timeString: timeTransformer2(seconds || 0),
     onTimeOver,
     stopTimer,
     resetTimer,
