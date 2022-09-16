@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { TrainingContext } from "../contexts/TrainingContextProvider";
 import doNotAnything from "../helpers/doNotAnything";
 import { Levels } from "../Levels";
 import {
@@ -46,6 +47,7 @@ export default function useInputText() {
   const wordToType = useSelector(selectWordToType);
   const timer = useSelector(selectTimer);
   const location = useLocation();
+  const { handleOpen: openModalTrainingResult } = useContext(TrainingContext);
   const gamePaused = timerPaused && timer !== currentLevel.timeLimit;
   const inCasesToDoAnything =
     onTimeOver || gameFinished || backdrop.open || gamePaused;
@@ -80,6 +82,7 @@ export default function useInputText() {
       dispatch(pauseTimer());
       if (inTraining) {
         console.log("Treino terminou");
+        openModalTrainingResult();
         return;
       }
       if (!Levels[level + 1]) {

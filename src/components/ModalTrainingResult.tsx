@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -10,6 +10,7 @@ import { TransitionProps } from "@mui/material/transitions";
 import { Box, Stack } from "@mui/material";
 import { Text } from "../styles/General";
 import { useNavigate } from "react-router-dom";
+import { TrainingContext } from "../contexts/TrainingContextProvider";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -20,12 +21,8 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-interface Props {
-  handleClose(): void;
-  open: boolean;
-}
-
-export default function ModalTrainingResult({ handleClose, open }: Props) {
+export default function ModalTrainingResult() {
+  const { open, handleClose } = useContext(TrainingContext);
   return (
     <div>
       <Dialog
