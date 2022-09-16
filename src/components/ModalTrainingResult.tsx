@@ -29,7 +29,7 @@ export default function ModalTrainingResult() {
         open={open}
         TransitionComponent={Transition}
         keepMounted
-        onClose={handleClose}
+        maxWidth="md"
       >
         <DialogTitle variant="h6">Modo Treino - Resultados</DialogTitle>
         {/*         NIVEL INICIANTE          */}
