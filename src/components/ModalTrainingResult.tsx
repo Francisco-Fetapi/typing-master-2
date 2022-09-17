@@ -44,17 +44,30 @@ export default function ModalTrainingResult() {
   const time = useSelector(selectTimer);
   const phrase = useSelector(selectPhraseTraining);
   const intervalTimePerLevel = phrase.showIntervalTimeByLevel();
+  const myLevel = phrase.defineLevelByTimeAndNumLetters(time || 0);
 
   const RowData = (
     <React.Fragment>
       {rowsLevel.map((role, key) => {
         const level = intervalTimePerLevel[role]!;
         return (
-          <TableRow>
-            <TableCell component="th" scope="row">
+          <TableRow
+            sx={(theme) => ({
+              background:
+                myLevel === role ? theme.palette.primary.main : undefined,
+            })}
+          >
+            <TableCell
+              component="th"
+              scope="row"
+              sx={{ color: myLevel === role ? "#F0F0F0" : undefined }}
+            >
               {TrainingPhrase.rolesInPortuguese[role]}
             </TableCell>
-            <TableCell align="right">
+            <TableCell
+              align="right"
+              sx={{ color: myLevel === role ? "#F0F0F0" : undefined }}
+            >
               <i>
                 {timeTransformer2(level.from)} - {timeTransformer2(level.to)}
               </i>
