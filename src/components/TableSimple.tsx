@@ -8,12 +8,17 @@ import Paper from "@mui/material/Paper";
 interface TableSimpleProps {
   headTitle: React.ReactNode;
   rows: React.ReactNode;
+  size?: "small" | "medium";
 }
 
-export default function TableSimple({ headTitle, rows }: TableSimpleProps) {
+export default function TableSimple({
+  headTitle,
+  rows,
+  ...props
+}: TableSimpleProps) {
   return (
     <TableContainer component={Paper}>
-      <Table size="medium" aria-label="a dense table">
+      <Table size="medium" aria-label="a dense table" {...props}>
         <TableHead>
           <TableRow>{headTitle}</TableRow>
         </TableHead>

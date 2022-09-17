@@ -39,6 +39,14 @@ const RowTitleLevels = (
   </React.Fragment>
 );
 
+const RowTitleTrainingData = (
+  <React.Fragment>
+    <TableCell align="center" colSpan={2}>
+      Dados do Treino
+    </TableCell>
+  </React.Fragment>
+);
+
 export default function ModalTrainingResult() {
   const { open, handleClose } = useContext(TrainingContext);
   const time = useSelector(selectTimer);
@@ -48,7 +56,7 @@ export default function ModalTrainingResult() {
 
   const RowDataLevels = (
     <React.Fragment>
-      {rowsLevel.map((role, key) => {
+      {rowsLevel.map((role) => {
         const level = intervalTimePerLevel[role]!;
         return (
           <TableRow
@@ -78,6 +86,31 @@ export default function ModalTrainingResult() {
     </React.Fragment>
   );
 
+  const RowDataTraining = (
+    <React.Fragment>
+      <TableRow>
+        <TableCell component="th" scope="row">
+          Tempo Decorrido
+        </TableCell>
+        <TableCell>
+          <i>{timeTransformer2(time || 0)}</i>
+        </TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>Total de Letras</TableCell>
+        <TableCell>
+          <i>{120}</i>
+        </TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>Total de Palavras</TableCell>
+        <TableCell>
+          <i>{19}</i>
+        </TableCell>
+      </TableRow>
+    </React.Fragment>
+  );
+
   return (
     <div>
       <Dialog
@@ -86,11 +119,11 @@ export default function ModalTrainingResult() {
         keepMounted
         maxWidth="md"
         PaperProps={{
-          sx: { maxHeight: "100%" },
+          sx: { maxHeight: "100%", maxWidth: 500 },
         }}
       >
         <DialogTitle variant="h6">RESULTADOS DO TREINO</DialogTitle>
-        {/*         NIVEL INICIANTE          */}
+        {/*         DADOS DO TREINO         */}
         {/* Tempo decorrido: 00m:00s */}
         {/* Total de letras: 1220 */}
         {/* Total de palavras: 12 */}
@@ -98,9 +131,27 @@ export default function ModalTrainingResult() {
         {/* Treinar novamente */}
         {/* Sair */}
         <DialogContent>
+          <Box
+            // maxWidth="400px"
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            mb={2.5}
+          >
+            <TableDescription
+              // title="DADOS DO TREINO"
+              description="A tabela acima contém informações sbre o treino."
+            >
+              <TableSimple
+                headTitle={RowTitleTrainingData}
+                rows={RowDataTraining}
+                size="small"
+              />
+            </TableDescription>
+          </Box>
           <TableDescription
             title="TABELA DE NÍVEIS"
-            description="A tabela a seguir descreve o intervalo de tempo que cada nivel
+            description="A tabela acime descreve o intervalo de tempo que cada nivel
             levaria para digitar o texto do treino."
           >
             <TableSimple headTitle={RowTitleLevels} rows={RowDataLevels} />
@@ -115,7 +166,7 @@ export default function ModalTrainingResult() {
 }
 
 interface TableDescriptionProps {
-  title: string;
+  title?: string;
   description: string;
   children: React.ReactNode;
 }
@@ -127,15 +178,19 @@ function TableDescription({
 }: TableDescriptionProps) {
   return (
     <React.Fragment>
-      <Box mt={1} mb={1}>
-        <Box mb={0.7}>
-          <Text align="center" fontWeight="bold">
-            {title}
-          </Text>
-        </Box>
+      <Box mt={1} mb={2}>
+        {title && (
+          <Box mb={0.7}>
+            <Text align="center" fontWeight="bold">
+              {title}
+            </Text>
+          </Box>
+        )}
         {children}
       </Box>
-      <Text variant="subtitle2">{description}</Text>
+      <Text variant="subtitle2" align="center">
+        {description}
+      </Text>
     </React.Fragment>
   );
 }
