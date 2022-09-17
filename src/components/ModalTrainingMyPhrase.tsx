@@ -44,8 +44,8 @@ export default function ModalTrainingMyPhrase({ handleClose, open }: Props) {
         <DialogTitle variant="h6">FRASE PERSONALIZADA</DialogTitle>
         <DialogContent>
           <Text variant="subtitle2">
-            O sistema irá calcular o tempo minimo de escrita dessa frase para
-            cada um dos niveis disponiveis.
+            NOTA: O sistema irá calcular o tempo minimo de escrita dessa frase
+            para cada um dos niveis disponiveis.
           </Text>
           <Box mt={2}>
             <TextField
