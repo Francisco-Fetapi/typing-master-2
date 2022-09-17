@@ -30,7 +30,7 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const rowsLevel = Object.keys(TrainingPhrase.levelRoles) as ILevel[];
+const rowsLevel = Object.keys(TrainingPhrase.levelRoles).reverse() as ILevel[];
 
 // const RowTitle = (
 //   <React.Fragment>
@@ -78,6 +78,9 @@ export default function ModalTrainingResult() {
         TransitionComponent={Transition}
         keepMounted
         maxWidth="md"
+        PaperProps={{
+          sx: { maxHeight: "100%" },
+        }}
       >
         <DialogTitle variant="h6">Modo Treino - Resultados</DialogTitle>
         {/*         NIVEL INICIANTE          */}

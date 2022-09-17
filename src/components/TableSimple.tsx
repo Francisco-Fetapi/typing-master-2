@@ -13,7 +13,7 @@ interface TableSimpleProps {
 export default function TableSimple({ headTitle, rows }: TableSimpleProps) {
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+      <Table size="medium" aria-label="a dense table">
         <TableHead>
           <TableRow>{headTitle}</TableRow>
         </TableHead>
