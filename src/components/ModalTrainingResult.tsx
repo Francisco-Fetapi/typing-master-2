@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -11,15 +11,19 @@ import { Box, Stack, TableCell, TableRow } from "@mui/material";
 import { Text } from "../styles/General";
 import { TrainingContext } from "../contexts/TrainingContextProvider";
 import TableSimple from "./TableSimple";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ILevel } from "../Levels";
-import {
-  selectCurrentLevelInfo,
-  selectPhraseTraining,
-  selectTimer,
-} from "../store/App.selectors";
+import { selectPhraseTraining, selectTimer } from "../store/App.selectors";
 import { TrainingPhrase } from "../TrainingPhrases";
 import { timeTransformer2 } from "../helpers/timeTransformer";
+import { useNavigate } from "react-router-dom";
+import {
+  chooseRandomPhraseToTrain,
+  clearTypedWords,
+  hideMessageBackdrop,
+  pauseTimer,
+  setTimer,
+} from "../store/App.store";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -53,6 +57,19 @@ export default function ModalTrainingResult() {
   const phrase = useSelector(selectPhraseTraining);
   const intervalTimePerLevel = phrase.showIntervalTimeByLevel();
   const myLevel = phrase.defineLevelByTimeAndNumLetters(time || 0);
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!open) {
+      dispatch(setTimer(phrase.timeLimit));
+      dispatch(pauseTimer());
+      dispatch(clearTypedWords());
+      dispatch(hideMessageBackdrop());
+      dispatch(chooseRandomPhraseToTrain());
+    }
+  }, [open]);
 
   const RowDataLevels = (
     <React.Fragment>
@@ -123,21 +140,14 @@ export default function ModalTrainingResult() {
         }}
       >
         <DialogTitle variant="h6">RESULTADOS DO TREINO</DialogTitle>
-
-        {/* Treinar novamente */}
-        {/* Sair */}
         <DialogContent>
           <Box
-            // maxWidth="400px"
             display="flex"
             flexDirection="column"
             alignItems="center"
             mb={2.5}
           >
-            <TableDescription
-              // title="DADOS DO TREINO"
-              description="A tabela acima contém informações sbre o treino."
-            >
+            <TableDescription description="A tabela acima contém informações sbre o treino.">
               <TableSimple
                 headTitle={RowTitleTrainingData}
                 rows={RowDataTraining}
@@ -147,14 +157,15 @@ export default function ModalTrainingResult() {
           </Box>
           <TableDescription
             title="TABELA DE NÍVEIS"
-            description="A tabela acime descreve o intervalo de tempo que cada nivel
+            description="A tabela acima descreve o intervalo de tempo que cada nivel
             levaria para digitar o texto do treino."
           >
             <TableSimple headTitle={RowTitleLevels} rows={RowDataLevels} />
           </TableDescription>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Fechar</Button>
+          <Button onClick={handleClose}>Treinar novamente</Button>
+          <Button onClick={() => navigate("/")}>Sair</Button>
         </DialogActions>
       </Dialog>
     </div>
