@@ -20,6 +20,7 @@ function ModalTrainingWrapper() {
     <div>
       {modalTrain.open && <ModalTraining {...modalTrain} />}
       <button onClick={modalTrain.handleOpen}>Abrir</button>
+      <button onClick={modalTrain.handleClose}>Fechar</button>
     </div>
   );
 }
@@ -34,17 +35,17 @@ describe("ModalTraining", () => {
     expect(getByText("MODO TREINO")).toBeInTheDocument();
   });
   test("it should be able to open and close", async () => {
-    const { getByText, queryByText } = render(
+    const { getByText, queryByText, getByTestId } = render(
       <AppSetup>
         <ModalTrainingWrapper />
       </AppSetup>
     );
     const btnOpen = getByText("Abrir");
-    const btnClose = getByText("Fechar");
+    const btnClose = getByTestId("btn-fechar");
 
     await user.click(btnClose);
-    expect(queryByText("TYPING MASTER - MODO TREINO")).not.toBeInTheDocument();
+    expect(queryByText("MODO TREINO")).not.toBeInTheDocument();
     await user.click(btnOpen);
-    expect(queryByText("TYPING MASTER - MODO TREINO")).toBeInTheDocument();
+    expect(queryByText("MODO TREINO")).toBeInTheDocument();
   });
 });

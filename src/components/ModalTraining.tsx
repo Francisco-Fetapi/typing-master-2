@@ -77,7 +77,9 @@ export default function ModalTraining({
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Fechar</Button>
+          <Button onClick={handleClose} data-testid="btn-fechar">
+            Fechar
+          </Button>
         </DialogActions>
       </Dialog>
       <ModalTrainingMyPhrase {...modal} />
