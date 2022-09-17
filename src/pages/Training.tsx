@@ -24,7 +24,6 @@ import { TrainingPhrase } from "../TrainingPhrases";
 
 export default function Trainning() {
   const currentLevel = useSelector(selectPhraseTraining);
-  const backdropInfo = useSelector(selectBackdropInfo);
   useGameLoop();
   const dispatch = useDispatch();
 

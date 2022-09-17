@@ -97,15 +97,15 @@ export default function ModalTrainingResult() {
         </TableCell>
       </TableRow>
       <TableRow>
-        <TableCell>Total de Letras</TableCell>
+        <TableCell>Total de Caracteres</TableCell>
         <TableCell>
-          <i>{120}</i>
+          <i>{phrase.numLetters}</i>
         </TableCell>
       </TableRow>
       <TableRow>
         <TableCell>Total de Palavras</TableCell>
         <TableCell>
-          <i>{19}</i>
+          <i>{phrase.numWords}</i>
         </TableCell>
       </TableRow>
     </React.Fragment>
@@ -123,10 +123,6 @@ export default function ModalTrainingResult() {
         }}
       >
         <DialogTitle variant="h6">RESULTADOS DO TREINO</DialogTitle>
-        {/*         DADOS DO TREINO         */}
-        {/* Tempo decorrido: 00m:00s */}
-        {/* Total de letras: 1220 */}
-        {/* Total de palavras: 12 */}
 
         {/* Treinar novamente */}
         {/* Sair */}
