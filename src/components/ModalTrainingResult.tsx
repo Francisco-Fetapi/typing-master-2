@@ -32,14 +32,6 @@ const Transition = React.forwardRef(function Transition(
 
 const rowsLevel = Object.keys(TrainingPhrase.levelRoles).reverse() as ILevel[];
 
-// const RowTitle = (
-//   <React.Fragment>
-//     {rowsLevel.map((row, key) => (
-//       <TableCell align={key === 0 ? undefined : "right"}>{row}</TableCell>
-//     ))}
-//   </React.Fragment>
-// );
-
 const RowTitle = (
   <React.Fragment>
     <TableCell>Nivel</TableCell>
@@ -60,10 +52,12 @@ export default function ModalTrainingResult() {
         return (
           <TableRow>
             <TableCell component="th" scope="row">
-              {role}
+              {TrainingPhrase.rolesInPortuguese[role]}
             </TableCell>
             <TableCell align="right">
-              {timeTransformer2(level.from)} - {timeTransformer2(level.to)}
+              <i>
+                {timeTransformer2(level.from)} - {timeTransformer2(level.to)}
+              </i>
             </TableCell>
           </TableRow>
         );
