@@ -1,8 +1,12 @@
-Em Treino -> Frase Personalizada
+Implementar frases reais. (+30 em Championship)
+Implementar frases reais. (+30 em Training)
 
-- Apresentar lista de frases disponiveis em um List>ListItem.
+background chamativo.
+modo dark -> light
 
 `NAO URGENTES`
+
+- Apresentar lista de frases disponiveis em um List>ListItem.
 
 Um Checkbox com "Salvar esta frase."
 As frases adicionais devem ser deletaveis.
