@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -10,6 +10,8 @@ import { TransitionProps } from "@mui/material/transitions";
 import { Box, Stack } from "@mui/material";
 import { Text } from "../styles/General";
 import { useNavigate } from "react-router-dom";
+import ModalTrainingMyPhrase from "./ModalTrainingMyPhrase";
+import useBoolean from "../hooks/useBoolean";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -22,11 +24,22 @@ const Transition = React.forwardRef(function Transition(
 
 interface Props {
   handleClose(): void;
+  handleOpen(): void;
   open: boolean;
 }
 
-export default function ModalTraining({ handleClose, open }: Props) {
+export default function ModalTraining({
+  handleClose,
+  open,
+  handleOpen,
+}: Props) {
   const navigate = useNavigate();
+  const modal = useBoolean();
+
+  useEffect(() => {
+    if (open) handleClose();
+    else handleOpen();
+  }, [modal.open]);
   return (
     <div>
       <Dialog
@@ -50,7 +63,7 @@ export default function ModalTraining({ handleClose, open }: Props) {
             <TrainingMode
               title="FRASE PERSONALIZADA"
               content="No modo personalizado você pode digitar a frase a ser usada no treino."
-              handleSelected={() => null}
+              handleSelected={() => modal.handleOpen()}
             />
           </Box>
         </DialogContent>
@@ -58,6 +71,7 @@ export default function ModalTraining({ handleClose, open }: Props) {
           <Button onClick={handleClose}>Fechar</Button>
         </DialogActions>
       </Dialog>
+      <ModalTrainingMyPhrase {...modal} />
     </div>
   );
 }

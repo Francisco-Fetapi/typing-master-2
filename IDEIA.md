@@ -1,8 +1,8 @@
 Em Treino -> Frase Personalizada
 
-Apresentar lista de frases disponiveis em um List>ListItem.
+- Apresentar lista de frases disponiveis em um List>ListItem.
 
-Um Formulario para se digitar uma frase
+- Um Formulario para se digitar uma frase
 
 Um Checkbox com "Salvar esta frase."
 As frases adicionais devem ser deletaveis.
