@@ -35,7 +35,7 @@ export default function ModalTraining({ handleClose, open }: Props) {
         keepMounted
         onClose={handleClose}
       >
-        <DialogTitle variant="h6">TYPING MASTER - MODO TREINO</DialogTitle>
+        <DialogTitle variant="h6">MODO TREINO</DialogTitle>
         <DialogContent>
           <Text variant="subtitle2">
             <b>O Modo Treino</b> é o lugar ideal para melhorar as suas

@@ -31,7 +31,7 @@ describe("ModalTraining", () => {
         <ModalTrainingWrapper />
       </AppSetup>
     );
-    expect(getByText("TYPING MASTER - MODO TREINO")).toBeInTheDocument();
+    expect(getByText("MODO TREINO")).toBeInTheDocument();
   });
   test("it should be able to open and close", async () => {
     const { getByText, queryByText } = render(
