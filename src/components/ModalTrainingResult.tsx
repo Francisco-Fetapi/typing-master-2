@@ -147,7 +147,7 @@ export default function ModalTrainingResult() {
             alignItems="center"
             mb={2.5}
           >
-            <TableDescription description="A tabela acima contém informações sbre o treino.">
+            <TableDescription description="A tabela acima contém informações sobre o treino.">
               <TableSimple
                 headTitle={RowTitleTrainingData}
                 rows={RowDataTraining}
