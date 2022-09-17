@@ -1,9 +1,12 @@
-Testes
+Em Treino -> Frase Personalizada
 
-Backdrop treino, nivel, definir proeficiencia do usuario.
-btn treinar mais no backdrop.
+Apresentar lista de frases disponiveis em um List>ListItem.
 
-aumentar pts por nivel e nao por palavras digitadas.
+Um Formulario para se digitar uma frase
+
+Um Checkbox com "Salvar esta frase."
+As frases adicionais devem ser deletaveis.
+guardar a frase com Tipo Phrase = {text:string,maxLevel:ILevel}
 
 ---
 
@@ -86,3 +89,10 @@ Criar pagina Treino.
 
 - Criar propria frase.
 - Gerar automaticamente.
+
+Backdrop treino, nivel, definir proeficiencia do usuario.
+btn treinar mais no backdrop.
+
+Testes
+
+[DUVIDA]!aumentar pts por nivel e nao por palavras digitadas.
