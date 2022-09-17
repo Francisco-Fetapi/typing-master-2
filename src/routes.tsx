@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import TrainingContextProvider from "./contexts/TrainingContextProvider";
 import Championship from "./pages/Championship";
 import Home from "./pages/Home";
-import LevelsList from "./pages/LevelsList";
+// import LevelsList from "./pages/LevelsList";
 import Training from "./pages/Training";
 
 export default function routes() {
@@ -19,7 +19,7 @@ export default function routes() {
             </TrainingContextProvider>
           }
         />
-        <Route path="/levels" element={<LevelsList />} />
+        {/* <Route path="/levels" element={<LevelsList />} /> */}
       </Routes>
     </BrowserRouter>
   );

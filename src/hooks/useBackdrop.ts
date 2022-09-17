@@ -81,9 +81,9 @@ export default function useBackdrop() {
     message:
       "Todos os niveis do jogo foram completamente finalizados, agora você é um Typing Master.",
     primaryButton: {
-      text: "Listagem de Niveis",
+      text: "Ir para o Treino",
       handleClick: () => {
-        navigate("/levels", { replace: true });
+        navigate("/training", { replace: true });
       },
     },
     secondaryButton: { text: "Sair" },
