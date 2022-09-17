@@ -37,7 +37,7 @@ const initialState: App = {
     open: false,
   },
   points: useStatePersist<number>(POINTS_KEY_IN_LOCALSTORAGE).get() || 0,
-  phraseTraining: new TrainingPhrase(""),
+  phraseTraining: selectRandomElement<TrainingPhrase>(trainingPhrases),
   levels: Levels,
 };
 
@@ -104,6 +104,9 @@ export function sliceCreator(initialState: App) {
         state.phraseTraining =
           selectRandomElement<TrainingPhrase>(trainingPhrases);
       },
+      setPhraseToTrain(state, action: PayloadAction<TrainingPhrase>) {
+        state.phraseTraining = action.payload;
+      },
     },
   });
 }
@@ -142,6 +145,7 @@ export const {
   clearTypedWords,
   increasePoints,
   chooseRandomPhraseToTrain,
+  setPhraseToTrain,
 } = app.actions;
 
 export default store;

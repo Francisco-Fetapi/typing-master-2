@@ -8,6 +8,7 @@ interface TimeInterval {
 
 export class TrainingPhrase extends Level {
   public numLetters: number = 0;
+  public choosedByUser: boolean = false;
   static levelRoles: ILevelRoles = {
     // min of % of time to type the phrase
     Beginner: 60, // 60 - infinity

@@ -67,7 +67,9 @@ export default function ModalTrainingResult() {
       dispatch(pauseTimer());
       dispatch(clearTypedWords());
       dispatch(hideMessageBackdrop());
-      dispatch(chooseRandomPhraseToTrain());
+      if (!phrase.choosedByUser) {
+        dispatch(chooseRandomPhraseToTrain());
+      }
     }
   }, [open]);
 

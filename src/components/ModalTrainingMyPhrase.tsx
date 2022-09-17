@@ -10,6 +10,9 @@ import { TransitionProps } from "@mui/material/transitions";
 import { Box, TextField } from "@mui/material";
 import { Text } from "../styles/General";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { TrainingPhrase } from "../TrainingPhrases";
+import { setPhraseToTrain } from "../store/App.store";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -26,13 +29,19 @@ interface Props {
 }
 
 export default function ModalTrainingMyPhrase({ handleClose, open }: Props) {
-  //   const navigate = useNavigate();
   const [value, setValue] = React.useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
-  function done() {}
+  function done() {
+    const phrase = new TrainingPhrase(value);
+    phrase.choosedByUser = true;
+    dispatch(setPhraseToTrain(phrase));
+    navigate("/training");
+  }
   return (
     <div>
       <Dialog
