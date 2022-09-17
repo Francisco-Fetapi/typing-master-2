@@ -79,6 +79,7 @@ export default function ModalTrainingResult() {
         const level = intervalTimePerLevel[role]!;
         return (
           <TableRow
+            key={role}
             sx={(theme) => ({
               background:
                 myLevel === role ? theme.palette.primary.main : undefined,

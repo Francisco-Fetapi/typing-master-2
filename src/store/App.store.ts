@@ -122,6 +122,7 @@ export const middlewares = {
       "app.backdrop.onMount",
       "payload.primaryButton.handleClick",
       "app.levels",
+      "app.setPhraseToTrain",
     ],
   },
 };
