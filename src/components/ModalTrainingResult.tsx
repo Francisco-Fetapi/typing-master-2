@@ -32,10 +32,10 @@ const Transition = React.forwardRef(function Transition(
 
 const rowsLevel = Object.keys(TrainingPhrase.levelRoles).reverse() as ILevel[];
 
-const RowTitle = (
+const RowTitleLevels = (
   <React.Fragment>
     <TableCell>Nivel</TableCell>
-    <TableCell align="right">Intervalo</TableCell>
+    <TableCell align="right">Intervalo de Tempo</TableCell>
   </React.Fragment>
 );
 
@@ -46,7 +46,7 @@ export default function ModalTrainingResult() {
   const intervalTimePerLevel = phrase.showIntervalTimeByLevel();
   const myLevel = phrase.defineLevelByTimeAndNumLetters(time || 0);
 
-  const RowData = (
+  const RowDataLevels = (
     <React.Fragment>
       {rowsLevel.map((role, key) => {
         const level = intervalTimePerLevel[role]!;
@@ -89,37 +89,53 @@ export default function ModalTrainingResult() {
           sx: { maxHeight: "100%" },
         }}
       >
-        <DialogTitle variant="h6">Modo Treino - Resultados</DialogTitle>
+        <DialogTitle variant="h6">RESULTADOS DO TREINO</DialogTitle>
         {/*         NIVEL INICIANTE          */}
         {/* Tempo decorrido: 00m:00s */}
         {/* Total de letras: 1220 */}
         {/* Total de palavras: 12 */}
 
-        {/*         TABELA DE CLASSIFICACOES          */}
-        {/* A tabela a seguir descreve o intervalo de tempo que cada nivel levaria para digitar o texto do treino. */}
-
-        {/* NIVEL               INTERVALO DE TEMPO */}
-        {/* INICIANTE           00m:00s - 00m-06s */}
-        {/* INTERMEDIARIO       00m:00s - 00m-06s */}
-        {/* AVANCADO            00m:00s - 00m-06s */}
-
         {/* Treinar novamente */}
         {/* Sair */}
         <DialogContent>
-          <Text variant="subtitle2">
-            <b>O Modo Treino</b> é o lugar ideal para melhorar as suas
-            habilidades na arte da digitação.
-          </Text>
-          <Box sx={{ zoom: 0.9 }}>Ola Mundo. Conteudo.</Box>
-
-          <Box mt={2}>
-            <TableSimple headTitle={RowTitle} rows={RowData} />
-          </Box>
+          <TableDescription
+            title="TABELA DE NÍVEIS"
+            description="A tabela a seguir descreve o intervalo de tempo que cada nivel
+            levaria para digitar o texto do treino."
+          >
+            <TableSimple headTitle={RowTitleLevels} rows={RowDataLevels} />
+          </TableDescription>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Fechar</Button>
         </DialogActions>
       </Dialog>
     </div>
+  );
+}
+
+interface TableDescriptionProps {
+  title: string;
+  description: string;
+  children: React.ReactNode;
+}
+
+function TableDescription({
+  title,
+  description,
+  children,
+}: TableDescriptionProps) {
+  return (
+    <React.Fragment>
+      <Box mt={1} mb={1}>
+        <Box mb={0.7}>
+          <Text align="center" fontWeight="bold">
+            {title}
+          </Text>
+        </Box>
+        {children}
+      </Box>
+      <Text variant="subtitle2">{description}</Text>
+    </React.Fragment>
   );
 }
