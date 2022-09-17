@@ -37,7 +37,7 @@ const initialState: App = {
     open: false,
   },
   points: useStatePersist<number>(POINTS_KEY_IN_LOCALSTORAGE).get() || 0,
-  phraseTraining: selectRandomElement<TrainingPhrase>(trainingPhrases),
+  phraseTraining: new TrainingPhrase(""),
   levels: Levels,
 };
 

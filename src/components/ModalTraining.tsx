@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -12,6 +12,7 @@ import { Text } from "../styles/General";
 import { useNavigate } from "react-router-dom";
 import ModalTrainingMyPhrase from "./ModalTrainingMyPhrase";
 import useBoolean from "../hooks/useBoolean";
+import doNotAnything from "../helpers/doNotAnything";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -35,11 +36,15 @@ export default function ModalTraining({
 }: Props) {
   const navigate = useNavigate();
   const modal = useBoolean();
+  const numRerenders = useRef<number>(0);
 
   useEffect(() => {
+    if (numRerenders.current === 0) return doNotAnything;
     if (open) handleClose();
     else handleOpen();
+    numRerenders.current++;
   }, [modal.open]);
+
   return (
     <div>
       <Dialog
@@ -47,6 +52,10 @@ export default function ModalTraining({
         TransitionComponent={Transition}
         keepMounted
         onClose={handleClose}
+        sx={{
+          opacity: modal.open ? 0 : 1,
+          transition: modal.open ? "opacity .3s ease-in" : undefined,
+        }}
       >
         <DialogTitle variant="h6">MODO TREINO</DialogTitle>
         <DialogContent>
