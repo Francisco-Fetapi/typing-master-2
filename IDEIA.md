@@ -2,7 +2,7 @@ Em Treino -> Frase Personalizada
 
 - Apresentar lista de frases disponiveis em um List>ListItem.
 
-- Um Formulario para se digitar uma frase
+`NAO URGENTES`
 
 Um Checkbox com "Salvar esta frase."
 As frases adicionais devem ser deletaveis.
@@ -10,6 +10,7 @@ guardar a frase com Tipo Phrase = {text:string,maxLevel:ILevel}
 
 ---
 
+`!IMPORTANTE`
 Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
 
 refatorar (useTimer -> useGameLoop)
@@ -96,3 +97,5 @@ btn treinar mais no backdrop.
 Testes
 
 [DUVIDA]!aumentar pts por nivel e nao por palavras digitadas.
+
+- Um Formulario para se digitar uma frase personalizada
