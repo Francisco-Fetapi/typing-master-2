@@ -62,7 +62,7 @@ export default function ModalTrainingResult() {
               scope="row"
               sx={{ color: myLevel === role ? "#F0F0F0" : undefined }}
             >
-              {TrainingPhrase.rolesInPortuguese[role]}
+              {TrainingPhrase.rolesInPortuguese[role].toUpperCase()}
             </TableCell>
             <TableCell
               align="right"
