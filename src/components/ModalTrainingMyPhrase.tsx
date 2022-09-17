@@ -7,7 +7,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
-import { Box, Stack } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 import { Text } from "../styles/General";
 import { useNavigate } from "react-router-dom";
 
@@ -17,7 +17,7 @@ const Transition = React.forwardRef(function Transition(
   },
   ref: React.Ref<unknown>
 ) {
-  return <Slide direction="up" ref={ref} {...props} />;
+  return <Slide direction="down" ref={ref} {...props} />;
 });
 
 interface Props {
@@ -27,6 +27,12 @@ interface Props {
 
 export default function ModalTrainingMyPhrase({ handleClose, open }: Props) {
   //   const navigate = useNavigate();
+  const [value, setValue] = React.useState("");
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
+  function done() {}
   return (
     <div>
       <Dialog
@@ -38,12 +44,24 @@ export default function ModalTrainingMyPhrase({ handleClose, open }: Props) {
         <DialogTitle variant="h6">FRASE PERSONALIZADA</DialogTitle>
         <DialogContent>
           <Text variant="subtitle2">
-            <b>O Modo Treino</b> é o lugar ideal para melhorar as suas
-            habilidades na arte da digitação.
+            O sistema irá calcular o tempo minimo de escrita dessa frase para
+            cada um dos niveis disponiveis.
           </Text>
-          <Box sx={{ zoom: 0.9 }}></Box>
+          <Box mt={2}>
+            <TextField
+              placeholder="Digite alguma frase aqui..."
+              //   label="Multiline"
+              fullWidth
+              multiline
+              rows={4}
+              value={value}
+              onChange={handleChange}
+              variant="standard"
+            />
+          </Box>
         </DialogContent>
         <DialogActions>
+          <Button onClick={done}>Concluir</Button>
           <Button onClick={handleClose}>Fechar</Button>
         </DialogActions>
       </Dialog>
