@@ -8,7 +8,11 @@ import {
 } from "../store/App.selectors";
 import { InputTextContainer, Text, BoxColumnCenter } from "../styles/General";
 
-export default function InputText() {
+interface Props {
+  noBlur?: boolean;
+}
+
+export default function InputText({ noBlur }: Props) {
   const { textDisplay, inputText, error, type, filterSomeKeys } =
     useInputText();
 
@@ -31,7 +35,7 @@ export default function InputText() {
         onPaste={(e) => e.preventDefault()}
         autoFocus
         className="input-text"
-        onBlurCapture={(e) => e.target.focus()}
+        onBlurCapture={noBlur ? undefined : (e) => e.target.focus()}
         data-testid="input-text"
       />
       <InputTextContainer
