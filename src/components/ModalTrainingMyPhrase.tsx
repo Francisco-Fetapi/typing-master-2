@@ -30,14 +30,23 @@ interface Props {
 
 export default function ModalTrainingMyPhrase({ handleClose, open }: Props) {
   const [value, setValue] = React.useState("");
+  const [error, setError] = React.useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setError("");
     setValue(event.target.value);
   };
   function done() {
-    const phrase = new TrainingPhrase(value);
+    let finalPhrase = value.trim();
+
+    if (finalPhrase.split(" ").length < 2) {
+      setError("Frase demasiado pequena. 2 palavras no minimo.");
+      return;
+    }
+
+    const phrase = new TrainingPhrase(finalPhrase);
     phrase.choosedByUser = true;
     dispatch(setPhraseToTrain(phrase));
     navigate("/training");
@@ -66,6 +75,8 @@ export default function ModalTrainingMyPhrase({ handleClose, open }: Props) {
               value={value}
               onChange={handleChange}
               variant="standard"
+              error={!!error}
+              helperText={error}
             />
           </Box>
         </DialogContent>
