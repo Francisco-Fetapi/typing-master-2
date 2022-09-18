@@ -5,6 +5,7 @@ import store from "./store/App.store";
 import { Provider } from "react-redux";
 import Routes from "./routes";
 import PointCounter from "./components/PointCounter";
+import SpeedDialTooltip from "./components/SpeedDial";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <SnackbarProvider maxSnack={3}>
             <PointCounter />
             <Routes />
+            <SpeedDialTooltip />
           </SnackbarProvider>
         </S.AppContainer>
       </Layout>
