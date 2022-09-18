@@ -18,10 +18,7 @@ export const InputTextContainer = styled(Paper)`
   align-items: center;
   padding: 8px;
   font-size: 30px;
-
-  &.error {
-    border-color: #f20000;
-  }
+  opacity: 0.8;
 
   &::after {
     /* content: "|"; */
