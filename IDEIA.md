@@ -2,11 +2,17 @@
 Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
 
 Implementar frases reais. (+30 em Championship)
+
+dica de frases:
+Hoje eh dia X de X de 202X
+Hoje eh quinta-feira
 Implementar frases reais. (+30 em Training)
 
 `NAO URGENTES`
 
 comecar timer depois da primeira letra digitada.
+
+[DUVIDA]!aumentar pts por nivel e nao por palavras digitadas.
 
 - Apresentar lista de frases disponiveis em um List>ListItem.
 
@@ -98,7 +104,5 @@ Backdrop treino, nivel, definir proeficiencia do usuario.
 btn treinar mais no backdrop.
 
 Testes
-
-[DUVIDA]!aumentar pts por nivel e nao por palavras digitadas.
 
 - Um Formulario para se digitar uma frase personalizada
