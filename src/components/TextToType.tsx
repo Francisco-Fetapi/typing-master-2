@@ -25,8 +25,10 @@ export default function TextToType() {
           sx={(theme) =>
             key < typedWords
               ? {
-                  borderBottom: `1px dashed ${theme.palette.primary.main}`,
-                  color: theme.palette.primary.main,
+                  borderBottom: `1px dashed ${
+                    theme.palette.primary[theme.palette.mode]
+                  }`,
+                  color: theme.palette.primary[theme.palette.mode],
                 }
               : {}
           }
