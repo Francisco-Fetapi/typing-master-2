@@ -1,5 +1,4 @@
 `!IMPORTANTE`
-Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
 
 Implementar frases reais. (+30 em Championship)
 
@@ -13,6 +12,8 @@ Frases de pensadores, vers. biblicos.
 Colocar algumas frases em outros idiomas em niveis maisavancados.
 
 Implementar frases reais. (+30 em Training)
+
+Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
 
 `NAO URGENTES`
 
