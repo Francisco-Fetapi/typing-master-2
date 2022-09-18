@@ -7,7 +7,7 @@ import {
   selectTypedWords,
 } from "../store/App.selectors";
 import { useSelector } from "react-redux";
-import { AppContainer } from "../styles/General";
+import { AppContainer, GradientBottomTop } from "../styles/General";
 
 interface Props {
   children: React.ReactElement;
@@ -44,6 +44,7 @@ export default function Layout({ children }: Props) {
         }}
       >
         {children}
+        {theme.palette.mode === "light" && <GradientBottomTop />}
       </AppContainer>
     </ThemeProvider>
   );

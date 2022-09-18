@@ -54,3 +54,16 @@ export const PointCounterContainer = styled.div`
   top: 10px;
   right: 20px;
 `;
+
+const Gradient = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+
+  z-index: -1;
+  box-shadow: inset 180px 180px 180px rgba(255, 255, 255, 0.8);
+`;
+export const GradientBottomTop = styled(Gradient)`
+  left: 0;
+`;
