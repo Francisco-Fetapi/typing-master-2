@@ -20,7 +20,7 @@ export default function Layout({ children }: Props) {
   const paused = timerPaused && typedWords > 0;
   const theme = createTheme({
     palette: {
-      mode: darkMode ? "dark" : "light",
+      mode: darkMode ? "light" : "dark",
     },
     components: {
       MuiTextField: {
