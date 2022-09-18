@@ -1,8 +1,8 @@
+`!IMPORTANTE`
+Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
+
 Implementar frases reais. (+30 em Championship)
 Implementar frases reais. (+30 em Training)
-
-background chamativo.
-modo dark -> light
 
 `NAO URGENTES`
 
@@ -13,9 +13,6 @@ As frases adicionais devem ser deletaveis.
 guardar a frase com Tipo Phrase = {text:string,maxLevel:ILevel}
 
 ---
-
-`!IMPORTANTE`
-Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
 
 refatorar (useTimer -> useGameLoop)
 

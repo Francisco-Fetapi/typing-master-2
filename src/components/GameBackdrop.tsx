@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, useTheme } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -34,14 +34,14 @@ export interface Props {
   onMount?: () => void;
 }
 
-const variants: IVariants = {
-  success: "greenyellow",
-  error: "red",
-};
-const buttonColorVariants: IVariants = {
-  success: "success",
-  error: "error",
-};
+// const variants: IVariants = {
+//   success: "greenyellow",
+//   error: "red",
+// };
+// const buttonColorVariants: IVariants = {
+//   success: "success",
+//   error: "error",
+// };
 
 export default function GameBackdrop({
   open,
@@ -52,10 +52,18 @@ export default function GameBackdrop({
   secondaryButton,
   onMount,
 }: Props) {
-  const variant = variants[type];
-  const buttonColorVariant = buttonColorVariants[type] as IColors;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const theme = useTheme();
+
+  const variants: IVariants = {
+    success: theme.palette.success.main,
+    error: theme.palette.error.main,
+  };
+
+  const variant = variants[type];
+  const buttonColorVariant = variants[type] as IColors;
+
   function goToHome() {
     dispatch(resetAllState());
     navigate("/", { replace: true });
@@ -101,9 +109,13 @@ export default function GameBackdrop({
         <Box>
           <BoxColumnCenter>
             <Text
-              color={variant}
+              // color={variant}
               variant="h5"
-              sx={{ textTransform: "uppercase", fontWeight: "bold" }}
+              sx={{
+                textTransform: "uppercase",
+                fontWeight: "bold",
+                color: variant,
+              }}
             >
               {title}
             </Text>
@@ -117,7 +129,7 @@ export default function GameBackdrop({
           <BoxColumnCenter mt={3}>
             {primaryButton && (
               <Button
-                color={buttonColorVariant}
+                // color={buttonColorVariant}
                 variant="contained"
                 onClick={primaryButton.handleClick || close}
               >

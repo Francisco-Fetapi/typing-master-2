@@ -4,14 +4,11 @@ import { createGlobalStyle, css } from "styled-components";
 
 interface StylesProps {
   paused: boolean;
-  mode: "light" | "dark";
 }
 
 export const GlobalStyles = createGlobalStyle<StylesProps>`
     body{
-        /* background-color:#f4f4f4; */
-        background-image:url("${(props) => `/bg-${props.mode}.jpg`}");
-        /* background-image:url("/bg-light.jpg"); */
+        background-image:url("${(props) => `/bg.jpg`}");
         background-position:center center ;
         background-attachment: fixed;
         background-size:cover;
