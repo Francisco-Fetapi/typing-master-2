@@ -11,7 +11,11 @@ export const GlobalStyles = createGlobalStyle<StylesProps>`
     body{
         /* background-color:#f4f4f4; */
         background-image:url("${(props) => `/bg-${props.mode}.jpg`}");
-        /* background-image:url(bgDark); */
+        /* background-image:url("/bg-light.jpg"); */
+        background-position:center center ;
+        background-attachment: fixed;
+        background-size:cover;
+        
         overflow-x: hidden;
         transition:filter 1s;
         ${(props) =>

@@ -1,5 +1,5 @@
 import { Typography, Paper, Box } from "@mui/material";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const AppContainer = styled.div`
   display: flex;
@@ -8,6 +8,7 @@ export const AppContainer = styled.div`
   flex-direction: column;
   min-height: 100vh;
   width: 100vw;
+  background-attachment: fixed;
 `;
 export const InputTextContainer = styled(Paper)`
   height: 50px;
