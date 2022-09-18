@@ -23,7 +23,7 @@ export default function InputText({ noBlur }: Props) {
 
   const classes = [];
 
-  if (error) classes.push("error");
+  // if (error) classes.push("error");
   if (paused) classes.push("paused");
 
   return (
@@ -41,6 +41,9 @@ export default function InputText({ noBlur }: Props) {
       <InputTextContainer
         variant="outlined"
         className={classes.join(" ")}
+        sx={(theme) => ({
+          borderColor: error ? theme.palette.error.main : undefined,
+        })}
         // paused={paused}
         // ola
       >
