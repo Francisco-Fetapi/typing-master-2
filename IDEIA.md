@@ -1,3 +1,7 @@
+Em tentar novamente, no timeout over.
+Depois de voltar a digitar
+ao terminar o modal sucesso nao eh mais exibido.
+
 Implementar frases reais. (+30 em Championship)
 Implementar frases reais. (+30 em Training)
 
