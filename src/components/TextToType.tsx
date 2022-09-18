@@ -21,11 +21,12 @@ export default function TextToType() {
         <Text
           component="span"
           key={key}
-          color={key < typedWords ? "blue" : "inherit"}
+          // color={key < typedWords ? "blue" : "inherit"}
           sx={(theme) =>
             key < typedWords
               ? {
                   borderBottom: `1px dashed ${theme.palette.primary.main}`,
+                  color: theme.palette.primary.main,
                 }
               : {}
           }

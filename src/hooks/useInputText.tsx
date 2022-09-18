@@ -117,7 +117,10 @@ export default function useInputText() {
       component="span"
       key={key}
       variant="h4"
-      color={str !== wordToType[key] ? "red" : "inherit"}
+      // color={str !== wordToType[key] ? "red" : "inherit"}
+      sx={(theme) => ({
+        color: str !== wordToType[key] ? theme.palette.error.main : "inherit",
+      })}
     >
       {str}
     </Text>

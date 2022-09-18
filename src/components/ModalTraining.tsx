@@ -96,11 +96,11 @@ interface TrainingModeProps {
 function TrainingMode({ title, content, handleSelected }: TrainingModeProps) {
   return (
     <Box mt={2}>
-      <Text variant="body1" fontWeight={700}>
+      <Text variant="body1" fontWeight={700} color="Highlight">
         {title}
       </Text>
       <Box mt={0.4}>
-        <Text color="GrayText">{content}</Text>
+        <Text color="inherit">{content}</Text>
       </Box>
       <Box mt={1}>
         <Stack justifyContent="center">

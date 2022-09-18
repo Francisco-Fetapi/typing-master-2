@@ -22,4 +22,9 @@ export const GlobalStyles = createGlobalStyle<StylesProps>`
       pointer-events:none;
       opacity:0;
     }
+    .MuiSpeedDialAction-staticTooltipLabel{
+        width:150px !important;
+        font-size:14px !important;
+        font-weight:bold;
+    }
 `;
