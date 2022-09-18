@@ -73,16 +73,20 @@ export default function GameBackdrop({
   }, [open]);
 
   useEffect(() => {
-    window.onkeyup = (e) => {
-      if (e.key === "Enter") {
-        console.log(e.key);
-        if (typeof primaryButton?.handleClick === "function") {
-          primaryButton.handleClick();
-        } else {
-          close();
+    if (open) {
+      window.onkeyup = (e) => {
+        if (e.key === "Enter") {
+          console.log(e.key);
+          if (typeof primaryButton?.handleClick === "function") {
+            primaryButton.handleClick();
+          } else {
+            close();
+          }
         }
-      }
-    };
+      };
+    } else {
+      window.onkeyup = null;
+    }
   }, [open]);
 
   return (

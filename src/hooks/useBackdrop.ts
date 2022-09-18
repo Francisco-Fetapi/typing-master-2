@@ -65,6 +65,7 @@ export default function useBackdrop() {
         message: "",
         primaryButton: {
           text: "Começar agora",
+          handleClick() {},
         },
         secondaryButton: { text: "Sair" },
         open: true,
