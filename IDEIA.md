@@ -3,12 +3,20 @@ Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar
 
 Implementar frases reais. (+30 em Championship)
 
-dica de frases:
+dicas de frases:
+
 Hoje eh dia X de X de 202X
 Hoje eh quinta-feira
+
+Frases de pensadores, vers. biblicos.
+
+Colocar algumas frases em outros idiomas em niveis maisavancados.
+
 Implementar frases reais. (+30 em Training)
 
 `NAO URGENTES`
+
+Um gif ao iniciar com um texto acima e um degrade black com baixa opacidade. Demore apenas 2s e so depois iniciar a aplicao.
 
 comecar timer depois da primeira letra digitada.
 
