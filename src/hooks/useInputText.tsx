@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { TrainingContext } from "../contexts/TrainingContextProvider";
+import { invertTheme } from "../core/mui";
 import doNotAnything from "../helpers/doNotAnything";
 import { Levels } from "../Levels";
 import {

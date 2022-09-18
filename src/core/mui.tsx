@@ -1,5 +1,5 @@
 import React from "react";
-import {ThemeProvider,createTheme,CssBaseline} from "@mui/material";
+import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import { GlobalStyles } from "../styles/GlobalStyles";
 import {
   selectTheme,
