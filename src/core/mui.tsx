@@ -33,7 +33,7 @@ export default function Layout({ children }: Props) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <GlobalStyles paused={paused} />
+      <GlobalStyles paused={paused} mode={theme.palette.mode} />
       {children}
     </ThemeProvider>
   );

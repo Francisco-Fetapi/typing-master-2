@@ -1,12 +1,17 @@
 import { createGlobalStyle, css } from "styled-components";
+// import bgDark from "../assets/bg-dark.jpg";
+// import bgLight from "../assets/bg-light.jpg";
 
 interface StylesProps {
   paused: boolean;
+  mode: "light" | "dark";
 }
 
 export const GlobalStyles = createGlobalStyle<StylesProps>`
     body{
-        background-color:#f4f4f4;
+        /* background-color:#f4f4f4; */
+        background-image:url("${(props) => `/bg-${props.mode}.jpg`}");
+        /* background-image:url(bgDark); */
         overflow-x: hidden;
         transition:filter 1s;
         ${(props) =>
