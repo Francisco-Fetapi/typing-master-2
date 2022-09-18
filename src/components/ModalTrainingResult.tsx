@@ -88,13 +88,23 @@ export default function ModalTrainingResult() {
             <TableCell
               component="th"
               scope="row"
-              sx={{ color: myLevel === role ? "#F0F0F0" : undefined }}
+              sx={(theme) => ({
+                color:
+                  myLevel === role
+                    ? theme.palette.primary.contrastText
+                    : undefined,
+              })}
             >
               {TrainingPhrase.rolesInPortuguese[role].toUpperCase()}
             </TableCell>
             <TableCell
               align="right"
-              sx={{ color: myLevel === role ? "#F0F0F0" : undefined }}
+              sx={(theme) => ({
+                color:
+                  myLevel === role
+                    ? theme.palette.primary.contrastText
+                    : undefined,
+              })}
             >
               <i>
                 {timeTransformer2(level.from)} - {timeTransformer2(level.to)}
