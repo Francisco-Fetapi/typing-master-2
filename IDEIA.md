@@ -6,6 +6,8 @@ Implementar frases reais. (+30 em Training)
 
 `NAO URGENTES`
 
+comecar timer depois da primeira letra digitada.
+
 - Apresentar lista de frases disponiveis em um List>ListItem.
 
 Um Checkbox com "Salvar esta frase."
