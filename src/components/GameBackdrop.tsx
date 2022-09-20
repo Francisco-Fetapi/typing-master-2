@@ -115,10 +115,10 @@ export default function GameBackdrop({
             {secondaryTitle && (
               <Text
                 align="center"
+                color="Highlight"
                 sx={{
                   textTransform: "uppercase",
                   fontWeight: "bold",
-                  color: variant,
                 }}
                 variant="subtitle2"
               >
