@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setTimer, showMessageBackdrop } from "../store/App.store";
 import useBackdrop from "./useBackdrop";
 import {
-  selectLevel,
+  selectCurrentLevel,
   selectPhraseSize,
   selectTimeLimit,
   selectTimer,
@@ -16,7 +16,7 @@ import { timeTransformer2 } from "../helpers/timeTransformer";
 
 export default function useTimer() {
   const timeLimit = useSelector(selectTimeLimit);
-  const level = useSelector(selectLevel);
+  const level = useSelector(selectCurrentLevel);
   const seconds = useSelector(selectTimer);
   const timerPaused = useSelector(selectTimerPaused);
   const toDecrease = timeLimit > 0;
@@ -34,7 +34,7 @@ export default function useTimer() {
 
   useEffect(() => {
     resetTimer();
-  }, [timeLimit]);
+  }, [level]);
 
   const handleTimer = () => {
     interval.current = setTimeout(() => {

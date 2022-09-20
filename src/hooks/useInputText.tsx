@@ -101,6 +101,9 @@ export default function useInputText() {
   //   }
   // }, [typedWords]);
   useEffect(() => {
+    console.log(currentLevel.timeLimit);
+  }, [currentLevel]);
+  useEffect(() => {
     if (inputText.length > 0 && typedWords === 0 && timerPaused) {
       dispatch(playTimer());
     }
