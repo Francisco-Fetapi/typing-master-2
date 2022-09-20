@@ -17,7 +17,7 @@ import {
   setTimer,
 } from "../store/App.store";
 import { BoxColumnCenter, Text } from "../styles/General";
-import { TrainingPhrase } from "../TrainingPhrases";
+import { TrainingPhrase } from "../TrainingPhrase";
 
 export default function Trainning() {
   const currentLevel = useSelector(selectPhraseTraining);

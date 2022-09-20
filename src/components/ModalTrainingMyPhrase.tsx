@@ -11,7 +11,7 @@ import { Box, TextField } from "@mui/material";
 import { Text } from "../styles/General";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { TrainingPhrase } from "../TrainingPhrases";
+import { TrainingPhrase } from "../TrainingPhrase";
 import { setPhraseToTrain } from "../store/App.store";
 
 const Transition = React.forwardRef(function Transition(

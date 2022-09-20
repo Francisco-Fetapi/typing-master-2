@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { Level } from "../Level";
 import { App, middlewares, sliceCreator } from "../store/App.store";
-import { TrainingPhrase } from "../TrainingPhrases";
+import { TrainingPhrase } from "../TrainingPhrase";
 
 const trainingPhrases: TrainingPhrase[] = [new TrainingPhrase("Ola Mundo.")];
 const levels = [new Level("Ola Mundo.", "Beginner")];

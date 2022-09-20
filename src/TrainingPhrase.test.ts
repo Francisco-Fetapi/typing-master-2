@@ -1,4 +1,4 @@
-import { TrainingPhrase } from "./TrainingPhrases";
+import { TrainingPhrase } from "./TrainingPhrase";
 
 const sut = new TrainingPhrase("Ola Mundo.");
 

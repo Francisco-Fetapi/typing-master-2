@@ -4,7 +4,7 @@ import useStatePersist from "../hooks/useStatePersist";
 import * as Backdrop from "../components/GameBackdrop";
 import { Level } from "../Level";
 import { Levels } from "../Levels";
-import { TrainingPhrase, trainingPhrases } from "../TrainingPhrases";
+import { TrainingPhrase, trainingPhrases } from "../TrainingPhrase";
 import selectRandomElement from "../helpers/selectRandomElement";
 
 export const THEME_KEY_IN_LOCALSTORAGE = "darkMode";

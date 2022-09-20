@@ -14,7 +14,7 @@ import TableSimple from "./TableSimple";
 import { useDispatch, useSelector } from "react-redux";
 import { ILevel } from "../Level";
 import { selectPhraseTraining, selectTimer } from "../store/App.selectors";
-import { TrainingPhrase } from "../TrainingPhrases";
+import { TrainingPhrase } from "../TrainingPhrase";
 import { timeTransformer2 } from "../helpers/timeTransformer";
 import { useNavigate } from "react-router-dom";
 import {
