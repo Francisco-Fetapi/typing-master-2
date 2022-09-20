@@ -58,9 +58,9 @@ export default function useInputText() {
     if (onTimeOver) return doNotAnything();
     if (inputText === wordToType) {
       dispatch(increaseTypedWords());
-      if (!inTraining) {
-        dispatch(increasePoints(wordToType.length));
-      }
+      // if (!inTraining) {
+      //   dispatch(increasePoints(wordToType.length));
+      // }
       setInputText("");
     } else {
       setError(true);
@@ -84,7 +84,10 @@ export default function useInputText() {
         console.log("Treino terminou");
         openModalTrainingResult();
         return;
+      } else {
+        dispatch(increasePoints(currentLevel.pointsToIncrease()));
       }
+
       if (!Levels[level + 1]) {
         dispatch(showMessageBackdrop(allLevelsFinished));
         return;
