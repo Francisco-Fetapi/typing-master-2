@@ -1,8 +1,5 @@
 `!IMPORTANTE`
 
-aumentar pontos apenas depois de passar de nivel.
-(numPalavras \* nivel[1,2,3])
-
 comecar timer depois da primeira letra digitada.
 
 # Frases
@@ -120,3 +117,6 @@ btn treinar mais no backdrop.
 Testes
 
 - Um Formulario para se digitar uma frase personalizada
+
+aumentar pontos apenas depois de passar de nivel.
+(numPalavras \* nivel[1,2,3])

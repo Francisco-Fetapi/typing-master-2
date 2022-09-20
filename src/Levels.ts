@@ -1,5 +1,6 @@
 import { timeTransformer } from "./helpers/timeTransformer";
 import { transformTextToArray } from "./helpers/transformTextToArray";
+import { increasePoints } from "./store/App.store";
 
 export interface ILevelRoles<T = number> {
   Beginner: T;
@@ -24,6 +25,11 @@ export class Level {
     Intermediate: "Intermediário",
     Advanced: "Avançado",
   };
+  static rolePoints = {
+    Beginner: 1.1,
+    Intermediate: 1.8,
+    Advanced: 2.3,
+  };
   constructor(public phrase: string, timeLimit: string) {
     this.arrayText = transformTextToArray(this.phrase);
     this.numWords = this.arrayText.length;
@@ -45,11 +51,19 @@ export class Level {
   getLevelRoleInPortuguese() {
     return Level.rolesInPortuguese[this._level];
   }
+  pointsToIncrease(): number {
+    // points(numWords) * role
+    // ex for beginner: 120 * 1.1 = 132
+    return Math.ceil(this.numWords * this.levelPointsIncrement());
+  }
   set level(level: ILevel) {
     this._level = level;
   }
   get level(): ILevel {
     return this._level;
+  }
+  levelPointsIncrement(): number {
+    return Level.rolePoints[this.level];
   }
 }
 

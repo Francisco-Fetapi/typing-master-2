@@ -1,7 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import * as Backdrop from "../components/GameBackdrop";
-import { selectTimeLimit } from "../store/App.selectors";
+import {
+  selectCurrentLevelInfo,
+  selectTimeLimit,
+} from "../store/App.selectors";
 import {
   CURRENT_LEVEL_KEY_IN_LOCALSTORAGE,
   increaseLevel,
@@ -12,6 +15,7 @@ import useStatePersist from "./useStatePersist";
 
 export default function useBackdrop() {
   const timeLimit = useSelector(selectTimeLimit);
+  const currentLevel = useSelector(selectCurrentLevelInfo);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -54,6 +58,7 @@ export default function useBackdrop() {
     secondaryButton: { text: "Sair" },
     open: true,
     type: "success",
+    secondaryTitle: `+${currentLevel.pointsToIncrease()} pts`,
     onMount() {
       increaseLevelOnMount();
     },
@@ -87,6 +92,7 @@ export default function useBackdrop() {
       },
     },
     secondaryButton: { text: "Sair" },
+    secondaryTitle: `+${currentLevel.pointsToIncrease()} pts`,
     open: true,
     type: "success",
     onMount() {},

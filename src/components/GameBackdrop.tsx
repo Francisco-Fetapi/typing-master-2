@@ -26,6 +26,7 @@ interface IVariants {
 }
 export interface Props {
   title: string;
+  secondaryTitle?: string;
   message: string;
   open: boolean;
   type?: keyof IVariants;
@@ -34,15 +35,6 @@ export interface Props {
   onMount?: () => void;
 }
 
-// const variants: IVariants = {
-//   success: "greenyellow",
-//   error: "red",
-// };
-// const buttonColorVariants: IVariants = {
-//   success: "success",
-//   error: "error",
-// };
-
 export default function GameBackdrop({
   open,
   title,
@@ -50,6 +42,7 @@ export default function GameBackdrop({
   type = "success",
   primaryButton,
   secondaryButton,
+  secondaryTitle,
   onMount,
 }: Props) {
   const navigate = useNavigate();
@@ -119,6 +112,19 @@ export default function GameBackdrop({
             >
               {title}
             </Text>
+            {secondaryTitle && (
+              <Text
+                align="center"
+                sx={{
+                  textTransform: "uppercase",
+                  fontWeight: "bold",
+                  color: variant,
+                }}
+                variant="subtitle2"
+              >
+                {secondaryTitle}
+              </Text>
+            )}
             <Box mt={1.5} width={0.85}>
               <Text align="center" variant="subtitle2" color="white">
                 {message}

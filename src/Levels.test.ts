@@ -18,6 +18,9 @@ describe("Class Level", () => {
   it("should define level difficult by number of words", () => {
     expect(sut.level).toBe("Beginner");
   });
+  it("should define points to increase by level", () => {
+    expect(sut.pointsToIncrease()).toBe(3);
+  });
 });
 
 export {};
