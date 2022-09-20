@@ -1,4 +1,4 @@
-import { Level } from "./Levels";
+import { Level } from "./Level";
 
 const sut = new Level("Ola Mundo", "Beginner");
 

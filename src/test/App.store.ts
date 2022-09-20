@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { Level } from "../Levels";
+import { Level } from "../Level";
 import { App, middlewares, sliceCreator } from "../store/App.store";
 import { TrainingPhrase } from "../TrainingPhrases";
 

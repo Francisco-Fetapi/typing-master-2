@@ -12,7 +12,7 @@ import { Text } from "../styles/General";
 import { TrainingContext } from "../contexts/TrainingContextProvider";
 import TableSimple from "./TableSimple";
 import { useDispatch, useSelector } from "react-redux";
-import { ILevel } from "../Levels";
+import { ILevel } from "../Level";
 import { selectPhraseTraining, selectTimer } from "../store/App.selectors";
 import { TrainingPhrase } from "../TrainingPhrases";
 import { timeTransformer2 } from "../helpers/timeTransformer";

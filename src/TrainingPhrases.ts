@@ -1,5 +1,5 @@
 import { timeTransformer, timeTransformer2 } from "./helpers/timeTransformer";
-import { Level, ILevelRoles, ILevel } from "./Levels";
+import { Level, ILevelRoles, ILevel } from "./Level";
 
 export class TrainingPhrase extends Level {
   public choosedByUser: boolean = false;
