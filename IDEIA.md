@@ -1,20 +1,3 @@
-# Frases
-
-Timer deve ser definido automaticamente.
-Considerando o num de caracteres e o nivel.
-
-Implementar frases reais. (+30 em Championship)
-Implementar frases reais. (+30 em Training)
-
-dicas de frases:
-
-Hoje eh dia X de X de 202X
-Hoje eh quinta-feira
-
-Frases de pensadores, vers. biblicos.
-
-Colocar algumas frases em outros idiomas em niveis maisavancados.
-
 # Outras questoes
 
 Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
