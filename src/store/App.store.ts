@@ -2,7 +2,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
 import useStatePersist from "../hooks/useStatePersist";
 import * as Backdrop from "../components/GameBackdrop";
-import { Level, Levels } from "../Level";
+import { Level } from "../Level";
+import { Levels } from "../Levels";
 import { TrainingPhrase, trainingPhrases } from "../TrainingPhrases";
 import selectRandomElement from "../helpers/selectRandomElement";
 

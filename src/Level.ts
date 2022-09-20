@@ -1,5 +1,4 @@
 import { transformTextToArray } from "./helpers/transformTextToArray";
-import phrases from "./phrases.json";
 
 export interface ILevelRoles<T = number> {
   Beginner: T;
@@ -97,13 +96,4 @@ export class Level {
   levelPointsIncrement(): number {
     return Level.rolePoints[this.level];
   }
-}
-
-export const Levels: Level[] = [];
-let role: ILevel;
-
-for (role in Level.levelRoles) {
-  phrases.forEach((phrase) => {
-    Levels.push(new Level(phrase, role));
-  });
 }

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { TrainingContext } from "../contexts/TrainingContextProvider";
 import doNotAnything from "../helpers/doNotAnything";
-import { Levels } from "../Level";
+import { Levels } from "../Levels";
 import {
   selectBackdropInfo,
   selectCurrentLevel,
