@@ -1,6 +1,6 @@
 import { Level } from "./Levels";
 
-const sut = new Level("Ola Mundo", "2m:10s");
+const sut = new Level("Ola Mundo", "Beginner");
 
 describe("Class Level", () => {
   it("should exist", () => {
@@ -13,10 +13,7 @@ describe("Class Level", () => {
     expect(sut.arrayText).toEqual(["Ola", "Mundo"]);
   });
   it("should define timeLimit in seconds by timer property received in constructor", () => {
-    expect(sut.timeLimit).toBe(130); //2m:10 -> 130s
-  });
-  it("should define level difficult by number of words", () => {
-    expect(sut.level).toBe("Beginner");
+    expect(sut.timeLimit).toBe(10); //2m:10 -> 130s
   });
   it("should define points to increase by level", () => {
     expect(sut.pointsToIncrease()).toBe(3);
