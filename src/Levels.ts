@@ -1,7 +1,7 @@
 import { ILevel, Level } from "./Level";
 import phrases from "./phrases.json";
 
-export const Levels: Level[] = [];
+const Levels: Level[] = [];
 let role: ILevel;
 
 for (role in Level.levelRoles) {
@@ -9,3 +9,5 @@ for (role in Level.levelRoles) {
     Levels.push(new Level(phrase, role));
   });
 }
+
+export { Levels };
