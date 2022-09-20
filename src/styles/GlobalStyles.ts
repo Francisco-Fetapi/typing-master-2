@@ -15,7 +15,7 @@ export const GlobalStyles = createGlobalStyle<StylesProps>`
         background-position:center center ;
         background-attachment: fixed;
         background-repeat:no-repeat;
-        background-size:100% 100%;
+        background-size:cover;
         
         overflow-x: hidden;
         transition:filter 1s;
