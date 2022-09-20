@@ -36,7 +36,6 @@ describe("PointCounter", () => {
     await user.type(input, "Ola");
     await user.keyboard(" ");
 
-    // after to type the points are increased
     expect(queryByText("0 pt")).toBeInTheDocument();
   });
   test("it should be increased when user typed all words", async () => {
@@ -53,7 +52,7 @@ describe("PointCounter", () => {
     await user.type(input, "Mundo.");
     await user.keyboard(" ");
 
-    // after to type the points are increased
+    // after to type all words the points are increased
     expect(queryByText("3 pts")).toBeInTheDocument();
   });
 });
