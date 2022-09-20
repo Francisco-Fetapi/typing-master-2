@@ -1,6 +1,5 @@
-import { timeTransformer } from "./helpers/timeTransformer";
 import { transformTextToArray } from "./helpers/transformTextToArray";
-import { increasePoints } from "./store/App.store";
+import phrases from "./phrases.json";
 
 export interface ILevelRoles<T = number> {
   Beginner: T;
@@ -98,23 +97,11 @@ export class Level {
   }
 }
 
-// export class LevelBeginner extends Level{
-//   constructor(phrase:string){
-//     super(phrase)
-//   }
-// }
-
 export const Levels: Level[] = [];
+let role: ILevel;
 
-Levels.push(new Level("Ola Mundo.", "Beginner"));
-Levels.push(new Level("Segundo nivel.", "Beginner"));
-Levels.push(new Level("Terceiro nivel.", "Beginner"));
-
-Levels.push(new Level(`Para quem ainda não foi despertado`, "Intermediate"));
-Levels.push(new Level(`Estou construindo um app com React.`, "Intermediate"));
-Levels.push(
-  new Level(
-    `Construir este app está sendo muito divertido, realmente muito divertido. O MUI tem me ajudado muito.`,
-    "Advanced"
-  )
-);
+for (role in Level.levelRoles) {
+  phrases.forEach((phrase) => {
+    Levels.push(new Level(phrase, role));
+  });
+}
