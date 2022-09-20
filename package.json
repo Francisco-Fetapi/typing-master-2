@@ -6,8 +6,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "jest --watchAll",
-    "test2": "jest --o"
+    "test": "jest --o",
+    "test:all": "jest --watchAll"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
