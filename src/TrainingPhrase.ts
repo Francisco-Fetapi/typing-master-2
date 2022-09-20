@@ -23,10 +23,3 @@ export class TrainingPhrase extends Level {
     return lastLevel; //otherwise -> is the last level
   }
 }
-
-export const trainingPhrases: TrainingPhrase[] = [];
-
-trainingPhrases.push(new TrainingPhrase("Ola Mundo."));
-trainingPhrases.push(new TrainingPhrase("Tudo bem."));
-trainingPhrases.push(new TrainingPhrase("Francisco Fetapi."));
-trainingPhrases.push(new TrainingPhrase("Esperem por mim."));

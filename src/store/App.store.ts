@@ -4,8 +4,9 @@ import useStatePersist from "../hooks/useStatePersist";
 import * as Backdrop from "../components/GameBackdrop";
 import { Level } from "../Level";
 import { Levels } from "../Levels";
-import { TrainingPhrase, trainingPhrases } from "../TrainingPhrase";
+import { TrainingPhrase } from "../TrainingPhrase";
 import selectRandomElement from "../helpers/selectRandomElement";
+import { trainingPhrases } from "../TrainingPhrases";
 
 export const THEME_KEY_IN_LOCALSTORAGE = "darkMode";
 export const CURRENT_LEVEL_KEY_IN_LOCALSTORAGE = "currentLevel";
