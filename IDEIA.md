@@ -1,5 +1,12 @@
 `!IMPORTANTE`
 
+aumentar pontos apenas depois de passar de nivel.
+(numPalavras \* nivel[1,2,3])
+
+comecar timer depois da primeira letra digitada.
+
+# Frases
+
 Implementar frases reais. (+30 em Championship)
 
 dicas de frases:
@@ -13,15 +20,13 @@ Colocar algumas frases em outros idiomas em niveis maisavancados.
 
 Implementar frases reais. (+30 em Training)
 
+# Outras questoes
+
 Desabilitar a utilizacao das Arrows, errou, apaga tudo que vem depois ate chegar ao erro.
 
-`NAO URGENTES`
+# NAO URGENTES
 
 Um gif ao iniciar com um texto acima e um degrade black com baixa opacidade. Demore apenas 2s e so depois iniciar a aplicao.
-
-comecar timer depois da primeira letra digitada.
-
-[DUVIDA]!aumentar pts por nivel e nao por palavras digitadas.
 
 - Apresentar lista de frases disponiveis em um List>ListItem.
 
