@@ -15,7 +15,8 @@ export default function TextToType() {
       gap={1}
       flexWrap="wrap"
       data-testid="text-to-type"
-      className="grayscale-on-paused"
+      className="grayscale-on-paused text-to-type"
+      mt={2.5}
     >
       {textToType.map((word, key) => (
         <Text

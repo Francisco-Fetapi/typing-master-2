@@ -37,4 +37,8 @@ export const GlobalStyles = createGlobalStyle<StylesProps>`
         font-size:14px !important;
         font-weight:bold;
     }
+    .text-to-type span{
+        font-weight:300;
+        font-size:18px;
+    }
 `;

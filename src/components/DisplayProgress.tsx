@@ -6,13 +6,25 @@ import { Text as TextStyled } from "../styles/General";
 
 const Text: OverridableComponent<TypographyTypeMap<{}, "span">> = (
   props: any
-) => <TextStyled color="textSecondary" variant="h3" {...props}></TextStyled>;
+) => (
+  <TextStyled
+    color="textSecondary"
+    variant="h3"
+    {...props}
+    fontWeight="100"
+  ></TextStyled>
+);
 
 export default function DisplayProgress() {
   const totalWords = useSelector(selectPhraseSize);
   const typedWords = useSelector(selectTypedWords);
   return (
-    <Box display="flex" alignItems="center" className="grayscale-on-paused">
+    <Box
+      display="flex"
+      mb={2}
+      alignItems="center"
+      className="grayscale-on-paused"
+    >
       <Text>{typedWords}</Text>
       <Text variant="h2">/</Text>
       <Text>{totalWords}</Text>
