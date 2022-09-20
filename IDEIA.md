@@ -1,7 +1,3 @@
-`!IMPORTANTE`
-
-comecar timer depois da primeira letra digitada.
-
 # Frases
 
 Implementar frases reais. (+30 em Championship)
@@ -31,11 +27,7 @@ Um Checkbox com "Salvar esta frase."
 As frases adicionais devem ser deletaveis.
 guardar a frase com Tipo Phrase = {text:string,maxLevel:ILevel}
 
----
-
 refatorar (useTimer -> useGameLoop)
-
-background de espaça sideral -> light,dark
 
 # Typing Master
 
@@ -120,3 +112,5 @@ Testes
 
 aumentar pontos apenas depois de passar de nivel.
 (numPalavras \* nivel[1,2,3])
+
+comecar timer depois da primeira letra digitada.
