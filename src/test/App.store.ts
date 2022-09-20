@@ -4,7 +4,7 @@ import { App, middlewares, sliceCreator } from "../store/App.store";
 import { TrainingPhrase } from "../TrainingPhrases";
 
 const trainingPhrases: TrainingPhrase[] = [new TrainingPhrase("Ola Mundo.")];
-const levels = [new Level("Ola Mundo.", "2m:10")];
+const levels = [new Level("Ola Mundo.", "Beginner")];
 
 const initialState: App = {
   darkMode: false,

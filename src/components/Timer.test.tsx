@@ -25,7 +25,7 @@ describe("Timer", () => {
     );
     const timer = getByTestId("timer");
 
-    expect(timer.textContent).toBe("02m:10s");
+    expect(timer.textContent).toBe("00m:10s");
   });
   test("it should decrease the timer per second when user begins typing", async () => {
     const { getByTestId } = render(
@@ -37,7 +37,7 @@ describe("Timer", () => {
 
     const timer = getByTestId("timer");
 
-    expect(timer.textContent).toBe("02m:10s");
+    expect(timer.textContent).toBe("00m:10s");
 
     const input = getByTestId("input-text");
 
@@ -47,8 +47,8 @@ describe("Timer", () => {
     });
 
     await sleep(1);
-    expect(timer.textContent).toBe("02m:09s");
+    expect(timer.textContent).toBe("00m:09s");
     await sleep(1);
-    expect(timer.textContent).toBe("02m:08s");
+    expect(timer.textContent).toBe("00m:08s");
   });
 });

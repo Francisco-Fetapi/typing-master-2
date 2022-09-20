@@ -14,7 +14,8 @@ export const GlobalStyles = createGlobalStyle<StylesProps>`
         /* background-image:url("/bg-light.jpg"); */
         background-position:center center ;
         background-attachment: fixed;
-        background-size:cover;
+        background-repeat:no-repeat;
+        background-size:100% 100%;
         
         overflow-x: hidden;
         transition:filter 1s;

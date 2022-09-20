@@ -12,8 +12,8 @@ describe("Class Level", () => {
   it("should be able do split phrase in an array", () => {
     expect(sut.arrayText).toEqual(["Ola", "Mundo"]);
   });
-  it("should define timeLimit in seconds by timer property received in constructor", () => {
-    expect(sut.timeLimit).toBe(10); //2m:10 -> 130s
+  it("should define timeLimit in seconds by level", () => {
+    expect(sut.timeLimit).toBe(10); //00m:10
   });
   it("should define points to increase by level", () => {
     expect(sut.pointsToIncrease()).toBe(3);
