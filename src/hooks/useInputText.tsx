@@ -95,11 +95,16 @@ export default function useInputText() {
       dispatch(showMessageBackdrop(gameOverAllWordsTyped));
     }
   }, [typedWords]);
+  // useEffect(() => {
+  //   if (typedWords === 1) {
+  //     dispatch(playTimer());
+  //   }
+  // }, [typedWords]);
   useEffect(() => {
-    if (typedWords === 1) {
+    if (inputText.length > 0 && typedWords === 0 && timerPaused) {
       dispatch(playTimer());
     }
-  }, [typedWords]);
+  }, [inputText]);
 
   const filterSomeKeys: FuncFilterSomeKeys = (e) => {
     if (inCasesToDoAnything) return doNotAnything();
