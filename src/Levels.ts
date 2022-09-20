@@ -51,10 +51,10 @@ export class Level {
   getLevelRoleInPortuguese() {
     return Level.rolesInPortuguese[this._level];
   }
-  increasePoints(): number {
+  pointsToIncrease(): number {
     // points(numWords) * role
     // ex for beginner: 120 * 1.1 = 132
-    return this.numWords * this.levelPointsIncrement();
+    return Math.ceil(this.numWords * this.levelPointsIncrement());
   }
   set level(level: ILevel) {
     this._level = level;
