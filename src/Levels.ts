@@ -71,11 +71,13 @@ export class Level {
     return levels as ILevelRoles<TimeInterval>;
   }
   defineTimeLimitByLevel(): number {
+    let timeLimit = 0;
     if (this.level === "Beginner") {
-      return this.numWords * 5;
+      timeLimit = this.numWords * 3.5;
+    } else {
+      timeLimit = this.showIntervalTimeByLevel()[this.level]?.to;
     }
-    const timeLimit = this.showIntervalTimeByLevel()[this.level]?.to;
-    return timeLimit;
+    return Math.floor(timeLimit);
   }
 
   getLevelRoleInPortuguese() {
