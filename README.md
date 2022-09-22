@@ -9,7 +9,8 @@
 
 Projeto desenvolvido para consolidar os conhecimentos em `TypeScript com React`. A motivação para a construção do `Typing Master 2` é óbvia, melhorar a [versão anterior](https://github.com/Francisco-Fetapi/typing-master) construida há 2 anos.
 
-![typing-master-2](https://user-images.githubusercontent.com/74926014/184113797-392570dd-3c40-4363-8404-4d37992aad0b.gif)
+![typing-master-2](https://user-images.githubusercontent.com/74926014/191702971-ab23f8e0-8d5f-47a9-b84c-e7cb6283be33.gif)
+
 
 
 ## Como rodar localmente
